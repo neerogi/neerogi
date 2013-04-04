@@ -6,6 +6,8 @@
         <table:table data="${patients}" id="l_org_neerogi_domain_Patient" path="/patients" z="TG5K2f2tcS6urt275aBeG32awSw=">
             <table:column id="c_org_neerogi_domain_Patient_name" property="name" z="/bS2uRyBzQ4y7MMLnLwTaiXRThk="/>
             <table:column id="c_org_neerogi_domain_Patient_address" property="address" z="JJCInREcoWwTijvKxcmEhMExbgU="/>
+            <table:column id="c_org_neerogi_domain_Patient_gender" property="gender" />
+            <table:column id="c_org_neerogi_domain_Patient_occupation" property="occupation" />
         </table:table>
     </page:list>
 </div>

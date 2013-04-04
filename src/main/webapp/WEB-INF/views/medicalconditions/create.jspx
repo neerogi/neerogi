@@ -3,17 +3,21 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_MedicalCondition" modelAttribute="medicalCondition" path="/medicalconditions" render="${empty dependencies}" z="J//EDryoh3lLr3PDh+bjHoDPVhc=">
-        <field:simple field="followUps" id="c_org_neerogi_domain_MedicalCondition_followUps" messageCode="entity_reference_not_managed" messageCodeAttribute="Follow Up" z="Mx44sZP7g45NshhOEiCFqgiWOSE="/>
-        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="5kvQudZDMFGI62WKcutwtEBeVFE="/>
-        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="IfEx7D8VCLniIjqZA6+twFGK6dE="/>
-        <field:select field="conditionSubTypeId" id="c_org_neerogi_domain_MedicalCondition_conditionSubTypeId" itemValue="id" items="${conditionsubtypeses}" path="/conditionsubtypeses" z="XlJD2109vvk7cqr1ZdotKUflDWQ="/>
+        
         <field:select field="patientId" id="c_org_neerogi_domain_MedicalCondition_patientId" itemValue="id" items="${patients}" path="/patients" z="rgffQfgASNBBu0Dv7JQ5j9m/4XQ="/>
         <field:input field="consultationId" id="c_org_neerogi_domain_MedicalCondition_consultationId" validationMessageCode="field_invalid_integer" z="2mIgXmlLaFMQB+5DOD8BcnvxIlY="/>
         <field:input field="conditionType" id="c_org_neerogi_domain_MedicalCondition_conditionType" required="true" z="nYDrGdJl1s/xJ8Vk+PsHb3Issqg="/>
+        <field:select field="conditionSubTypeId" id="c_org_neerogi_domain_MedicalCondition_conditionSubTypeId" itemValue="id" items="${conditionsubtypeses}" path="/conditionsubtypeses" z="XlJD2109vvk7cqr1ZdotKUflDWQ="/>        
         <field:datetime dateTimePattern="${medicalCondition_initialdate_date_format}" field="initialDate" id="c_org_neerogi_domain_MedicalCondition_initialDate" z="KH4GKpmyw929rxIjnvp7vVwfuc8="/>
         <field:input field="name" id="c_org_neerogi_domain_MedicalCondition_name" required="true" z="EpNMGepEapVSUMJo2Me+V0M8/DQ="/>
         <field:input field="description" id="c_org_neerogi_domain_MedicalCondition_description" z="BX9ToCIkb2cuTLi9HLWnoEu2eNw="/>
         <field:checkbox field="followUp" id="c_org_neerogi_domain_MedicalCondition_followUp" z="D7Jn+P2Ol3hVaK7+ZjGK26w57h8="/>
+        
+        <!--
+        <field:simple field="followUps" id="c_org_neerogi_domain_MedicalCondition_followUps" messageCode="entity_reference_not_managed" messageCodeAttribute="Follow Up" z="Mx44sZP7g45NshhOEiCFqgiWOSE="/>
+        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="5kvQudZDMFGI62WKcutwtEBeVFE="/>
+        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="IfEx7D8VCLniIjqZA6+twFGK6dE="/>
+        -->
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_MedicalCondition" render="${not empty dependencies}" z="t8uhGI1YLkc2A0GXmBoe24T86+w="/>
 </div>
