@@ -2,10 +2,10 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_FollowUp" items="${followups}" z="ftDgeCHzVIl2rOGbDNfLmcruK04=">
-        <table:table data="${followups}" id="l_org_neerogi_FollowUp" path="/followups" z="P3M5VxrmcuHUZSn+jh8ubaSby4Y=">
-            <table:column id="c_org_neerogi_FollowUp_conditionId" property="conditionId" z="mSglu1kK1zeS6fPkGh5161K2uyY="/>
-            <table:column id="c_org_neerogi_FollowUp_followUpConditionId" property="followUpConditionId" z="/oqdcpgehb4EyR6w91hlORTwjMI="/>
+    <page:list id="pl_org_neerogi_domain_FollowUp" items="${followups}" z="cJaDcw/nyYU0kM7kNPAPX8F5W20=">
+        <table:table data="${followups}" id="l_org_neerogi_domain_FollowUp" path="/followups" z="oRb/Dl8N7eQTOSGUTYRpRWivqos=">
+            <table:column id="c_org_neerogi_domain_FollowUp_conditionId" property="conditionId" z="bT4cLm4oojjWeNAD8jJ8q/EUcoA="/>
+            <table:column id="c_org_neerogi_domain_FollowUp_followUpConditionId" property="followUpConditionId" z="vqJfU1Vxa8SMQ1dUKTdKoWOLoCE="/>
         </table:table>
     </page:list>
 </div>

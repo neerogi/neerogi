@@ -2,11 +2,11 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_SocialHistory" items="${socialhistorys}" z="/yFkeqnKdp811vAJXdBJ9ifEZAc=">
-        <table:table data="${socialhistorys}" id="l_org_neerogi_SocialHistory" path="/socialhistorys" z="6UpsJcEA8fMR6EXmuy+epsAGUMM=">
-            <table:column id="c_org_neerogi_SocialHistory_patientId" property="patientId" z="jsnarHTCfQAYLz6ejgAxFtckU20="/>
-            <table:column id="c_org_neerogi_SocialHistory_type" property="type" z="mdbo5vgCHj/MTnpdZhtRMH5zhNA="/>
-            <table:column id="c_org_neerogi_SocialHistory_description" property="description" z="/fk/KD6470R5Uu8z962HliQ4Mus="/>
+    <page:list id="pl_org_neerogi_domain_SocialHistory" items="${socialhistorys}" z="4psyWgN6o60BmQ8/OLxuW6dQsk8=">
+        <table:table data="${socialhistorys}" id="l_org_neerogi_domain_SocialHistory" path="/socialhistorys" z="3mFL8aZNwXGBMHPvFGzK9/kS1no=">
+            <table:column id="c_org_neerogi_domain_SocialHistory_patientId" property="patientId" z="lMTvh2ZMbnyYhAawcczjp3Gwsk8="/>
+            <table:column id="c_org_neerogi_domain_SocialHistory_type" property="type" z="RQKnoYJe2wrvEOrhBSsZ7WOZWgQ="/>
+            <table:column id="c_org_neerogi_domain_SocialHistory_description" property="description" z="QpO67spWCyczHUedMke04e36ELk="/>
         </table:table>
     </page:list>
 </div>

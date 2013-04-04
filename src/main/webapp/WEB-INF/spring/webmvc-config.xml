@@ -72,5 +72,5 @@
       </list>
     </property>
   </bean>
-<bean class="org.neerogi.web.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
+<bean class="org.neerogi.domain.web.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
 </beans>

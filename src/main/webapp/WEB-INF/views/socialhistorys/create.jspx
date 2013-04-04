@@ -2,10 +2,10 @@
 <div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_org_neerogi_SocialHistory" modelAttribute="socialHistory" path="/socialhistorys" render="${empty dependencies}" z="p92r72tvzdFOCc887PTL97sIN84=">
-        <field:select field="patientId" id="c_org_neerogi_SocialHistory_patientId" itemValue="id" items="${patients}" path="/patients" z="0DXi1I0YrYbbi+gHUVvF3ombA1Y="/>
-        <field:input field="type" id="c_org_neerogi_SocialHistory_type" required="true" z="8Z39pkk7w1jRQuGDmbqA+BXwd1A="/>
-        <field:input field="description" id="c_org_neerogi_SocialHistory_description" z="GbBqF1JbirF+6xJvGPTWC9/DGb0="/>
+    <form:create id="fc_org_neerogi_domain_SocialHistory" modelAttribute="socialHistory" path="/socialhistorys" render="${empty dependencies}" z="s8jYQ6uAgTrK9bd6s1L/Y2XyKMw=">
+        <field:select field="patientId" id="c_org_neerogi_domain_SocialHistory_patientId" itemValue="id" items="${patients}" path="/patients" z="tGSNoPXopQ8fJjzdd0RGnQuzwE8="/>
+        <field:input field="type" id="c_org_neerogi_domain_SocialHistory_type" required="true" z="1AcTdB6zRk+SrA5Rgp6JTCuGAQ0="/>
+        <field:input field="description" id="c_org_neerogi_domain_SocialHistory_description" z="/DlH1PRfSJQAVlwZSRXrVcDEDbk="/>
     </form:create>
-    <form:dependency dependencies="${dependencies}" id="d_org_neerogi_SocialHistory" render="${not empty dependencies}" z="mM4JmyEAxWwuFwYIp2dTGeChzH0="/>
+    <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_SocialHistory" render="${not empty dependencies}" z="DbiskmV7hUxoj8sKzIta0Jct5h0="/>
 </div>

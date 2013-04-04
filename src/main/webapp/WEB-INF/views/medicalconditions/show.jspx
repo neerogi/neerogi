@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_domain_MedicalCondition" object="${medicalcondition}" path="/medicalconditions" z="4jNHQ4zgveFBzqfVBQf1luVBdJg=">
+        <field:display field="conditionSubTypeId" id="s_org_neerogi_domain_MedicalCondition_conditionSubTypeId" object="${medicalcondition}" z="fkFFoVYHCV88h1U7muzrM9sMOxk="/>
+        <field:display field="patientId" id="s_org_neerogi_domain_MedicalCondition_patientId" object="${medicalcondition}" z="hqVKuLJ9Rmd1grLquexwK8cbJeU="/>
+        <field:display field="consultationId" id="s_org_neerogi_domain_MedicalCondition_consultationId" object="${medicalcondition}" z="F9Ov7tZJoN1YA1VmjkOUvT99GEs="/>
+        <field:display field="conditionType" id="s_org_neerogi_domain_MedicalCondition_conditionType" object="${medicalcondition}" z="4LuD972qI+822ABB9Rqz7ZadbDE="/>
+        <field:display calendar="true" dateTimePattern="${medicalCondition_initialdate_date_format}" field="initialDate" id="s_org_neerogi_domain_MedicalCondition_initialDate" object="${medicalcondition}" z="xjfY6MMOi8ClUulvaBl9i4z9PvI="/>
+        <field:display field="name" id="s_org_neerogi_domain_MedicalCondition_name" object="${medicalcondition}" z="7gzuX8bXDoNetJEuCx9vPEXhQ0A="/>
+        <field:display field="description" id="s_org_neerogi_domain_MedicalCondition_description" object="${medicalcondition}" z="GCKkPQXVNNnMQSCHMuuMrHozQcE="/>
+        <field:display field="followUp" id="s_org_neerogi_domain_MedicalCondition_followUp" object="${medicalcondition}" z="4Rr9M+GVDPxwGw/sJace4qyYK+c="/>
+    </page:show>
+</div>

@@ -2,9 +2,9 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_org_neerogi_Allergy" modelAttribute="allergy" path="/allergys" versionField="none" z="71Z6TrjR7NjAX+H8ApfJxo7Icb0=">
-        <field:select field="patientId" id="c_org_neerogi_Allergy_patientId" itemValue="id" items="${patients}" path="/patients" z="ngSnQKWkec1IR8fPa6AkxMyJ7v4="/>
-        <field:input field="type" id="c_org_neerogi_Allergy_type" required="true" z="UhbbLZBlGoXpwZEL1xYXbhY/UbQ="/>
-        <field:input field="description" id="c_org_neerogi_Allergy_description" z="8BLSWE7Ly3DrS2RVIthdQjrU6Kw="/>
+    <form:update id="fu_org_neerogi_domain_Allergy" modelAttribute="allergy" path="/allergys" versionField="none" z="WgF/H7WjaZthhUSppIR8ZrRVw/g=">
+        <field:select field="patientId" id="c_org_neerogi_domain_Allergy_patientId" itemValue="id" items="${patients}" path="/patients" z="wFCBd/Q8c0/iNMgiW4EJF1JGKYQ="/>
+        <field:input field="type" id="c_org_neerogi_domain_Allergy_type" required="true" z="V3XszxvYJ4Jf4nb1F3Q5Nddsdvk="/>
+        <field:input field="description" id="c_org_neerogi_domain_Allergy_description" z="icnj0nJ4qUDUH1he6+v4M9uHKBY="/>
     </form:update>
 </div>

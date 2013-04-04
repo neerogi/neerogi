@@ -2,10 +2,10 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_org_neerogi_Consultation" modelAttribute="consultation" path="/consultations" versionField="none" z="alxfhIyvYeaIKXdIuVLvYZ15CmI=">
-        <field:select field="doctorId" id="c_org_neerogi_Consultation_doctorId" itemValue="id" items="${doctorses}" path="/doctorses" z="8J65v1dsNrHLcspPmZsWvKzHquc="/>
-        <field:select field="hospitalId" id="c_org_neerogi_Consultation_hospitalId" itemValue="id" items="${hospitals}" path="/hospitals" z="fHWhcIQkApM8wKh3aHRuhiHlsoo="/>
-        <field:select field="patientId" id="c_org_neerogi_Consultation_patientId" itemValue="id" items="${patients}" path="/patients" z="wsFIjaFi0dhaQvAF3ggg+T0ObM8="/>
-        <field:datetime dateTimePattern="${consultation_date_date_format}" field="date" id="c_org_neerogi_Consultation_date" z="ttKTMsVtAQkxTL3oDCuNxksaVVk="/>
+    <form:update id="fu_org_neerogi_domain_Consultation" modelAttribute="consultation" path="/consultations" versionField="none" z="kkbybe2nyOvlHTNzsGAqMTDklTw=">
+        <field:select field="doctorId" id="c_org_neerogi_domain_Consultation_doctorId" itemValue="id" items="${doctors}" path="/doctors" z="5ZayN2iFOLbNKFKYJCcIiM9ZFzA="/>
+        <field:select field="hospitalId" id="c_org_neerogi_domain_Consultation_hospitalId" itemValue="id" items="${hospitals}" path="/hospitals" z="fusCFLZ6y3TgCQDqWc+bwj97JkY="/>
+        <field:select field="patientId" id="c_org_neerogi_domain_Consultation_patientId" itemValue="id" items="${patients}" path="/patients" z="JS+khng4w+Y1+Vz8AohS7QhPkJk="/>
+        <field:datetime dateTimePattern="${consultation_visitdate_date_format}" field="visitDate" id="c_org_neerogi_domain_Consultation_visitDate" z="q07ACKlB/2sAvNSU/tDsowElYAc="/>
     </form:update>
 </div>

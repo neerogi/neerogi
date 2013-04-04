@@ -2,11 +2,11 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_Allergy" items="${allergys}" z="7oJPVRbAXjEG6eRQ6Q1TTcTCPuc=">
-        <table:table data="${allergys}" id="l_org_neerogi_Allergy" path="/allergys" z="rR9bcHtFzAjNujcUV3CiUvOUDv4=">
-            <table:column id="c_org_neerogi_Allergy_patientId" property="patientId" z="JpBu4TaE1U7nMm9x30TWysP2qmg="/>
-            <table:column id="c_org_neerogi_Allergy_type" property="type" z="22DNvGq+K/GsC9gwWZdbMsGbcZM="/>
-            <table:column id="c_org_neerogi_Allergy_description" property="description" z="aTjY4/t0uoVOc0Ma28ZSs4uMgQ0="/>
+    <page:list id="pl_org_neerogi_domain_Allergy" items="${allergys}" z="Fa87F3gc6FaMpoJ/wMjIIO06Smc=">
+        <table:table data="${allergys}" id="l_org_neerogi_domain_Allergy" path="/allergys" z="h5dEB+CT0C6USrhxeKqAoSp2jkU=">
+            <table:column id="c_org_neerogi_domain_Allergy_patientId" property="patientId" z="9f0wy/JsYSNRPEc+yDVgbkIgEJI="/>
+            <table:column id="c_org_neerogi_domain_Allergy_type" property="type" z="Id1GreNgprKwe/WAa5NhPqaZSG4="/>
+            <table:column id="c_org_neerogi_domain_Allergy_description" property="description" z="+DxNUHee13GTIPFQDEXBCfuigEE="/>
         </table:table>
     </page:list>
 </div>

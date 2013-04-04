@@ -2,10 +2,13 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_Hospital" items="${hospitals}" z="egtUd0i+qz9VDfRjUEEszEfcuAk=">
-        <table:table data="${hospitals}" id="l_org_neerogi_Hospital" path="/hospitals" z="0AGvGEzkpQaHuTFCJhbwl2yVUKY=">
-            <table:column id="c_org_neerogi_Hospital_name" property="name" z="xcgCXAsHBOz8rjV3mVI8j1f73cs="/>
-            <table:column id="c_org_neerogi_Hospital_address" property="address" z="+ekMwWQ20MAFklggV507WdoXgj0="/>
+    <page:list id="pl_org_neerogi_domain_Hospital" items="${hospitals}" z="I8JGO/f1xnExPXDuUlokKDEYjLA=">
+        <table:table data="${hospitals}" id="l_org_neerogi_domain_Hospital" path="/hospitals" z="jefFNXoVYISqRjhbcITmd09obeM=">
+            <table:column id="c_org_neerogi_domain_Hospital_name" property="name" z="CR2uuCitxjapPE7yxWaG9pG81Lo="/>
+            <table:column id="c_org_neerogi_domain_Hospital_address" property="address" z="fQAUWKyBGf0lWlri1nCAzYYwocA="/>
+            <table:column id="c_org_neerogi_domain_Hospital_telephone" property="telephone" z="YzJdel4FfowvWfdFH+WzuDlD5A8="/>
+            <table:column id="c_org_neerogi_domain_Hospital_fax" property="fax" z="/WL+h79FG1fV5X0EmaYkKYcvdhA="/>
+            <table:column id="c_org_neerogi_domain_Hospital_email" property="email" z="1BhmHcemtGLUkhrERj6xXvQj7Qs="/>
         </table:table>
     </page:list>
 </div>

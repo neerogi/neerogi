@@ -2,12 +2,13 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_Investigation" items="${investigations}" z="3V7x+JIGKi2cs0mIvU1V940fjPU=">
-        <table:table data="${investigations}" id="l_org_neerogi_Investigation" path="/investigations" z="Hg78TmI0enlu7O+xsGGcedZQFSo=">
-            <table:column id="c_org_neerogi_Investigation_conditionId" property="conditionId" z="3PEoid/dYDdDWuMPWK54eytt1lI="/>
-            <table:column id="c_org_neerogi_Investigation_name" property="name" z="kTrwrXXpaUW81H2fQ0Lx8skBJsM="/>
-            <table:column id="c_org_neerogi_Investigation_description" property="description" z="FB/o5jrudNJye9O9Q29/q1Gf/rE="/>
-            <table:column calendar="true" dateTimePattern="${investigation_date_date_format}" id="c_org_neerogi_Investigation_date" property="date" z="WzDrO0KKkQGtxQ+9H7T9D+nE86I="/>
+    <page:list id="pl_org_neerogi_domain_Investigation" items="${investigations}" z="39z9VQXLpgO1uI81SzNr9evK5qY=">
+        <table:table data="${investigations}" id="l_org_neerogi_domain_Investigation" path="/investigations" z="q9ITHFgwuPbeAO0Lvc4w5R+0Rho=">
+            <table:column id="c_org_neerogi_domain_Investigation_conditionId" property="conditionId" z="0S3NTPaIL9D+O44LW4Md7kVeen0="/>
+            <table:column id="c_org_neerogi_domain_Investigation_name" property="name" z="6ctVQE9O9jBdLHVPWp7XsDPHpG0="/>
+            <table:column id="c_org_neerogi_domain_Investigation_description" property="description" z="dxW31flmZYQlRZJsk7uOP2BTm/o="/>
+            <table:column calendar="true" dateTimePattern="${investigation_planneddate_date_format}" id="c_org_neerogi_domain_Investigation_plannedDate" property="plannedDate" z="6hy5IucSnKZGqjyjnt2pBqr+Eao="/>
+            <table:column calendar="true" dateTimePattern="${investigation_actualdate_date_format}" id="c_org_neerogi_domain_Investigation_actualDate" property="actualDate" z="uwqw81CvjNRIk0LSmSKANoi1hQg="/>
         </table:table>
     </page:list>
 </div>

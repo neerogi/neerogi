@@ -2,8 +2,11 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_Hospital" object="${hospital}" path="/hospitals" z="WAAV/nXHdOq4L2kttEgx2I8xBDQ=">
-        <field:display field="name" id="s_org_neerogi_Hospital_name" object="${hospital}" z="P2zLcxx4S3Wlkh3wfQ2u8ecpfWQ="/>
-        <field:display field="address" id="s_org_neerogi_Hospital_address" object="${hospital}" z="543pL1ggzEnL0Zhxa4wBzuhN4Ik="/>
+    <page:show id="ps_org_neerogi_domain_Hospital" object="${hospital}" path="/hospitals" z="XU/mU4ZBdlQGN5mD5s3s3+TC66s=">
+        <field:display field="name" id="s_org_neerogi_domain_Hospital_name" object="${hospital}" z="jWeuPHf/6Qck/9hlt6E1oJmYkIE="/>
+        <field:display field="address" id="s_org_neerogi_domain_Hospital_address" object="${hospital}" z="1XtyjLbM2R4F3b+1ceDvdJmUZZk="/>
+        <field:display field="telephone" id="s_org_neerogi_domain_Hospital_telephone" object="${hospital}" z="c/l54o9a3Hjv9bW427MDjZYTZNA="/>
+        <field:display field="fax" id="s_org_neerogi_domain_Hospital_fax" object="${hospital}" z="cOhtpr0wlhZLqzwUxfAilxqtGlw="/>
+        <field:display field="email" id="s_org_neerogi_domain_Hospital_email" object="${hospital}" z="X4gpUiyPZsopXO7Ir7vDGOEkLtw="/>
     </page:show>
 </div>

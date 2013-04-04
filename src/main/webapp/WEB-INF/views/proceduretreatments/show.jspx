@@ -2,10 +2,10 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_ProcedureTreatment" object="${proceduretreatment}" path="/proceduretreatments" z="9Lh3nzYIJko+k2+k6TXKXg2dVm0=">
-        <field:display field="treatmentId" id="s_org_neerogi_ProcedureTreatment_treatmentId" object="${proceduretreatment}" z="ULaWNc9B7oIdmcgp5rP81ho89zM="/>
-        <field:display field="name" id="s_org_neerogi_ProcedureTreatment_name" object="${proceduretreatment}" z="zrq54j/q72s8ytdrE54vU2Z/lSg="/>
-        <field:display field="description" id="s_org_neerogi_ProcedureTreatment_description" object="${proceduretreatment}" z="dB9fzJpWxHHeSehpG8c/ORlj5O0="/>
-        <field:display field="duration" id="s_org_neerogi_ProcedureTreatment_duration" object="${proceduretreatment}" z="p4blNXqCcek4amZl99owjXViUBc="/>
+    <page:show id="ps_org_neerogi_domain_ProcedureTreatment" object="${proceduretreatment}" path="/proceduretreatments" z="XczkoEmWBP86VDoJALiRPamzGxE=">
+        <field:display field="treatmentId" id="s_org_neerogi_domain_ProcedureTreatment_treatmentId" object="${proceduretreatment}" z="rfZSiEQnKtcOMXswMHmrV/g9uoo="/>
+        <field:display field="name" id="s_org_neerogi_domain_ProcedureTreatment_name" object="${proceduretreatment}" z="Kr+Vjaxf/EeTrbeBxfOY2WnsRd4="/>
+        <field:display field="description" id="s_org_neerogi_domain_ProcedureTreatment_description" object="${proceduretreatment}" z="xTzR35YfZsIs4/Y7Rxd2kh5f1bM="/>
+        <field:display field="duration" id="s_org_neerogi_domain_ProcedureTreatment_duration" object="${proceduretreatment}" z="zKJTQx3+RNrHbZJYuCNj2QFs7Eg="/>
     </page:show>
 </div>

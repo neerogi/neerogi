@@ -2,11 +2,11 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_neerogi_Treatment" items="${treatments}" z="TePxmofjhJe6SSiq799xjCt7mEw=">
-        <table:table data="${treatments}" id="l_org_neerogi_Treatment" path="/treatments" z="XXgWXRSLcUZhOtbV/TqK1//K04w=">
-            <table:column id="c_org_neerogi_Treatment_conditionId" property="conditionId" z="z+GzEUzasNN8pisk7FkMq83bXnU="/>
-            <table:column id="c_org_neerogi_Treatment_name" property="name" z="RgDiEvME8FqPKt7tA+L1vK0VR2k="/>
-            <table:column id="c_org_neerogi_Treatment_description" property="description" z="+wwGcDDpI71wJ3QVPuVsNgeAgEM="/>
+    <page:list id="pl_org_neerogi_domain_Treatment" items="${treatments}" z="crfUyBnjIreis8YOcagRNRNPx70=">
+        <table:table data="${treatments}" id="l_org_neerogi_domain_Treatment" path="/treatments" z="3V04hvWcS38R4Q/qp294pqgv+WM=">
+            <table:column id="c_org_neerogi_domain_Treatment_conditionId" property="conditionId" z="lzF2hNQHOK5joWY7M5Itg5dt8iQ="/>
+            <table:column id="c_org_neerogi_domain_Treatment_name" property="name" z="/o1Y/T9TjK1zqOImK5UNsqmUW5c="/>
+            <table:column id="c_org_neerogi_domain_Treatment_description" property="description" z="L//mUfe8dFm2yGo5yKZYCwtJ5y8="/>
         </table:table>
     </page:list>
 </div>
