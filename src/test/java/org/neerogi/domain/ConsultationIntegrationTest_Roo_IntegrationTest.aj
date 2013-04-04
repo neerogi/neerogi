@@ -19,7 +19,7 @@ privileged aspect ConsultationIntegrationTest_Roo_IntegrationTest {
     
     declare @type: ConsultationIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: ConsultationIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: ConsultationIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: ConsultationIntegrationTest: @Transactional;
     

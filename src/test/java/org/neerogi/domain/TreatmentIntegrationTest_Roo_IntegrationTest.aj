@@ -19,7 +19,7 @@ privileged aspect TreatmentIntegrationTest_Roo_IntegrationTest {
     
     declare @type: TreatmentIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: TreatmentIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: TreatmentIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: TreatmentIntegrationTest: @Transactional;
     

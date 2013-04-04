@@ -19,7 +19,7 @@ privileged aspect ConditionSubTypesIntegrationTest_Roo_IntegrationTest {
     
     declare @type: ConditionSubTypesIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: ConditionSubTypesIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: ConditionSubTypesIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: ConditionSubTypesIntegrationTest: @Transactional;
     

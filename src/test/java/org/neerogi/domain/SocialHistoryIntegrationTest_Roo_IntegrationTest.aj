@@ -19,7 +19,7 @@ privileged aspect SocialHistoryIntegrationTest_Roo_IntegrationTest {
     
     declare @type: SocialHistoryIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: SocialHistoryIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: SocialHistoryIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: SocialHistoryIntegrationTest: @Transactional;
     

@@ -19,7 +19,7 @@ privileged aspect FollowUpIntegrationTest_Roo_IntegrationTest {
     
     declare @type: FollowUpIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: FollowUpIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: FollowUpIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: FollowUpIntegrationTest: @Transactional;
     

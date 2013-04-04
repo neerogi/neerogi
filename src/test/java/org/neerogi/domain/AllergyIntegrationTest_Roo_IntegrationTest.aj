@@ -19,7 +19,7 @@ privileged aspect AllergyIntegrationTest_Roo_IntegrationTest {
     
     declare @type: AllergyIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: AllergyIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: AllergyIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: AllergyIntegrationTest: @Transactional;
     

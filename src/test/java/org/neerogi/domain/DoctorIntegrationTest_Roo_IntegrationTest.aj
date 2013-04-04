@@ -19,7 +19,7 @@ privileged aspect DoctorIntegrationTest_Roo_IntegrationTest {
     
     declare @type: DoctorIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: DoctorIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: DoctorIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: DoctorIntegrationTest: @Transactional;
     

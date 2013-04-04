@@ -19,7 +19,7 @@ privileged aspect MedicalConditionIntegrationTest_Roo_IntegrationTest {
     
     declare @type: MedicalConditionIntegrationTest: @RunWith(SpringJUnit4ClassRunner.class);
     
-    declare @type: MedicalConditionIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml");
+    declare @type: MedicalConditionIntegrationTest: @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml");
     
     declare @type: MedicalConditionIntegrationTest: @Transactional;
     
