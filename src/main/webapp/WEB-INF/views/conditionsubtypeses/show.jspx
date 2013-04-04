@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_ConditionSubTypes" object="${conditionsubtypes}" path="/conditionsubtypeses" z="0yrA7vMPrKe7tHvn/3QqWNNsD1o=">
+        <field:display field="conditionType" id="s_org_neerogi_ConditionSubTypes_conditionType" object="${conditionsubtypes}" z="/db8ObF2JsQ/U4te2DtMdoa1jGg="/>
+        <field:display field="name" id="s_org_neerogi_ConditionSubTypes_name" object="${conditionsubtypes}" z="20AWst50WkSgjA9BnUYkWRQr9Fk="/>
+    </page:show>
+</div>

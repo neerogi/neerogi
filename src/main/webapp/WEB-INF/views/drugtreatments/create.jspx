@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_neerogi_DrugTreatment" modelAttribute="drugTreatment" path="/drugtreatments" render="${empty dependencies}" z="m1dXZLJ73+H2YCUkD9OmVIKTB+Y=">
+        <field:select field="treatmentId" id="c_org_neerogi_DrugTreatment_treatmentId" itemValue="id" items="${treatments}" path="/treatments" z="BFEU/oWTtnknVwSqLJWEgN/n3SU="/>
+        <field:input field="name" id="c_org_neerogi_DrugTreatment_name" required="true" z="V5i0OtslAhIVM2ImT53GTRdrkW0="/>
+        <field:input field="medicalName" id="c_org_neerogi_DrugTreatment_medicalName" z="CrT/PujuE0EzxNBHhUgw0bYMbVw="/>
+        <field:input field="dose" id="c_org_neerogi_DrugTreatment_dose" z="I2tvUwRRcwhpcNg+ryavNAFjmwY="/>
+        <field:input field="frequency" id="c_org_neerogi_DrugTreatment_frequency" z="EiH3UopuEHDYG553eqio3Lwu9h8="/>
+        <field:input field="duration" id="c_org_neerogi_DrugTreatment_duration" z="ghuBtogCPiCRBiLcK6rYldQrlkA="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_neerogi_DrugTreatment" render="${not empty dependencies}" z="X2i65iZBeWApWM6q4CVaFXwdRYk="/>
+</div>

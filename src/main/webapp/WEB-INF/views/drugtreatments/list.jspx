@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_neerogi_DrugTreatment" items="${drugtreatments}" z="tmR+8zs4GGOIO8kysV7zTc7QJIg=">
+        <table:table data="${drugtreatments}" id="l_org_neerogi_DrugTreatment" path="/drugtreatments" z="+tHzXry0aA9Ci8unbcTgSVItI50=">
+            <table:column id="c_org_neerogi_DrugTreatment_treatmentId" property="treatmentId" z="RDLSjV9hrwf8upFogW8ExPBHd+o="/>
+            <table:column id="c_org_neerogi_DrugTreatment_name" property="name" z="+qentm2x2wY3U48zjouL1l6wR18="/>
+            <table:column id="c_org_neerogi_DrugTreatment_medicalName" property="medicalName" z="ftTH6stg6IA8R+0UMdiRNH/Dd/I="/>
+            <table:column id="c_org_neerogi_DrugTreatment_dose" property="dose" z="v2WLHilva8/Bx862ZDZTQyhXZbM="/>
+            <table:column id="c_org_neerogi_DrugTreatment_frequency" property="frequency" z="WkTHiyVEn14E9os98JcFSZH7H9g="/>
+            <table:column id="c_org_neerogi_DrugTreatment_duration" property="duration" z="WHa/sn+w5+Gv9aVkgim6GqzxWDo="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_DrugTreatment" object="${drugtreatment}" path="/drugtreatments" z="GCfeTDhoF65+tvBj80f5gIjlNLo=">
+        <field:display field="treatmentId" id="s_org_neerogi_DrugTreatment_treatmentId" object="${drugtreatment}" z="sbXaYbMYoTpP9+Q7s54OIsrwi8g="/>
+        <field:display field="name" id="s_org_neerogi_DrugTreatment_name" object="${drugtreatment}" z="V0QWvB8OmlM/Z/AoTDM2AeJcm7g="/>
+        <field:display field="medicalName" id="s_org_neerogi_DrugTreatment_medicalName" object="${drugtreatment}" z="D6HHfCLmJ0OX7We3Ac4qSvV7LWo="/>
+        <field:display field="dose" id="s_org_neerogi_DrugTreatment_dose" object="${drugtreatment}" z="MUeHnqpifIoC9AAwpfSDoviooqs="/>
+        <field:display field="frequency" id="s_org_neerogi_DrugTreatment_frequency" object="${drugtreatment}" z="wsLwD9Njb2fqv5eSPYUMoBPcVks="/>
+        <field:display field="duration" id="s_org_neerogi_DrugTreatment_duration" object="${drugtreatment}" z="8q39tR3CV53a17s9uF4rTmhGQuo="/>
+    </page:show>
+</div>

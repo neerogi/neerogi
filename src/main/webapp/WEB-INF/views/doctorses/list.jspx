@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_neerogi_Doctors" items="${doctorses}" z="wO1JxUo6UdfNi97gc7T7DFxSeRY=">
+        <table:table data="${doctorses}" id="l_org_neerogi_Doctors" path="/doctorses" z="YzKvGbyMUHoMdQrwNWfSVe7an/g=">
+            <table:column id="c_org_neerogi_Doctors_name" property="name" z="Prs5XHfhAYi4eoBfAPvxp3JL0dc="/>
+            <table:column id="c_org_neerogi_Doctors_designation" property="designation" z="kDfNH6B+OGdircqvF+L+/N3rBSo="/>
+            <table:column id="c_org_neerogi_Doctors_registrationNo" property="registrationNo" z="2X8h5GpOWQPhgk1JyU+xcL7Ae0M="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_neerogi_Investigation" modelAttribute="investigation" path="/investigations" render="${empty dependencies}" z="zsTGkHn8QAG0zyMHwST3MXTjtxY=">
+        <field:select field="conditionId" id="c_org_neerogi_Investigation_conditionId" itemValue="id" items="${conditions}" path="/conditions" z="yxyQMjwhvlFg+9EeAGobCZM63xI="/>
+        <field:input field="name" id="c_org_neerogi_Investigation_name" required="true" z="260wxklJtrbJuWnbHXc+TDOnUBY="/>
+        <field:input field="description" id="c_org_neerogi_Investigation_description" z="rVkM4I3J65SvHkdl0LvYMoTsEEQ="/>
+        <field:datetime dateTimePattern="${investigation_date_date_format}" field="date" id="c_org_neerogi_Investigation_date" z="AlUUsQoN83mgglMMN4fFE2OUcl0="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_neerogi_Investigation" render="${not empty dependencies}" z="Qk084FR7Rz4/0eSoOcI+xsZaToA="/>
+</div>

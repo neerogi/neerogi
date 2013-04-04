@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_Consultation" object="${consultation}" path="/consultations" z="G+uMmYetd8Y302P2DXanWlx8vkw=">
+        <field:display field="doctorId" id="s_org_neerogi_Consultation_doctorId" object="${consultation}" z="aMdOtctJOv6csnZNJMR0P7NVl6M="/>
+        <field:display field="hospitalId" id="s_org_neerogi_Consultation_hospitalId" object="${consultation}" z="evJzdFETyoXKOjGLT0qfv3++O3k="/>
+        <field:display field="patientId" id="s_org_neerogi_Consultation_patientId" object="${consultation}" z="fSvVoQJaFVkYMz9bi6VsVZlE5bM="/>
+        <field:display calendar="true" dateTimePattern="${consultation_date_date_format}" field="date" id="s_org_neerogi_Consultation_date" object="${consultation}" z="Vqk191HJxnNo9Wavzgd7Eidqk9g="/>
+    </page:show>
+</div>

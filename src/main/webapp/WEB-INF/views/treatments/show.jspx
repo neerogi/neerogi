@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_Treatment" object="${treatment}" path="/treatments" z="LEw1jwdqRjcY2aaB51SPxKqGKWE=">
+        <field:display field="conditionId" id="s_org_neerogi_Treatment_conditionId" object="${treatment}" z="8ANzRWmlWL+yvl/wue346iUrfsg="/>
+        <field:display field="name" id="s_org_neerogi_Treatment_name" object="${treatment}" z="jGc5USiJYWvjkQoJ8hxLLMXinJ0="/>
+        <field:display field="description" id="s_org_neerogi_Treatment_description" object="${treatment}" z="RlJlK4sbJrQcrMakI3djxfuNEL0="/>
+    </page:show>
+</div>

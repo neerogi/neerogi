@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_neerogi_Investigation" items="${investigations}" z="3V7x+JIGKi2cs0mIvU1V940fjPU=">
+        <table:table data="${investigations}" id="l_org_neerogi_Investigation" path="/investigations" z="Hg78TmI0enlu7O+xsGGcedZQFSo=">
+            <table:column id="c_org_neerogi_Investigation_conditionId" property="conditionId" z="3PEoid/dYDdDWuMPWK54eytt1lI="/>
+            <table:column id="c_org_neerogi_Investigation_name" property="name" z="kTrwrXXpaUW81H2fQ0Lx8skBJsM="/>
+            <table:column id="c_org_neerogi_Investigation_description" property="description" z="FB/o5jrudNJye9O9Q29/q1Gf/rE="/>
+            <table:column calendar="true" dateTimePattern="${investigation_date_date_format}" id="c_org_neerogi_Investigation_date" property="date" z="WzDrO0KKkQGtxQ+9H7T9D+nE86I="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_neerogi_Hospital" items="${hospitals}" z="egtUd0i+qz9VDfRjUEEszEfcuAk=">
+        <table:table data="${hospitals}" id="l_org_neerogi_Hospital" path="/hospitals" z="0AGvGEzkpQaHuTFCJhbwl2yVUKY=">
+            <table:column id="c_org_neerogi_Hospital_name" property="name" z="xcgCXAsHBOz8rjV3mVI8j1f73cs="/>
+            <table:column id="c_org_neerogi_Hospital_address" property="address" z="+ekMwWQ20MAFklggV507WdoXgj0="/>
+        </table:table>
+    </page:list>
+</div>

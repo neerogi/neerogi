@@ -1,0 +1,12 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-04-04 16:43:04
+project --topLevelPackage org.neerogi --projectName neerogi
+persistence setup --database MYSQL --provider HIBERNATE 
+database introspect --schema no-schema-required 
+database reverse engineer --schema no-schema-required --enableViews --testAutomatically --includeTables --includeNonPortableAttributes 
+web mvc setup
+quit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-04-04 16:51:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-04-04 16:53:31
+controller all --package org.neerogi.web
+quit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-04-04 16:54:38

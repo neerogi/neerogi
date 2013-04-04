@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_neerogi_Condition" modelAttribute="condition" path="/conditions" versionField="none" z="vtNrtn5A09m4CXRwAd41WQbf1TQ=">
+        <field:simple field="followUps" id="c_org_neerogi_Condition_followUps" messageCode="entity_reference_not_managed" messageCodeAttribute="Follow Up" z="E+aF2DuX2cGIzKoOWQJCZU/aYDc="/>
+        <field:simple field="investigations" id="c_org_neerogi_Condition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="yfnqrjgQc7nnqdWGDcA8OJ0Gd+o="/>
+        <field:simple field="treatments" id="c_org_neerogi_Condition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="1DcdIRDjXCkrKSRAAfkWQRZLwtA="/>
+        <field:select field="conditionubTypeId" id="c_org_neerogi_Condition_conditionubTypeId" itemValue="id" items="${conditionsubtypeses}" path="/conditionsubtypeses" z="Rw29yzrxAUtPvYZ75KfF3GRRcXY="/>
+        <field:select field="patientId" id="c_org_neerogi_Condition_patientId" itemValue="id" items="${patients}" path="/patients" z="y+9d+K409kXAGieq73FIeYEv5tQ="/>
+        <field:input field="consultationId" id="c_org_neerogi_Condition_consultationId" validationMessageCode="field_invalid_integer" z="/0qxvKBKl85fkUyfAV/1KddvHMw="/>
+        <field:input field="conditionType" id="c_org_neerogi_Condition_conditionType" required="true" z="BcJkxUxnSXyJNA8FbPKvT9LWe0c="/>
+        <field:datetime dateTimePattern="${condition_date_date_format}" field="date" id="c_org_neerogi_Condition_date" z="cJtYEcjH85M2LVYXiY5mzJa7bz4="/>
+        <field:input field="name" id="c_org_neerogi_Condition_name" required="true" z="n+vInrL3dJ8+Ofd6DxTxSevVLJk="/>
+        <field:input field="description" id="c_org_neerogi_Condition_description" z="aRmR+P3prsEUmx52CdV1axSv1M0="/>
+        <field:checkbox field="followUp" id="c_org_neerogi_Condition_followUp" z="sagANpVxQLwhro6xD3ztznkUXDY="/>
+    </form:update>
+</div>
