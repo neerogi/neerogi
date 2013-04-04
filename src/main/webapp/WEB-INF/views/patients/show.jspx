@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_domain_Patient" object="${patient}" path="/patients" z="KPWYtn149AH1qpF4Cdd1ISUhxeg=">
+    <page:show id="ps_org_neerogi_domain_Patient" label="Patient Information" object="${patient}" path="/patients" z="KPWYtn149AH1qpF4Cdd1ISUhxeg=">
+        <div style="float:left">
+        <spring:url var="person" value="/resources/images/icons/person-male.png" />
+        <img alt="patient" src="${person}" />
+        </div>
+        <div>
         <field:display field="name" id="s_org_neerogi_domain_Patient_name" object="${patient}" z="F6ldCeUARK+QhThC0SApsZiRS2U="/>
         <field:display field="address" id="s_org_neerogi_domain_Patient_address" object="${patient}" z="LEOzdHAhaRR6yuKEix5VvRybg5c="/>
         <field:display field="gender" id="s_org_neerogi_domain_Patient_gender" object="${patient}" z="2E3lqdmeWz4PxWdqBeM7EyQcRqg="/>
         <field:display field="occupation" id="s_org_neerogi_domain_Patient_occupation" object="${patient}" z="+tV+XsmfVcJ2WlhKpa1wZG8Y86M="/>
         <field:display calendar="true" dateTimePattern="${patient_dateofbirth_date_format}" field="dateOfBirth" id="s_org_neerogi_domain_Patient_dateOfBirth" object="${patient}" z="JWzlobsSKkLt7hjFmBsqJOyHUNA="/>
-                
+        </div>
+           
         <h3>Allergies</h3>
         <table:table data="${patient.allergies}" id="l_org_neerogi_domain_Allergy" path="/allergys" z="h5dEB+CT0C6USrhxeKqAoSp2jkU=">            
             <table:column id="c_org_neerogi_domain_Allergy_type" property="type" z="Id1GreNgprKwe/WAa5NhPqaZSG4="/>
