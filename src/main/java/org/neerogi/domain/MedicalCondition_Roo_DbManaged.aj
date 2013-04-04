@@ -58,9 +58,6 @@ privileged aspect MedicalCondition_Roo_DbManaged {
     @Column(name = "description", length = 1000)
     private String MedicalCondition.description;
     
-    @Column(name = "follow_up", columnDefinition = "BIT", length = 1)
-    @NotNull
-    private boolean MedicalCondition.followUp;
     
     public Set<FollowUp> MedicalCondition.getFollowUps() {
         return followUps;
