@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_DrugTreatment" items="${drugtreatments}" z="vNQaji+brk8IaILo8derbtAA770=">
         <table:table data="${drugtreatments}" id="l_org_neerogi_domain_DrugTreatment" path="/drugtreatments" z="4lvwcP8PiwjpPAnKjZPZtgwfudA=">
-            <table:column id="c_org_neerogi_domain_DrugTreatment_treatmentId" property="treatmentId" z="HyxsTRSbWC0Wuwn3+A6NZMFB+8s="/>
+            <table:column id="c_org_neerogi_domain_DrugTreatment_treatment" property="treatment" z="VLNIoylY50EDAXKGzjnfsZFOn6Y="/>
             <table:column id="c_org_neerogi_domain_DrugTreatment_name" property="name" z="xbq04Ajx8sRU1IJo3s+Sk8ZYk/k="/>
             <table:column id="c_org_neerogi_domain_DrugTreatment_medicalName" property="medicalName" z="VWgyHb6xGrBFLkKmgWzfaeA5pdQ="/>
             <table:column id="c_org_neerogi_domain_DrugTreatment_dose" property="dose" z="Q2G2/vcpHvrg9syWSbFvbKWGDUc="/>

@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Doctor" modelAttribute="doctor" path="/doctors" render="${empty dependencies}" z="f4gQMvVm0TftsEzxTMLTOENLdKw=">
-        <!-- field:simple field="consultations" id="c_org_neerogi_domain_Doctor_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="aesl4m49CikmDsPfqPxznsbMdYI="/ -->
+        <field:simple field="consultations" id="c_org_neerogi_domain_Doctor_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" render="false" z="user-managed"/>
         <field:input field="designation" id="c_org_neerogi_domain_Doctor_designation" z="9TMGMqpI9qCQFUgVhFbz5GJUxlg="/>
         <field:input field="name" id="c_org_neerogi_domain_Doctor_name" required="true" z="PhvPYdT/q5bsR78nthB27O/c8Zc="/>
         <field:input field="registrationNo" id="c_org_neerogi_domain_Doctor_registrationNo" z="caBZPTgSbXX5eCLAj9X8Z+6dSls="/>

@@ -6,37 +6,37 @@ package org.neerogi.domain;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import org.neerogi.domain.Allergy;
+import org.neerogi.domain.AllergyType;
 import org.neerogi.domain.Patient;
 
 privileged aspect Allergy_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false)
-    private Patient Allergy.patientId;
+    @JoinColumn(name = "patient", referencedColumnName = "id", nullable = false)
+    private Patient Allergy.patient;
     
-    @Column(name = "type", length = 1000)
-    @NotNull
-    private String Allergy.type;
+    @ManyToOne
+    @JoinColumn(name = "allergy_type", referencedColumnName = "id", nullable = false)
+    private AllergyType Allergy.allergyType;
     
     @Column(name = "description", length = 1000)
     private String Allergy.description;
     
-    public Patient Allergy.getPatientId() {
-        return patientId;
+    public Patient Allergy.getPatient() {
+        return patient;
     }
     
-    public void Allergy.setPatientId(Patient patientId) {
-        this.patientId = patientId;
+    public void Allergy.setPatient(Patient patient) {
+        this.patient = patient;
     }
     
-    public String Allergy.getType() {
-        return type;
+    public AllergyType Allergy.getAllergyType() {
+        return allergyType;
     }
     
-    public void Allergy.setType(String type) {
-        this.type = type;
+    public void Allergy.setAllergyType(AllergyType allergyType) {
+        this.allergyType = allergyType;
     }
     
     public String Allergy.getDescription() {

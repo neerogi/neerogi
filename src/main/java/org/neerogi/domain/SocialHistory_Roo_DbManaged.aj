@@ -13,8 +13,8 @@ import org.neerogi.domain.SocialHistory;
 privileged aspect SocialHistory_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false)
-    private Patient SocialHistory.patientId;
+    @JoinColumn(name = "patient", referencedColumnName = "id", nullable = false)
+    private Patient SocialHistory.patient;
     
     @Column(name = "type", length = 1000)
     @NotNull
@@ -23,12 +23,12 @@ privileged aspect SocialHistory_Roo_DbManaged {
     @Column(name = "description", length = 1000)
     private String SocialHistory.description;
     
-    public Patient SocialHistory.getPatientId() {
-        return patientId;
+    public Patient SocialHistory.getPatient() {
+        return patient;
     }
     
-    public void SocialHistory.setPatientId(Patient patientId) {
-        this.patientId = patientId;
+    public void SocialHistory.setPatient(Patient patient) {
+        this.patient = patient;
     }
     
     public String SocialHistory.getType() {

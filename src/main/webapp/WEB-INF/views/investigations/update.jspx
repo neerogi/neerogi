@@ -3,9 +3,9 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_Investigation" modelAttribute="investigation" path="/investigations" versionField="none" z="CkIMFP6U3iB7rzM4zOAqaLEfDDQ=">
-        <field:select field="conditionId" id="c_org_neerogi_domain_Investigation_conditionId" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="utu8icSWeaszDYzPDKSPVPfBqdY="/>
+        <field:select field="medicalCondition" id="c_org_neerogi_domain_Investigation_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="a4oT2LEcMZHMukpe1CtenliPlbE="/>
         <field:input field="name" id="c_org_neerogi_domain_Investigation_name" required="true" z="C8gSTu4WCLMU/eJphIgfnXg6zAA="/>
-        <field:input field="description" id="c_org_neerogi_domain_Investigation_description" z="YHQHC1jInduFCbkuITcyP2FWw8s="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_Investigation_description" z="user-managed"/>
         <field:datetime dateTimePattern="${investigation_planneddate_date_format}" field="plannedDate" id="c_org_neerogi_domain_Investigation_plannedDate" z="Gy9iPvCZtsimRWjgmqaaLKBtoCY="/>
         <field:datetime dateTimePattern="${investigation_actualdate_date_format}" field="actualDate" id="c_org_neerogi_domain_Investigation_actualDate" z="YKhc1tCT8EfB9Nd12VptCM3tQMI="/>
     </form:update>

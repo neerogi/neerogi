@@ -33,8 +33,8 @@ privileged aspect InvestigationDataOnDemand_Roo_DataOnDemand {
     public Investigation InvestigationDataOnDemand.getNewTransientInvestigation(int index) {
         Investigation obj = new Investigation();
         setActualDate(obj, index);
-        setConditionId(obj, index);
         setDescription(obj, index);
+        setMedicalCondition(obj, index);
         setName(obj, index);
         setPlannedDate(obj, index);
         return obj;
@@ -45,17 +45,17 @@ privileged aspect InvestigationDataOnDemand_Roo_DataOnDemand {
         obj.setActualDate(actualDate);
     }
     
-    public void InvestigationDataOnDemand.setConditionId(Investigation obj, int index) {
-        MedicalCondition conditionId = medicalConditionDataOnDemand.getRandomMedicalCondition();
-        obj.setConditionId(conditionId);
-    }
-    
     public void InvestigationDataOnDemand.setDescription(Investigation obj, int index) {
         String description = "description_" + index;
         if (description.length() > 1000) {
             description = description.substring(0, 1000);
         }
         obj.setDescription(description);
+    }
+    
+    public void InvestigationDataOnDemand.setMedicalCondition(Investigation obj, int index) {
+        MedicalCondition medicalCondition = medicalConditionDataOnDemand.getRandomMedicalCondition();
+        obj.setMedicalCondition(medicalCondition);
     }
     
     public void InvestigationDataOnDemand.setName(Investigation obj, int index) {

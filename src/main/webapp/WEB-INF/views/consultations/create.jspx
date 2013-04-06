@@ -3,9 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Consultation" modelAttribute="consultation" path="/consultations" render="${empty dependencies}" z="13/IFaoXR7X0wZCz8bhG7i8QLOs=">
-        <field:select field="doctorId" id="c_org_neerogi_domain_Consultation_doctorId" itemValue="id" items="${doctors}" path="/doctors" z="5ZayN2iFOLbNKFKYJCcIiM9ZFzA="/>
-        <field:select field="hospitalId" id="c_org_neerogi_domain_Consultation_hospitalId" itemValue="id" items="${hospitals}" path="/hospitals" z="fusCFLZ6y3TgCQDqWc+bwj97JkY="/>
-        <field:select field="patientId" id="c_org_neerogi_domain_Consultation_patientId" itemValue="id" items="${patients}" path="/patients" z="JS+khng4w+Y1+Vz8AohS7QhPkJk="/>
+        <field:simple field="medicalConditions" id="c_org_neerogi_domain_Consultation_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" z="JI1i+jCxaceyiuOx6iRxT8hx9w8="/>
+        <field:select field="doctor" id="c_org_neerogi_domain_Consultation_doctor" itemValue="id" items="${doctors}" path="/doctors" z="EBE+sF2kniR7NQFOY0JGcxn9pTM="/>
+        <field:select field="hospital" id="c_org_neerogi_domain_Consultation_hospital" itemValue="id" items="${hospitals}" path="/hospitals" z="vpppubqMzwBrbP9R+Jm6o0iixB4="/>
+        <field:select field="patient" id="c_org_neerogi_domain_Consultation_patient" itemValue="id" items="${patients}" path="/patients" z="uel4KibL8WLkmdkLqRFzcRZ5QgQ="/>
         <field:datetime dateTimePattern="${consultation_visitdate_date_format}" field="visitDate" id="c_org_neerogi_domain_Consultation_visitDate" z="q07ACKlB/2sAvNSU/tDsowElYAc="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_Consultation" render="${not empty dependencies}" z="YioUWnX4uP7kygZCUJfCzCAHltI="/>

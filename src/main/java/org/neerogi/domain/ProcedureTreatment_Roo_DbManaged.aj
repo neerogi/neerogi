@@ -13,8 +13,8 @@ import org.neerogi.domain.Treatment;
 privileged aspect ProcedureTreatment_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "treatment_id", referencedColumnName = "id", nullable = false)
-    private Treatment ProcedureTreatment.treatmentId;
+    @JoinColumn(name = "treatment", referencedColumnName = "id", nullable = false)
+    private Treatment ProcedureTreatment.treatment;
     
     @Column(name = "name", length = 1000)
     @NotNull
@@ -26,12 +26,12 @@ privileged aspect ProcedureTreatment_Roo_DbManaged {
     @Column(name = "duration", length = 1000)
     private String ProcedureTreatment.duration;
     
-    public Treatment ProcedureTreatment.getTreatmentId() {
-        return treatmentId;
+    public Treatment ProcedureTreatment.getTreatment() {
+        return treatment;
     }
     
-    public void ProcedureTreatment.setTreatmentId(Treatment treatmentId) {
-        this.treatmentId = treatmentId;
+    public void ProcedureTreatment.setTreatment(Treatment treatment) {
+        this.treatment = treatment;
     }
     
     public String ProcedureTreatment.getName() {

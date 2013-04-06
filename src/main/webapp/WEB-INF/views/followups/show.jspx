@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_FollowUp" object="${followup}" path="/followups" z="RW1AZhrywTuR09zKfzBGuxzUGA0=">
-        <field:display field="conditionId" id="s_org_neerogi_domain_FollowUp_conditionId" object="${followup}" z="1qGKga7Ek/lr6mg9Qlu0L0wZ84M="/>
+        <field:display field="medicalCondition" id="s_org_neerogi_domain_FollowUp_medicalCondition" object="${followup}" z="AfMGzeS5cOtUeiLVjSuQuQKxYyc="/>
         <field:display field="followUpConditionId" id="s_org_neerogi_domain_FollowUp_followUpConditionId" object="${followup}" z="07kzRGkH04Sk7k9LdPoAODiXr2I="/>
     </page:show>
 </div>

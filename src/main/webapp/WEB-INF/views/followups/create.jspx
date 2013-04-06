@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_FollowUp" modelAttribute="followUp" path="/followups" render="${empty dependencies}" z="DA6+oBQ+hNEmcWRcM2Pjt5ke1l8=">
-        <field:select field="conditionId" id="c_org_neerogi_domain_FollowUp_conditionId" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="QjMb01nk1EsiEDBhgh/yomuFmNQ="/>
+        <field:select field="medicalCondition" id="c_org_neerogi_domain_FollowUp_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="ca19fbo0YPoTey18twluBbNIbLQ="/>
         <field:input field="followUpConditionId" id="c_org_neerogi_domain_FollowUp_followUpConditionId" required="true" z="RiQtINQeKaozZJHi73triQ87JnU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_FollowUp" render="${not empty dependencies}" z="Jc2XeQqnIioo7qJ69GyCuQu2xng="/>

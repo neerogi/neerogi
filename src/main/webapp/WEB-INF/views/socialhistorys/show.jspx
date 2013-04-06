@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_SocialHistory" object="${socialhistory}" path="/socialhistorys" z="sgF+fCqzh2sfQYRJtkoWuD7aFns=">
-        <field:display field="patientId" id="s_org_neerogi_domain_SocialHistory_patientId" object="${socialhistory}" z="AGjO2XF/vKsRizPkZj6rg6w+qF0="/>
+        <field:display field="patient" id="s_org_neerogi_domain_SocialHistory_patient" object="${socialhistory}" z="A05DPcnp0jpPPG3yCLaJTpqImKI="/>
         <field:display field="type" id="s_org_neerogi_domain_SocialHistory_type" object="${socialhistory}" z="jOqC1Q5XvrY8GUNiHUxK4x+WB4o="/>
         <field:display field="description" id="s_org_neerogi_domain_SocialHistory_description" object="${socialhistory}" z="wpA1J3paaY7LHV5iTg/nPt9dODI="/>
     </page:show>

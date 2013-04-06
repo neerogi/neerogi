@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" 
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_MedicalCondition" items="${medicalconditions}" z="mSHIzf6oLsdwjrjzHTj/Tczxt20=">
         <table:table data="${medicalconditions}" id="l_org_neerogi_domain_MedicalCondition" path="/medicalconditions" z="wtNfeSzBrjT9VwYm+njnxb2Qi6o=">
-            <table:column id="c_org_neerogi_domain_MedicalCondition_conditionSubTypeId" property="conditionSubTypeId" z="0fyFQq9bhFeB9xPjbhRR0dKdUsM="/>
-            <table:column id="c_org_neerogi_domain_MedicalCondition_patientId" property="patientId" z="/ek7gnYzzRsP2qrB7Ss8S3SNnLw="/>
-            <table:column id="c_org_neerogi_domain_MedicalCondition_consultationId" property="consultationId" z="gAE3s+rh+TLrchKiaZEObYCZgGg="/>
+            <table:column id="c_org_neerogi_domain_MedicalCondition_patient" property="patient" z="PeTJiFR9gY6NaUMwbJ4EbBWnuAw="/>
+            <table:column id="c_org_neerogi_domain_MedicalCondition_medicalConditionType" property="medicalConditionType" z="1ulupXZeL5PbQmLQWx/dBHsdtYo="/>
+            <table:column id="c_org_neerogi_domain_MedicalCondition_medicalConditionSubType" property="medicalConditionSubType" z="m7oHFgn5bPueZFDTEOdYXSWTdE4="/>
         </table:table>
     </page:list>
 </div>

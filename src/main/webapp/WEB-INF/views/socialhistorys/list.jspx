@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_SocialHistory" items="${socialhistorys}" z="4psyWgN6o60BmQ8/OLxuW6dQsk8=">
         <table:table data="${socialhistorys}" id="l_org_neerogi_domain_SocialHistory" path="/socialhistorys" z="3mFL8aZNwXGBMHPvFGzK9/kS1no=">
-            <table:column id="c_org_neerogi_domain_SocialHistory_patientId" property="patientId" z="lMTvh2ZMbnyYhAawcczjp3Gwsk8="/>
+            <table:column id="c_org_neerogi_domain_SocialHistory_patient" property="patient" z="llZ2boKqlKuRYv6bcoMcW4C91yY="/>
             <table:column id="c_org_neerogi_domain_SocialHistory_type" property="type" z="RQKnoYJe2wrvEOrhBSsZ7WOZWgQ="/>
             <table:column id="c_org_neerogi_domain_SocialHistory_description" property="description" z="QpO67spWCyczHUedMke04e36ELk="/>
         </table:table>

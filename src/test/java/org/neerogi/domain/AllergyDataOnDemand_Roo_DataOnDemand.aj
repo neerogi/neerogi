@@ -12,6 +12,8 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.neerogi.domain.Allergy;
 import org.neerogi.domain.AllergyDataOnDemand;
+import org.neerogi.domain.AllergyType;
+import org.neerogi.domain.AllergyTypeDataOnDemand;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.PatientDataOnDemand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +28,22 @@ privileged aspect AllergyDataOnDemand_Roo_DataOnDemand {
     private List<Allergy> AllergyDataOnDemand.data;
     
     @Autowired
+    AllergyTypeDataOnDemand AllergyDataOnDemand.allergyTypeDataOnDemand;
+    
+    @Autowired
     PatientDataOnDemand AllergyDataOnDemand.patientDataOnDemand;
     
     public Allergy AllergyDataOnDemand.getNewTransientAllergy(int index) {
         Allergy obj = new Allergy();
+        setAllergyType(obj, index);
         setDescription(obj, index);
-        setPatientId(obj, index);
-        setType(obj, index);
+        setPatient(obj, index);
         return obj;
+    }
+    
+    public void AllergyDataOnDemand.setAllergyType(Allergy obj, int index) {
+        AllergyType allergyType = allergyTypeDataOnDemand.getRandomAllergyType();
+        obj.setAllergyType(allergyType);
     }
     
     public void AllergyDataOnDemand.setDescription(Allergy obj, int index) {
@@ -44,17 +54,9 @@ privileged aspect AllergyDataOnDemand_Roo_DataOnDemand {
         obj.setDescription(description);
     }
     
-    public void AllergyDataOnDemand.setPatientId(Allergy obj, int index) {
-        Patient patientId = patientDataOnDemand.getRandomPatient();
-        obj.setPatientId(patientId);
-    }
-    
-    public void AllergyDataOnDemand.setType(Allergy obj, int index) {
-        String type = "type_" + index;
-        if (type.length() > 1000) {
-            type = type.substring(0, 1000);
-        }
-        obj.setType(type);
+    public void AllergyDataOnDemand.setPatient(Allergy obj, int index) {
+        Patient patient = patientDataOnDemand.getRandomPatient();
+        obj.setPatient(patient);
     }
     
     public Allergy AllergyDataOnDemand.getSpecificAllergy(int index) {

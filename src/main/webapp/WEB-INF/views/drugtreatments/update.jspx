@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_DrugTreatment" modelAttribute="drugTreatment" path="/drugtreatments" versionField="none" z="uPLFn+vYRVSBBphaL0A/HB0H0T4=">
-        <field:select field="treatmentId" id="c_org_neerogi_domain_DrugTreatment_treatmentId" itemValue="id" items="${treatments}" path="/treatments" z="4+wQaC7khEV48UVlKo8h34yhCWY="/>
+        <field:select field="treatment" id="c_org_neerogi_domain_DrugTreatment_treatment" itemValue="id" items="${treatments}" path="/treatments" z="Ye6lUjX+DGXg3DEGFa0ItX9+1Uk="/>
         <field:input field="name" id="c_org_neerogi_domain_DrugTreatment_name" required="true" z="5sS5cqPAjYCYEwStijnelKP8BCo="/>
         <field:input field="medicalName" id="c_org_neerogi_domain_DrugTreatment_medicalName" z="QMaNwcfoDtOKHgfnEWl+Ky+5AAU="/>
         <field:input field="dose" id="c_org_neerogi_domain_DrugTreatment_dose" z="3NvNgRV0DmpYqQMNXVpgpV2I1yI="/>

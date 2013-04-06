@@ -31,7 +31,7 @@ privileged aspect SocialHistoryDataOnDemand_Roo_DataOnDemand {
     public SocialHistory SocialHistoryDataOnDemand.getNewTransientSocialHistory(int index) {
         SocialHistory obj = new SocialHistory();
         setDescription(obj, index);
-        setPatientId(obj, index);
+        setPatient(obj, index);
         setType(obj, index);
         return obj;
     }
@@ -44,9 +44,9 @@ privileged aspect SocialHistoryDataOnDemand_Roo_DataOnDemand {
         obj.setDescription(description);
     }
     
-    public void SocialHistoryDataOnDemand.setPatientId(SocialHistory obj, int index) {
-        Patient patientId = patientDataOnDemand.getRandomPatient();
-        obj.setPatientId(patientId);
+    public void SocialHistoryDataOnDemand.setPatient(SocialHistory obj, int index) {
+        Patient patient = patientDataOnDemand.getRandomPatient();
+        obj.setPatient(patient);
     }
     
     public void SocialHistoryDataOnDemand.setType(SocialHistory obj, int index) {

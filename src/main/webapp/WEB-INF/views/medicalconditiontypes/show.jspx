@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_neerogi_domain_MedicalConditionType" object="${medicalconditiontype}" path="/medicalconditiontypes" z="t3pR4/lOk9v0P2iBe2EbixUSn3M=">
+        <field:display field="name" id="s_org_neerogi_domain_MedicalConditionType_name" object="${medicalconditiontype}" z="SboQqpGnPhnHZC4fQfg16dx/438="/>
+        <h3>Medical Condition Sub Types</h3>
+        <table:table data="${medicalconditiontype.medicalConditionSubTypes}" id="l_org_neerogi_domain_MedicalConditionSubType" path="/medicalconditionsubtypes" z="P1hhtQTez2/uS7H1LalEcWOYMBU=">
+            <table:column id="c_org_neerogi_domain_MedicalConditionSubType_name" property="name" />
+        </table:table>
+    </page:show>
+</div>

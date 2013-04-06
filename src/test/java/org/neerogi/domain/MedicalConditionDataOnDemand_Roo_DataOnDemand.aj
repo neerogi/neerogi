@@ -12,9 +12,14 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.neerogi.domain.ConditionSubTypesDataOnDemand;
+import org.neerogi.domain.Consultation;
+import org.neerogi.domain.ConsultationDataOnDemand;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.MedicalConditionDataOnDemand;
+import org.neerogi.domain.MedicalConditionSubType;
+import org.neerogi.domain.MedicalConditionSubTypeDataOnDemand;
+import org.neerogi.domain.MedicalConditionType;
+import org.neerogi.domain.MedicalConditionTypeDataOnDemand;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.PatientDataOnDemand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,42 +34,44 @@ privileged aspect MedicalConditionDataOnDemand_Roo_DataOnDemand {
     private List<MedicalCondition> MedicalConditionDataOnDemand.data;
     
     @Autowired
-    ConditionSubTypesDataOnDemand MedicalConditionDataOnDemand.conditionSubTypesDataOnDemand;
+    ConsultationDataOnDemand MedicalConditionDataOnDemand.consultationDataOnDemand;
+    
+    @Autowired
+    MedicalConditionSubTypeDataOnDemand MedicalConditionDataOnDemand.medicalConditionSubTypeDataOnDemand;
+    
+    @Autowired
+    MedicalConditionTypeDataOnDemand MedicalConditionDataOnDemand.medicalConditionTypeDataOnDemand;
     
     @Autowired
     PatientDataOnDemand MedicalConditionDataOnDemand.patientDataOnDemand;
     
     public MedicalCondition MedicalConditionDataOnDemand.getNewTransientMedicalCondition(int index) {
         MedicalCondition obj = new MedicalCondition();
-        setConditionType(obj, index);
-        setConsultationId(obj, index);
+        setConsultation(obj, index);
         setDescription(obj, index);
+        setFirstSymptomDate(obj, index);
         setFollowUp(obj, index);
-        setInitialDate(obj, index);
+        setLastSymptomDate(obj, index);
+        setMedicalConditionSubType(obj, index);
+        setMedicalConditionType(obj, index);
         setName(obj, index);
-        setPatientId(obj, index);
+        setPatient(obj, index);
         return obj;
     }
     
-    public void MedicalConditionDataOnDemand.setConditionType(MedicalCondition obj, int index) {
-        String conditionType = "conditionType_" + index;
-        if (conditionType.length() > 1000) {
-            conditionType = conditionType.substring(0, 1000);
-        }
-        obj.setConditionType(conditionType);
-    }
-    
-    public void MedicalConditionDataOnDemand.setConsultationId(MedicalCondition obj, int index) {
-        Integer consultationId = new Integer(index);
-        obj.setConsultationId(consultationId);
+    public void MedicalConditionDataOnDemand.setConsultation(MedicalCondition obj, int index) {
+        Consultation consultation = consultationDataOnDemand.getRandomConsultation();
+        obj.setConsultation(consultation);
     }
     
     public void MedicalConditionDataOnDemand.setDescription(MedicalCondition obj, int index) {
         String description = "description_" + index;
-        if (description.length() > 1000) {
-            description = description.substring(0, 1000);
-        }
         obj.setDescription(description);
+    }
+    
+    public void MedicalConditionDataOnDemand.setFirstSymptomDate(MedicalCondition obj, int index) {
+        Calendar firstSymptomDate = Calendar.getInstance();
+        obj.setFirstSymptomDate(firstSymptomDate);
     }
     
     public void MedicalConditionDataOnDemand.setFollowUp(MedicalCondition obj, int index) {
@@ -72,9 +79,19 @@ privileged aspect MedicalConditionDataOnDemand_Roo_DataOnDemand {
         obj.setFollowUp(followUp);
     }
     
-    public void MedicalConditionDataOnDemand.setInitialDate(MedicalCondition obj, int index) {
-        Calendar initialDate = Calendar.getInstance();
-        obj.setInitialDate(initialDate);
+    public void MedicalConditionDataOnDemand.setLastSymptomDate(MedicalCondition obj, int index) {
+        Calendar lastSymptomDate = Calendar.getInstance();
+        obj.setLastSymptomDate(lastSymptomDate);
+    }
+    
+    public void MedicalConditionDataOnDemand.setMedicalConditionSubType(MedicalCondition obj, int index) {
+        MedicalConditionSubType medicalConditionSubType = medicalConditionSubTypeDataOnDemand.getRandomMedicalConditionSubType();
+        obj.setMedicalConditionSubType(medicalConditionSubType);
+    }
+    
+    public void MedicalConditionDataOnDemand.setMedicalConditionType(MedicalCondition obj, int index) {
+        MedicalConditionType medicalConditionType = medicalConditionTypeDataOnDemand.getRandomMedicalConditionType();
+        obj.setMedicalConditionType(medicalConditionType);
     }
     
     public void MedicalConditionDataOnDemand.setName(MedicalCondition obj, int index) {
@@ -85,9 +102,9 @@ privileged aspect MedicalConditionDataOnDemand_Roo_DataOnDemand {
         obj.setName(name);
     }
     
-    public void MedicalConditionDataOnDemand.setPatientId(MedicalCondition obj, int index) {
-        Patient patientId = patientDataOnDemand.getRandomPatient();
-        obj.setPatientId(patientId);
+    public void MedicalConditionDataOnDemand.setPatient(MedicalCondition obj, int index) {
+        Patient patient = patientDataOnDemand.getRandomPatient();
+        obj.setPatient(patient);
     }
     
     public MedicalCondition MedicalConditionDataOnDemand.getSpecificMedicalCondition(int index) {

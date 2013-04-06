@@ -30,15 +30,10 @@ privileged aspect TreatmentDataOnDemand_Roo_DataOnDemand {
     
     public Treatment TreatmentDataOnDemand.getNewTransientTreatment(int index) {
         Treatment obj = new Treatment();
-        setConditionId(obj, index);
         setDescription(obj, index);
+        setMedicalCondition(obj, index);
         setName(obj, index);
         return obj;
-    }
-    
-    public void TreatmentDataOnDemand.setConditionId(Treatment obj, int index) {
-        MedicalCondition conditionId = medicalConditionDataOnDemand.getRandomMedicalCondition();
-        obj.setConditionId(conditionId);
     }
     
     public void TreatmentDataOnDemand.setDescription(Treatment obj, int index) {
@@ -47,6 +42,11 @@ privileged aspect TreatmentDataOnDemand_Roo_DataOnDemand {
             description = description.substring(0, 1000);
         }
         obj.setDescription(description);
+    }
+    
+    public void TreatmentDataOnDemand.setMedicalCondition(Treatment obj, int index) {
+        MedicalCondition medicalCondition = medicalConditionDataOnDemand.getRandomMedicalCondition();
+        obj.setMedicalCondition(medicalCondition);
     }
     
     public void TreatmentDataOnDemand.setName(Treatment obj, int index) {

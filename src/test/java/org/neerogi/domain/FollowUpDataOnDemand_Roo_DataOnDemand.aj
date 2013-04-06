@@ -30,14 +30,9 @@ privileged aspect FollowUpDataOnDemand_Roo_DataOnDemand {
     
     public FollowUp FollowUpDataOnDemand.getNewTransientFollowUp(int index) {
         FollowUp obj = new FollowUp();
-        setConditionId(obj, index);
         setFollowUpConditionId(obj, index);
+        setMedicalCondition(obj, index);
         return obj;
-    }
-    
-    public void FollowUpDataOnDemand.setConditionId(FollowUp obj, int index) {
-        MedicalCondition conditionId = medicalConditionDataOnDemand.getRandomMedicalCondition();
-        obj.setConditionId(conditionId);
     }
     
     public void FollowUpDataOnDemand.setFollowUpConditionId(FollowUp obj, int index) {
@@ -46,6 +41,11 @@ privileged aspect FollowUpDataOnDemand_Roo_DataOnDemand {
             followUpConditionId = followUpConditionId.substring(0, 1000);
         }
         obj.setFollowUpConditionId(followUpConditionId);
+    }
+    
+    public void FollowUpDataOnDemand.setMedicalCondition(FollowUp obj, int index) {
+        MedicalCondition medicalCondition = medicalConditionDataOnDemand.getRandomMedicalCondition();
+        obj.setMedicalCondition(medicalCondition);
     }
     
     public FollowUp FollowUpDataOnDemand.getSpecificFollowUp(int index) {

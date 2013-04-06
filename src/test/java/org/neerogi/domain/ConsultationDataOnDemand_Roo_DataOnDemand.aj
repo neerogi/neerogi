@@ -42,26 +42,26 @@ privileged aspect ConsultationDataOnDemand_Roo_DataOnDemand {
     
     public Consultation ConsultationDataOnDemand.getNewTransientConsultation(int index) {
         Consultation obj = new Consultation();
-        setDoctorId(obj, index);
-        setHospitalId(obj, index);
-        setPatientId(obj, index);
+        setDoctor(obj, index);
+        setHospital(obj, index);
+        setPatient(obj, index);
         setVisitDate(obj, index);
         return obj;
     }
     
-    public void ConsultationDataOnDemand.setDoctorId(Consultation obj, int index) {
-        Doctor doctorId = doctorDataOnDemand.getRandomDoctor();
-        obj.setDoctorId(doctorId);
+    public void ConsultationDataOnDemand.setDoctor(Consultation obj, int index) {
+        Doctor doctor = doctorDataOnDemand.getRandomDoctor();
+        obj.setDoctor(doctor);
     }
     
-    public void ConsultationDataOnDemand.setHospitalId(Consultation obj, int index) {
-        Hospital hospitalId = hospitalDataOnDemand.getRandomHospital();
-        obj.setHospitalId(hospitalId);
+    public void ConsultationDataOnDemand.setHospital(Consultation obj, int index) {
+        Hospital hospital = hospitalDataOnDemand.getRandomHospital();
+        obj.setHospital(hospital);
     }
     
-    public void ConsultationDataOnDemand.setPatientId(Consultation obj, int index) {
-        Patient patientId = patientDataOnDemand.getRandomPatient();
-        obj.setPatientId(patientId);
+    public void ConsultationDataOnDemand.setPatient(Consultation obj, int index) {
+        Patient patient = patientDataOnDemand.getRandomPatient();
+        obj.setPatient(patient);
     }
     
     public void ConsultationDataOnDemand.setVisitDate(Consultation obj, int index) {

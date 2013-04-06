@@ -4,6 +4,7 @@
 package org.neerogi.domain;
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,15 +17,15 @@ import org.neerogi.domain.Treatment;
 
 privileged aspect Treatment_Roo_DbManaged {
     
-    @OneToMany(mappedBy = "treatmentId")
+    @OneToMany(mappedBy = "treatment", cascade = CascadeType.ALL)
     private Set<DrugTreatment> Treatment.drugTreatments;
     
-    @OneToMany(mappedBy = "treatmentId")
+    @OneToMany(mappedBy = "treatment", cascade = CascadeType.ALL)
     private Set<ProcedureTreatment> Treatment.procedureTreatments;
     
     @ManyToOne
-    @JoinColumn(name = "condition_id", referencedColumnName = "id", nullable = false)
-    private MedicalCondition Treatment.conditionId;
+    @JoinColumn(name = "medical_condition", referencedColumnName = "id", nullable = false)
+    private MedicalCondition Treatment.medicalCondition;
     
     @Column(name = "name", length = 1000)
     @NotNull
@@ -49,12 +50,12 @@ privileged aspect Treatment_Roo_DbManaged {
         this.procedureTreatments = procedureTreatments;
     }
     
-    public MedicalCondition Treatment.getConditionId() {
-        return conditionId;
+    public MedicalCondition Treatment.getMedicalCondition() {
+        return medicalCondition;
     }
     
-    public void Treatment.setConditionId(MedicalCondition conditionId) {
-        this.conditionId = conditionId;
+    public void Treatment.setMedicalCondition(MedicalCondition medicalCondition) {
+        this.medicalCondition = medicalCondition;
     }
     
     public String Treatment.getName() {

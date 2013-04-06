@@ -4,8 +4,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_Allergy" items="${allergys}" z="Fa87F3gc6FaMpoJ/wMjIIO06Smc=">
         <table:table data="${allergys}" id="l_org_neerogi_domain_Allergy" path="/allergys" z="h5dEB+CT0C6USrhxeKqAoSp2jkU=">
-            <table:column id="c_org_neerogi_domain_Allergy_patientId" property="patientId" z="9f0wy/JsYSNRPEc+yDVgbkIgEJI="/>
-            <table:column id="c_org_neerogi_domain_Allergy_type" property="type" z="Id1GreNgprKwe/WAa5NhPqaZSG4="/>
+            <table:column id="c_org_neerogi_domain_Allergy_patient" property="patient" z="zs8yLPSpY/Nsx3SYFWKI0N7/3oU="/>
+            <table:column id="c_org_neerogi_domain_Allergy_allergyType" property="allergyType" z="Pnd1CbID1AyZQTDAminf/+DIqp8="/>
             <table:column id="c_org_neerogi_domain_Allergy_description" property="description" z="+DxNUHee13GTIPFQDEXBCfuigEE="/>
         </table:table>
     </page:list>

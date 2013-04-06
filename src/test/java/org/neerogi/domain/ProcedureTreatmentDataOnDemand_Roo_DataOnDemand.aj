@@ -33,7 +33,7 @@ privileged aspect ProcedureTreatmentDataOnDemand_Roo_DataOnDemand {
         setDescription(obj, index);
         setDuration(obj, index);
         setName(obj, index);
-        setTreatmentId(obj, index);
+        setTreatment(obj, index);
         return obj;
     }
     
@@ -61,9 +61,9 @@ privileged aspect ProcedureTreatmentDataOnDemand_Roo_DataOnDemand {
         obj.setName(name);
     }
     
-    public void ProcedureTreatmentDataOnDemand.setTreatmentId(ProcedureTreatment obj, int index) {
-        Treatment treatmentId = treatmentDataOnDemand.getRandomTreatment();
-        obj.setTreatmentId(treatmentId);
+    public void ProcedureTreatmentDataOnDemand.setTreatment(ProcedureTreatment obj, int index) {
+        Treatment treatment = treatmentDataOnDemand.getRandomTreatment();
+        obj.setTreatment(treatment);
     }
     
     public ProcedureTreatment ProcedureTreatmentDataOnDemand.getSpecificProcedureTreatment(int index) {

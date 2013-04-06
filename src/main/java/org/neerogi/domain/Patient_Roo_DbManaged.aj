@@ -5,6 +5,7 @@ package org.neerogi.domain;
 
 import java.util.Calendar;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -19,16 +20,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Patient_Roo_DbManaged {
     
-    @OneToMany(mappedBy = "patientId")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<Allergy> Patient.allergies;
     
-    @OneToMany(mappedBy = "patientId")
+    @OneToMany(mappedBy = "patient")
     private Set<Consultation> Patient.consultations;
     
-    @OneToMany(mappedBy = "patientId")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<MedicalCondition> Patient.medicalConditions;
     
-    @OneToMany(mappedBy = "patientId")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<SocialHistory> Patient.socialHistories;
     
     @Column(name = "name", length = 1000)

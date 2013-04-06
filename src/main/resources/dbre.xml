@@ -7,27 +7,33 @@
     <option key="testAutomatically" value="true"/>
     <table name="allergy">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="type" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
+        <column name="patient" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="allergy_type" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="patient_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="patient" name="FK_PatientAllergy" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="patient" name="FK_PatientAllergy" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="patient_id"/>
+            <reference foreign="id" local="patient"/>
+        </foreign-key>
+        <foreign-key foreignTable="allergy_type" name="FK_AllergyAllergyType" onDelete="none" onUpdate="none">
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="allergy_type"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
         <index name="IX_FK_PatientAllergy">
-            <index-column name="patient_id"/>
+            <index-column name="patient"/>
+        </index>
+        <index name="IX_FK_AllergyAllergyType">
+            <index-column name="allergy_type"/>
         </index>
     </table>
-    <table name="condition_sub_types">
+    <table name="allergy_type">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="condition_type" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
-        <foreign-key foreignTable="medical_condition" name="FK_ConditionConditionubType" onDelete="none" onUpdate="none">
+        <column name="name" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
+        <foreign-key foreignTable="allergy" name="FK_AllergyAllergyType" onDelete="none" onUpdate="none">
             <option key="exported" value="true"/>
-            <reference foreign="condition_sub_type_id" local="id"/>
+            <reference foreign="allergy_type" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
@@ -35,33 +41,37 @@
     </table>
     <table name="consultation">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="patient" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="hospital" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="doctor" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="visit_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
-        <column name="patient_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="hospital_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="doctor_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <foreign-key foreignTable="doctor" name="FK_ConsultationDoctor" onDelete="none" onUpdate="none">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="doctor_id"/>
+            <reference foreign="id" local="doctor"/>
         </foreign-key>
         <foreign-key foreignTable="hospital" name="FK_ConsultationHospital" onDelete="none" onUpdate="none">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="hospital_id"/>
+            <reference foreign="id" local="hospital"/>
         </foreign-key>
         <foreign-key foreignTable="patient" name="FK_PatientConsultation" onDelete="none" onUpdate="none">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="patient_id"/>
+            <reference foreign="id" local="patient"/>
+        </foreign-key>
+        <foreign-key foreignTable="medical_condition" name="FK_MedCondConsultation" onDelete="none" onUpdate="none">
+            <option key="exported" value="true"/>
+            <reference foreign="consultation" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
         <index name="IX_FK_PatientConsultation">
-            <index-column name="patient_id"/>
+            <index-column name="patient"/>
         </index>
         <index name="IX_FK_ConsultationHospital">
-            <index-column name="hospital_id"/>
+            <index-column name="hospital"/>
         </index>
         <index name="IX_FK_ConsultationDoctor">
-            <index-column name="doctor_id"/>
+            <index-column name="doctor"/>
         </index>
     </table>
     <table name="doctor">
@@ -71,7 +81,7 @@
         <column name="registration_no" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <foreign-key foreignTable="consultation" name="FK_ConsultationDoctor" onDelete="none" onUpdate="none">
             <option key="exported" value="true"/>
-            <reference foreign="doctor_id" local="id"/>
+            <reference foreign="doctor" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
@@ -79,36 +89,36 @@
     </table>
     <table name="drug_treatment">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="treatment" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="medical_name" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="dose" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="frequency" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="duration" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="treatment_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="treatment" name="FK_TreatmentDrugTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="treatment" name="FK_TreatmentDrugTreatment" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="treatment_id"/>
+            <reference foreign="id" local="treatment"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
         <index name="IX_FK_TreatmentDrugTreatment">
-            <index-column name="treatment_id"/>
+            <index-column name="treatment"/>
         </index>
     </table>
     <table name="follow_up">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="condition_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="follow_up_condition_id" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
-        <foreign-key foreignTable="medical_condition" name="FK_ConditionFollowUp" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="medical_condition" name="FK_FollowUpMedicalCondition" onDelete="cascade" onUpdate="none">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="condition_id"/>
+            <reference foreign="id" local="medical_condition"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
-        <index name="IX_FK_ConditionFollowUp">
-            <index-column name="condition_id"/>
+        <index name="IX_FK_FollowUpMedCond">
+            <index-column name="medical_condition"/>
         </index>
     </table>
     <table name="hospital">
@@ -120,7 +130,7 @@
         <column name="email" primaryKey="false" required="false" scale="0" size="100" type="12,VARCHAR"/>
         <foreign-key foreignTable="consultation" name="FK_ConsultationHospital" onDelete="none" onUpdate="none">
             <option key="exported" value="true"/>
-            <reference foreign="hospital_id" local="id"/>
+            <reference foreign="hospital" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
@@ -128,61 +138,110 @@
     </table>
     <table name="investigation">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="planned_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
         <column name="actual_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
-        <column name="condition_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="medical_condition" name="FK_ConditionInvestigation" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="medical_condition" name="FK_InvestigationMedicalCondition" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="condition_id"/>
+            <reference foreign="id" local="medical_condition"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
-        <index name="IX_FK_ConditionInvestigation">
-            <index-column name="condition_id"/>
+        <index name="IX_FK_InvestigationMedCond">
+            <index-column name="medical_condition"/>
         </index>
     </table>
     <table name="medical_condition">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="patient_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <column name="consultation_id" primaryKey="false" required="false" scale="0" size="10" type="4,INT"/>
-        <column name="condition_type" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="condition_sub_type_id" primaryKey="false" required="false" scale="0" size="10" type="4,INT"/>
-        <column name="initial_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
+        <column name="patient" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition_type" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition_sub_type" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="consultation" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
+        <column name="description" primaryKey="false" required="false" scale="0" size="4000" type="12,VARCHAR"/>
+        <column name="first_symptom_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
+        <column name="last_symptom_date" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
         <column name="follow_up" primaryKey="false" required="true" scale="0" size="0" type="-7,BIT"/>
-        <foreign-key foreignTable="condition_sub_types" name="FK_ConditionConditionubType" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="patient" name="FK_PatientCondition" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="condition_sub_type_id"/>
+            <reference foreign="id" local="patient"/>
         </foreign-key>
-        <foreign-key foreignTable="patient" name="FK_PatientCondition" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="medical_condition_type" name="FK_MedCondMedCondType" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="patient_id"/>
+            <reference foreign="id" local="medical_condition_type"/>
         </foreign-key>
-        <foreign-key foreignTable="follow_up" name="FK_ConditionFollowUp" onDelete="none" onUpdate="none">
-            <option key="exported" value="true"/>
-            <reference foreign="condition_id" local="id"/>
+        <foreign-key foreignTable="medical_condition_sub_type" name="FK_MedCondMedCondSubType" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="medical_condition_sub_type"/>
         </foreign-key>
-        <foreign-key foreignTable="investigation" name="FK_ConditionInvestigation" onDelete="none" onUpdate="none">
-            <option key="exported" value="true"/>
-            <reference foreign="condition_id" local="id"/>
+        <foreign-key foreignTable="consultation" name="FK_MedCondConsultation" onDelete="none" onUpdate="none">
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="consultation"/>
         </foreign-key>
-        <foreign-key foreignTable="treatment" name="FK_ConditionTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="follow_up" name="FK_FollowUpMedicalCondition" onDelete="cascade" onUpdate="none">
             <option key="exported" value="true"/>
-            <reference foreign="condition_id" local="id"/>
+            <reference foreign="medical_condition" local="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="investigation" name="FK_InvestigationMedicalCondition" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="true"/>
+            <reference foreign="medical_condition" local="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="treatment" name="FK_TreatmentMedicalCondition" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="true"/>
+            <reference foreign="medical_condition" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
         <index name="IX_FK_PatientCondition">
-            <index-column name="patient_id"/>
+            <index-column name="patient"/>
         </index>
-        <index name="IX_FK_ConditionConditionubType">
-            <index-column name="condition_sub_type_id"/>
+        <index name="IX_FK_MedCondMedCondType">
+            <index-column name="medical_condition_type"/>
         </index>
+        <index name="IX_FK_MedCondMedCondSubType">
+            <index-column name="medical_condition_sub_type"/>
+        </index>
+        <index name="IX_FK_MedCondConsultation">
+            <index-column name="consultation"/>
+        </index>
+    </table>
+    <table name="medical_condition_sub_type">
+        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition_type" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
+        <foreign-key foreignTable="medical_condition_type" name="FK_MedCondSubTypeMedCondType" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="medical_condition_type"/>
+        </foreign-key>
+        <foreign-key foreignTable="medical_condition" name="FK_MedCondMedCondSubType" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="true"/>
+            <reference foreign="medical_condition_sub_type" local="id"/>
+        </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="id"/>
+        </unique>
+        <index name="IX_FK_MedCondSubTypeMedCondType">
+            <index-column name="medical_condition_type"/>
+        </index>
+    </table>
+    <table name="medical_condition_type">
+        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
+        <foreign-key foreignTable="medical_condition" name="FK_MedCondMedCondType" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="true"/>
+            <reference foreign="medical_condition_type" local="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="medical_condition_sub_type" name="FK_MedCondSubTypeMedCondType" onDelete="cascade" onUpdate="cascade">
+            <option key="exported" value="true"/>
+            <reference foreign="medical_condition_type" local="id"/>
+        </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="id"/>
+        </unique>
     </table>
     <table name="patient">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
@@ -191,21 +250,21 @@
         <column name="gender" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="occupation" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="date_of_birth" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
-        <foreign-key foreignTable="allergy" name="FK_PatientAllergy" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="allergy" name="FK_PatientAllergy" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
-            <reference foreign="patient_id" local="id"/>
+            <reference foreign="patient" local="id"/>
         </foreign-key>
         <foreign-key foreignTable="consultation" name="FK_PatientConsultation" onDelete="none" onUpdate="none">
             <option key="exported" value="true"/>
-            <reference foreign="patient_id" local="id"/>
+            <reference foreign="patient" local="id"/>
         </foreign-key>
-        <foreign-key foreignTable="medical_condition" name="FK_PatientCondition" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="medical_condition" name="FK_PatientCondition" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
-            <reference foreign="patient_id" local="id"/>
+            <reference foreign="patient" local="id"/>
         </foreign-key>
-        <foreign-key foreignTable="social_history" name="FK_PatientocialHistory" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="social_history" name="FK_PatientSocialHistory" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
-            <reference foreign="patient_id" local="id"/>
+            <reference foreign="patient" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
@@ -213,59 +272,59 @@
     </table>
     <table name="procedure_treatment">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="treatment" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="duration" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="treatment_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="treatment" name="FK_TreatmentProcedureTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="treatment" name="FK_TreatmentProcedureTreatment" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="treatment_id"/>
+            <reference foreign="id" local="treatment"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
         <index name="IX_FK_TreatmentProcedureTreatment">
-            <index-column name="treatment_id"/>
+            <index-column name="treatment"/>
         </index>
     </table>
     <table name="social_history">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="patient" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="type" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="patient_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="patient" name="FK_PatientocialHistory" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="patient" name="FK_PatientSocialHistory" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="patient_id"/>
+            <reference foreign="id" local="patient"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
-        <index name="IX_FK_PatientocialHistory">
-            <index-column name="patient_id"/>
+        <index name="IX_FK_PatientSocialHistory">
+            <index-column name="patient"/>
         </index>
     </table>
     <table name="treatment">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="medical_condition" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="description" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
-        <column name="condition_id" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
-        <foreign-key foreignTable="medical_condition" name="FK_ConditionTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="medical_condition" name="FK_TreatmentMedicalCondition" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="false"/>
-            <reference foreign="id" local="condition_id"/>
+            <reference foreign="id" local="medical_condition"/>
         </foreign-key>
-        <foreign-key foreignTable="drug_treatment" name="FK_TreatmentDrugTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="drug_treatment" name="FK_TreatmentDrugTreatment" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
-            <reference foreign="treatment_id" local="id"/>
+            <reference foreign="treatment" local="id"/>
         </foreign-key>
-        <foreign-key foreignTable="procedure_treatment" name="FK_TreatmentProcedureTreatment" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="procedure_treatment" name="FK_TreatmentProcedureTreatment" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
-            <reference foreign="treatment_id" local="id"/>
+            <reference foreign="treatment" local="id"/>
         </foreign-key>
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
-        <index name="IX_FK_ConditionTreatment">
-            <index-column name="condition_id"/>
+        <index name="IX_FK_TreatmentMedicalCondition">
+            <index-column name="medical_condition"/>
         </index>
     </table>
 </database>

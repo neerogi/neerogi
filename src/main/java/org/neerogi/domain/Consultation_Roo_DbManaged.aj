@@ -4,58 +4,72 @@
 package org.neerogi.domain;
 
 import java.util.Calendar;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.neerogi.domain.Consultation;
 import org.neerogi.domain.Doctor;
 import org.neerogi.domain.Hospital;
+import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.Patient;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Consultation_Roo_DbManaged {
     
-    @ManyToOne
-    @JoinColumn(name = "doctor_id", referencedColumnName = "id", nullable = false)
-    private Doctor Consultation.doctorId;
+    @OneToMany(mappedBy = "consultation")
+    private Set<MedicalCondition> Consultation.medicalConditions;
     
     @ManyToOne
-    @JoinColumn(name = "hospital_id", referencedColumnName = "id", nullable = false)
-    private Hospital Consultation.hospitalId;
+    @JoinColumn(name = "doctor", referencedColumnName = "id", nullable = false)
+    private Doctor Consultation.doctor;
     
     @ManyToOne
-    @JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false)
-    private Patient Consultation.patientId;
+    @JoinColumn(name = "hospital", referencedColumnName = "id", nullable = false)
+    private Hospital Consultation.hospital;
+    
+    @ManyToOne
+    @JoinColumn(name = "patient", referencedColumnName = "id", nullable = false)
+    private Patient Consultation.patient;
     
     @Column(name = "visit_date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "MM")
     private Calendar Consultation.visitDate;
     
-    public Doctor Consultation.getDoctorId() {
-        return doctorId;
+    public Set<MedicalCondition> Consultation.getMedicalConditions() {
+        return medicalConditions;
     }
     
-    public void Consultation.setDoctorId(Doctor doctorId) {
-        this.doctorId = doctorId;
+    public void Consultation.setMedicalConditions(Set<MedicalCondition> medicalConditions) {
+        this.medicalConditions = medicalConditions;
     }
     
-    public Hospital Consultation.getHospitalId() {
-        return hospitalId;
+    public Doctor Consultation.getDoctor() {
+        return doctor;
     }
     
-    public void Consultation.setHospitalId(Hospital hospitalId) {
-        this.hospitalId = hospitalId;
+    public void Consultation.setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
     
-    public Patient Consultation.getPatientId() {
-        return patientId;
+    public Hospital Consultation.getHospital() {
+        return hospital;
     }
     
-    public void Consultation.setPatientId(Patient patientId) {
-        this.patientId = patientId;
+    public void Consultation.setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+    
+    public Patient Consultation.getPatient() {
+        return patient;
+    }
+    
+    public void Consultation.setPatient(Patient patient) {
+        this.patient = patient;
     }
     
     public Calendar Consultation.getVisitDate() {

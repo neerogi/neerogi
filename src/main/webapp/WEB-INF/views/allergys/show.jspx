@@ -3,8 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_Allergy" object="${allergy}" path="/allergys" z="wVXmBC+XV7EQWsZHaNNsv9uiZh4=">
-        <field:display field="patientId" id="s_org_neerogi_domain_Allergy_patientId" object="${allergy}" z="23b9fqX+bDUKSHhMYjLs/9rzF04="/>
-        <field:display field="type" id="s_org_neerogi_domain_Allergy_type" object="${allergy}" z="HxM0ct5R4yIkfw3mjIYeXBtl86c="/>
+        <field:display field="patient" id="s_org_neerogi_domain_Allergy_patient" object="${allergy}" z="fc7RIBzrIINc3SFab8z53D8SyQ4="/>
+        <field:display field="allergyType" id="s_org_neerogi_domain_Allergy_allergyType" object="${allergy}" z="oNLdzQiV9b61P6jPbRqrnn86Mw8="/>
         <field:display field="description" id="s_org_neerogi_domain_Allergy_description" object="${allergy}" z="OVcLb5ClZkdfBeQKJxdfZqiQwl4="/>
     </page:show>
 </div>

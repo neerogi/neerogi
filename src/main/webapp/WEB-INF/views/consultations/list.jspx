@@ -4,9 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_Consultation" items="${consultations}" z="trmyS5uoWG6gVE8HZFGmRj9D82w=">
         <table:table data="${consultations}" id="l_org_neerogi_domain_Consultation" path="/consultations" z="/SyfkUwf82pZT432wPfV7fDxliM=">
-            <table:column id="c_org_neerogi_domain_Consultation_doctorId" property="doctorId" z="kw5CqTQeqP3uaVWxJJvoTyltCo8="/>
-            <table:column id="c_org_neerogi_domain_Consultation_hospitalId" property="hospitalId" z="Hr5q0LTncYmbpvdV7DmbnmHQ9DQ="/>
-            <table:column id="c_org_neerogi_domain_Consultation_patientId" property="patientId" z="sLpttjEWCi2qfE4Cs9lMzDOSl9s="/>
+            <table:column id="c_org_neerogi_domain_Consultation_doctor" property="doctor" z="bA1u1BYz3CqgJUahi1AweL8dbZ8="/>
+            <table:column id="c_org_neerogi_domain_Consultation_hospital" property="hospital" z="mNtNBH2joZKsEpiqiODOhLQeNFw="/>
+            <table:column id="c_org_neerogi_domain_Consultation_patient" property="patient" z="z4u224dp3tCaszI4fr/y+rfPANA="/>
             <table:column calendar="true" dateTimePattern="${consultation_visitdate_date_format}" id="c_org_neerogi_domain_Consultation_visitDate" property="visitDate" z="yZjYGxOdCInDajDWG7ySFPY7J34="/>
         </table:table>
     </page:list>

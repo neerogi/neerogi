@@ -35,7 +35,7 @@ privileged aspect DrugTreatmentDataOnDemand_Roo_DataOnDemand {
         setFrequency(obj, index);
         setMedicalName(obj, index);
         setName(obj, index);
-        setTreatmentId(obj, index);
+        setTreatment(obj, index);
         return obj;
     }
     
@@ -79,9 +79,9 @@ privileged aspect DrugTreatmentDataOnDemand_Roo_DataOnDemand {
         obj.setName(name);
     }
     
-    public void DrugTreatmentDataOnDemand.setTreatmentId(DrugTreatment obj, int index) {
-        Treatment treatmentId = treatmentDataOnDemand.getRandomTreatment();
-        obj.setTreatmentId(treatmentId);
+    public void DrugTreatmentDataOnDemand.setTreatment(DrugTreatment obj, int index) {
+        Treatment treatment = treatmentDataOnDemand.getRandomTreatment();
+        obj.setTreatment(treatment);
     }
     
     public DrugTreatment DrugTreatmentDataOnDemand.getSpecificDrugTreatment(int index) {

@@ -13,19 +13,19 @@ import org.neerogi.domain.MedicalCondition;
 privileged aspect FollowUp_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "condition_id", referencedColumnName = "id", nullable = false)
-    private MedicalCondition FollowUp.conditionId;
+    @JoinColumn(name = "medical_condition", referencedColumnName = "id", nullable = false)
+    private MedicalCondition FollowUp.medicalCondition;
     
     @Column(name = "follow_up_condition_id", length = 1000)
     @NotNull
     private String FollowUp.followUpConditionId;
     
-    public MedicalCondition FollowUp.getConditionId() {
-        return conditionId;
+    public MedicalCondition FollowUp.getMedicalCondition() {
+        return medicalCondition;
     }
     
-    public void FollowUp.setConditionId(MedicalCondition conditionId) {
-        this.conditionId = conditionId;
+    public void FollowUp.setMedicalCondition(MedicalCondition medicalCondition) {
+        this.medicalCondition = medicalCondition;
     }
     
     public String FollowUp.getFollowUpConditionId() {

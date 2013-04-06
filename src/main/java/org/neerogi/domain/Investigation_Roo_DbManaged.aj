@@ -17,8 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 privileged aspect Investigation_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "condition_id", referencedColumnName = "id", nullable = false)
-    private MedicalCondition Investigation.conditionId;
+    @JoinColumn(name = "medical_condition", referencedColumnName = "id", nullable = false)
+    private MedicalCondition Investigation.medicalCondition;
     
     @Column(name = "name", length = 1000)
     @NotNull
@@ -37,12 +37,12 @@ privileged aspect Investigation_Roo_DbManaged {
     @DateTimeFormat(style = "MM")
     private Calendar Investigation.actualDate;
     
-    public MedicalCondition Investigation.getConditionId() {
-        return conditionId;
+    public MedicalCondition Investigation.getMedicalCondition() {
+        return medicalCondition;
     }
     
-    public void Investigation.setConditionId(MedicalCondition conditionId) {
-        this.conditionId = conditionId;
+    public void Investigation.setMedicalCondition(MedicalCondition medicalCondition) {
+        this.medicalCondition = medicalCondition;
     }
     
     public String Investigation.getName() {

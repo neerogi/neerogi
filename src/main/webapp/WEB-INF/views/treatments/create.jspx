@@ -3,11 +3,11 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Treatment" modelAttribute="treatment" path="/treatments" render="${empty dependencies}" z="o4MYp0dijPYkMgj36JGOvUizk1o=">
-        <field:simple field="drugTreatments" id="c_org_neerogi_domain_Treatment_drugTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Drug Treatment" z="aTrt7rT02AtXDvOsILN6Bh9WfhM="/>
-        <field:simple field="procedureTreatments" id="c_org_neerogi_domain_Treatment_procedureTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Procedure Treatment" z="qfV+dpa7BjKzLVi2yCaJzoZgJ3Y="/>
-        <field:select field="conditionId" id="c_org_neerogi_domain_Treatment_conditionId" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="z86LichIm6oBmde0M4wzO0D+OJQ="/>
+        <field:simple field="drugTreatments" id="c_org_neerogi_domain_Treatment_drugTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Drug Treatment" render="false" z="user-managed"/>
+        <field:simple field="procedureTreatments" id="c_org_neerogi_domain_Treatment_procedureTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Procedure Treatment" render="false" z="user-managed"/>
+        <field:select field="medicalCondition" id="c_org_neerogi_domain_Treatment_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="DsXE45prjct+u4QB29CMX6jKngA="/>
         <field:input field="name" id="c_org_neerogi_domain_Treatment_name" required="true" z="4OYjOclC9sUiSyfun2BuOlIvMag="/>
-        <field:input field="description" id="c_org_neerogi_domain_Treatment_description" z="ZbM70vvzbYLxFk0rWKyQ/MhZKJk="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_Treatment_description" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_Treatment" render="${not empty dependencies}" z="MjbFxOZf2TeTb5IGQfEW9nA4LaA="/>
 </div>

@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_ProcedureTreatment" object="${proceduretreatment}" path="/proceduretreatments" z="XczkoEmWBP86VDoJALiRPamzGxE=">
-        <field:display field="treatmentId" id="s_org_neerogi_domain_ProcedureTreatment_treatmentId" object="${proceduretreatment}" z="rfZSiEQnKtcOMXswMHmrV/g9uoo="/>
+        <field:display field="treatment" id="s_org_neerogi_domain_ProcedureTreatment_treatment" object="${proceduretreatment}" z="jS+VXEYx7Nm0Sz1nODckQ8a4Wtc="/>
         <field:display field="name" id="s_org_neerogi_domain_ProcedureTreatment_name" object="${proceduretreatment}" z="Kr+Vjaxf/EeTrbeBxfOY2WnsRd4="/>
         <field:display field="description" id="s_org_neerogi_domain_ProcedureTreatment_description" object="${proceduretreatment}" z="xTzR35YfZsIs4/Y7Rxd2kh5f1bM="/>
         <field:display field="duration" id="s_org_neerogi_domain_ProcedureTreatment_duration" object="${proceduretreatment}" z="zKJTQx3+RNrHbZJYuCNj2QFs7Eg="/>

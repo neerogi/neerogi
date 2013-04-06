@@ -3,8 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_Allergy" modelAttribute="allergy" path="/allergys" versionField="none" z="WgF/H7WjaZthhUSppIR8ZrRVw/g=">
-        <field:select field="patientId" id="c_org_neerogi_domain_Allergy_patientId" itemValue="id" items="${patients}" path="/patients" z="wFCBd/Q8c0/iNMgiW4EJF1JGKYQ="/>
-        <field:input field="type" id="c_org_neerogi_domain_Allergy_type" required="true" z="V3XszxvYJ4Jf4nb1F3Q5Nddsdvk="/>
+        <field:select field="patient" id="c_org_neerogi_domain_Allergy_patient" itemValue="id" items="${patients}" path="/patients" z="zn4Qz0DQseH40YIJ9K/ckKOxO8M="/>
+        <field:select field="allergyType" id="c_org_neerogi_domain_Allergy_allergyType" itemValue="id" items="${allergytypes}" path="/allergytypes" z="gVVyOI1nsbKDf9bpZ4kyvJBOnP0="/>
         <field:input field="description" id="c_org_neerogi_domain_Allergy_description" z="icnj0nJ4qUDUH1he6+v4M9uHKBY="/>
     </form:update>
 </div>

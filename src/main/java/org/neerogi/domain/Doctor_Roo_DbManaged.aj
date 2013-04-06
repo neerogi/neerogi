@@ -12,7 +12,7 @@ import org.neerogi.domain.Doctor;
 
 privileged aspect Doctor_Roo_DbManaged {
     
-    @OneToMany(mappedBy = "doctorId")
+    @OneToMany(mappedBy = "doctor")
     private Set<Consultation> Doctor.consultations;
     
     @Column(name = "designation", length = 1000)
