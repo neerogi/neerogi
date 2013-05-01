@@ -11,7 +11,7 @@
         <field:select field="medicalConditionSubType" id="c_org_neerogi_domain_MedicalCondition_medicalConditionSubType" itemValue="id" items="${medicalconditionsubtypes}" path="/medicalconditionsubtypes" z="32iDgkeXx/Mg9DEQavpoUfUP7kE="/>
         <field:select field="consultation" id="c_org_neerogi_domain_MedicalCondition_consultation" itemValue="id" items="${consultations}" path="/consultations" z="TV3Ce79fdHthkc+JRv83ftnEWj0="/>
         <field:input field="name" id="c_org_neerogi_domain_MedicalCondition_name" required="true" z="EpNMGepEapVSUMJo2Me+V0M8/DQ="/>
-        <field:input field="description" id="c_org_neerogi_domain_MedicalCondition_description" z="BX9ToCIkb2cuTLi9HLWnoEu2eNw="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_MedicalCondition_description" z="user-managed"/>
         <field:datetime dateTimePattern="${medicalCondition_firstsymptomdate_date_format}" field="firstSymptomDate" id="c_org_neerogi_domain_MedicalCondition_firstSymptomDate" z="pGoFasp+l79PcqFdI+9LKx54rao="/>
         <field:datetime dateTimePattern="${medicalCondition_lastsymptomdate_date_format}" field="lastSymptomDate" id="c_org_neerogi_domain_MedicalCondition_lastSymptomDate" z="fwZCceMI5ViY3PclzDBY/wuEggY="/>
         <field:checkbox field="followUp" id="c_org_neerogi_domain_MedicalCondition_followUp" z="D7Jn+P2Ol3hVaK7+ZjGK26w57h8="/>
