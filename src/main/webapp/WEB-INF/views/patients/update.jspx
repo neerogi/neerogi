@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_Patient" modelAttribute="patient" path="/patients" versionField="none" z="6fYgI9D3z71GXGI1RQIWHNqddyA=">
-        <field:simple field="allergies" id="c_org_neerogi_domain_Patient_allergies" messageCode="entity_reference_not_managed" messageCodeAttribute="Allergy" z="z67NgGPEDu9EKg3Sz055Dj2eFUE="/>
-        <field:simple field="consultations" id="c_org_neerogi_domain_Patient_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="0XcH7DQL1UdK4uSo9w5lC+kwilY="/>
-        <field:simple field="medicalConditions" id="c_org_neerogi_domain_Patient_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" z="Dy4QUYnEmDITXfnn0cFGF2k8Oao="/>
-        <field:simple field="socialHistories" id="c_org_neerogi_domain_Patient_socialHistories" messageCode="entity_reference_not_managed" messageCodeAttribute="Social History" z="eX8Ap8dczslRbfSB9HT8FwL6CC4="/>
+        <field:simple field="allergies" id="c_org_neerogi_domain_Patient_allergies" messageCode="entity_reference_not_managed" messageCodeAttribute="Allergy" z="user-managed" render="false"/>
+        <field:simple field="consultations" id="c_org_neerogi_domain_Patient_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="user-managed" render="false"/>
+        <field:simple field="medicalConditions" id="c_org_neerogi_domain_Patient_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" z="user-managed" render="false"/>
+        <field:simple field="socialHistories" id="c_org_neerogi_domain_Patient_socialHistories" messageCode="entity_reference_not_managed" messageCodeAttribute="Social History" z="user-managed" render="false"/>
         <field:input field="name" id="c_org_neerogi_domain_Patient_name" required="true" z="Rdm7l9XKrDtahxcxAcEZ9I71DPI="/>
         <field:input field="address" id="c_org_neerogi_domain_Patient_address" z="EM7ncm0L+KtiBAFYuBqCTnp+0cs="/>
         <field:input field="gender" id="c_org_neerogi_domain_Patient_gender" z="PZTgIQD7p6dNvo445Jzo3EbkYLA="/>

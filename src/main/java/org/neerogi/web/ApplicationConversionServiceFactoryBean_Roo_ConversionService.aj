@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 
+import java.text.SimpleDateFormat;
+
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
@@ -70,14 +72,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.AllergyType>() {
             public org.neerogi.domain.AllergyType convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), AllergyType.class);
-            }
-        };
-    }
-    
-    public Converter<Consultation, String> ApplicationConversionServiceFactoryBean.getConsultationToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Consultation, java.lang.String>() {
-            public String convert(Consultation consultation) {
-                return new StringBuilder().append(consultation.getVisitDate()).toString();
             }
         };
     }

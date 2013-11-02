@@ -3,8 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_MedicalCondition" modelAttribute="medicalCondition" path="/medicalconditions" render="${empty dependencies}" z="J//EDryoh3lLr3PDh+bjHoDPVhc=">
-        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="5kvQudZDMFGI62WKcutwtEBeVFE="/>
-        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="IfEx7D8VCLniIjqZA6+twFGK6dE="/>
+        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="user-managed" render="false" />
+        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="user-managed" render="false" />
         <field:select field="patient" id="c_org_neerogi_domain_MedicalCondition_patient" itemValue="id" items="${patients}" path="/patients" z="UHD5ifW0hmesCEoZGOusWPAznmo="/>
         <field:select field="medicalSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSpeciality" itemValue="id" items="${medicalspecialitys}" path="/medicalspecialitys" z="R5CDxf898/JFzG2eq6KF/XTNK88="/>
         <field:select field="medicalSubSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" itemValue="id" items="${medicalsubspecialitys}" path="/medicalsubspecialitys" z="FPrmqc7kGbaA8WaImZnA8Qhs0G0="/>

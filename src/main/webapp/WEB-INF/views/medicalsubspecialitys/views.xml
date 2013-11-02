@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="medicalsubspecialitys/list">
+        <put-attribute name="body" value="/WEB-INF/views/medicalsubspecialitys/list.jspx"/>
+    </definition>
+<definition extends="default" name="medicalsubspecialitys/show">
+        <put-attribute name="body" value="/WEB-INF/views/medicalsubspecialitys/show.jspx"/>
+    </definition>
+<definition extends="default" name="medicalsubspecialitys/create">
+        <put-attribute name="body" value="/WEB-INF/views/medicalsubspecialitys/create.jspx"/>
+    </definition>
+<definition extends="default" name="medicalsubspecialitys/update">
+        <put-attribute name="body" value="/WEB-INF/views/medicalsubspecialitys/update.jspx"/>
+    </definition>
+</tiles-definitions>

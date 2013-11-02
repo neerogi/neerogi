@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_neerogi_domain_MedicalSubSpeciality" modelAttribute="medicalSubSpeciality" path="/medicalsubspecialitys" versionField="none" z="ovxmPOBI5ne3LqLELNF9fPIsHQQ=">
+        <field:simple field="medicalConditions" id="c_org_neerogi_domain_MedicalSubSpeciality_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" z="user-managed" render="false"/>
+        <field:select field="medicalSpeciality" id="c_org_neerogi_domain_MedicalSubSpeciality_medicalSpeciality" itemValue="id" items="${medicalspecialitys}" path="/medicalspecialitys" z="wyKikweAq6RVD6/QfUk2RRdysPM="/>
+        <field:input field="name" id="c_org_neerogi_domain_MedicalSubSpeciality_name" required="true" z="YUR9VlfNpjpX7lKQGBO5SDFwiIo="/>
+    </form:update>
+</div>
