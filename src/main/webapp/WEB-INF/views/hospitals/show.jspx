@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_Hospital" object="${hospital}" path="/hospitals" z="XU/mU4ZBdlQGN5mD5s3s3+TC66s=">
+        <h3>Hospital</h3>
         <field:display field="name" id="s_org_neerogi_domain_Hospital_name" object="${hospital}" z="jWeuPHf/6Qck/9hlt6E1oJmYkIE="/>
         <field:display field="address" id="s_org_neerogi_domain_Hospital_address" object="${hospital}" z="1XtyjLbM2R4F3b+1ceDvdJmUZZk="/>
         <field:display field="telephone" id="s_org_neerogi_domain_Hospital_telephone" object="${hospital}" z="c/l54o9a3Hjv9bW427MDjZYTZNA="/>
         <field:display field="fax" id="s_org_neerogi_domain_Hospital_fax" object="${hospital}" z="cOhtpr0wlhZLqzwUxfAilxqtGlw="/>
         <field:display field="email" id="s_org_neerogi_domain_Hospital_email" object="${hospital}" z="X4gpUiyPZsopXO7Ir7vDGOEkLtw="/>
+
+        <h3>Doctors</h3>
+        <table:table data="${hospital.doctors}" id="l_org_neerogi_domain_Doctor" path="/doctors" z="user-managed">
+            <table:column id="c_org_neerogi_domain_Doctor_designation" property="designation" z="user-managed"/>
+            <table:column id="c_org_neerogi_domain_Doctor_name" property="name" z="user-managed"/>
+            <table:column id="c_org_neerogi_domain_Doctor_specialization" property="specialization" z="user-managed"/>
+        </table:table>
     </page:show>
 </div>

@@ -10,7 +10,7 @@ import org.neerogi.domain.Allergy;
 privileged aspect Allergy_Roo_ToString {
     
     public String Allergy.toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("patient", "allergyType").toString();
     }
     
 }

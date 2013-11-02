@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.neerogi.domain.Consultation;
 import org.neerogi.domain.Doctor;
-import org.neerogi.domain.Hospital;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.Patient;
 import org.neerogi.web.ConsultationController;
@@ -100,7 +99,6 @@ privileged aspect ConsultationController_Roo_Controller {
         uiModel.addAttribute("consultation", consultation);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("doctors", Doctor.findAllDoctors());
-        uiModel.addAttribute("hospitals", Hospital.findAllHospitals());
         uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
         uiModel.addAttribute("patients", Patient.findAllPatients());
     }

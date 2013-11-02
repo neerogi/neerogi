@@ -12,5 +12,6 @@
         <field:input field="gender" id="c_org_neerogi_domain_Patient_gender" z="PZTgIQD7p6dNvo445Jzo3EbkYLA="/>
         <field:input field="occupation" id="c_org_neerogi_domain_Patient_occupation" z="pYfqS1u34tM0EwLX6phr0tVda2I="/>
         <field:datetime dateTimePattern="${patient_dateofbirth_date_format}" field="dateOfBirth" id="c_org_neerogi_domain_Patient_dateOfBirth" z="jPqV1wCunCNha4mDUS1dytV5D7g="/>
+        <field:input field="age" id="c_org_neerogi_domain_Patient_age" z="vbjMV22SWoLPpCY0O5q4vsX2d7k="/>
     </form:update>
 </div>

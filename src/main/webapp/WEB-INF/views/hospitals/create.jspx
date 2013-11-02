@@ -3,9 +3,9 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Hospital" modelAttribute="hospital" path="/hospitals" render="${empty dependencies}" z="UZdNofcb2YKzxbxgW+jUA9/zypw=">
-        <field:simple field="consultations" id="c_org_neerogi_domain_Hospital_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" render="false" z="user-managed"/>
+        <field:simple field="doctors" id="c_org_neerogi_domain_Hospital_doctors" messageCode="entity_reference_not_managed" messageCodeAttribute="Doctor" z="user-managed" render="false"/>
         <field:input field="name" id="c_org_neerogi_domain_Hospital_name" required="true" z="x5dwzc+g1IPgNlyBD/U8JBZsrH8="/>
-        <field:textarea field="address" id="c_org_neerogi_domain_Hospital_address" z="user-managed"/>
+        <field:input field="address" id="c_org_neerogi_domain_Hospital_address" z="r9F03xrU6dOvpbNfjjcSSCat0N0="/>
         <field:input field="telephone" id="c_org_neerogi_domain_Hospital_telephone" z="71lGzOhHJv8Wxko3f6tPf92tgtQ="/>
         <field:input field="fax" id="c_org_neerogi_domain_Hospital_fax" z="QlTaZVsDcv8p46oIR5YM+wheQXM="/>
         <field:input field="email" id="c_org_neerogi_domain_Hospital_email" validationMessageCode="field_invalid_email" z="lJT2xmrYmR7PqDWd1t/1vl4ORUQ="/>

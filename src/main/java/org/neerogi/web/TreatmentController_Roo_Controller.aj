@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.neerogi.domain.DrugTreatment;
 import org.neerogi.domain.MedicalCondition;
-import org.neerogi.domain.ProcedureTreatment;
+import org.neerogi.domain.OtherTreatment;
 import org.neerogi.domain.Treatment;
 import org.neerogi.web.TreatmentController;
 import org.springframework.ui.Model;
@@ -91,7 +91,7 @@ privileged aspect TreatmentController_Roo_Controller {
         uiModel.addAttribute("treatment", treatment);
         uiModel.addAttribute("drugtreatments", DrugTreatment.findAllDrugTreatments());
         uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
-        uiModel.addAttribute("proceduretreatments", ProcedureTreatment.findAllProcedureTreatments());
+        uiModel.addAttribute("othertreatments", OtherTreatment.findAllOtherTreatments());
     }
     
     String TreatmentController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

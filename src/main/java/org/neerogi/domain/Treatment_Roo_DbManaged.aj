@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import org.neerogi.domain.DrugTreatment;
 import org.neerogi.domain.MedicalCondition;
-import org.neerogi.domain.ProcedureTreatment;
+import org.neerogi.domain.OtherTreatment;
 import org.neerogi.domain.Treatment;
 
 privileged aspect Treatment_Roo_DbManaged {
@@ -21,7 +21,7 @@ privileged aspect Treatment_Roo_DbManaged {
     private Set<DrugTreatment> Treatment.drugTreatments;
     
     @OneToMany(mappedBy = "treatment", cascade = CascadeType.ALL)
-    private Set<ProcedureTreatment> Treatment.procedureTreatments;
+    private Set<OtherTreatment> Treatment.otherTreatments;
     
     @ManyToOne
     @JoinColumn(name = "medical_condition", referencedColumnName = "id", nullable = false)
@@ -34,6 +34,9 @@ privileged aspect Treatment_Roo_DbManaged {
     @Column(name = "description", length = 1000)
     private String Treatment.description;
     
+    @Column(name = "outcome")
+    private String Treatment.outcome;
+    
     public Set<DrugTreatment> Treatment.getDrugTreatments() {
         return drugTreatments;
     }
@@ -42,12 +45,12 @@ privileged aspect Treatment_Roo_DbManaged {
         this.drugTreatments = drugTreatments;
     }
     
-    public Set<ProcedureTreatment> Treatment.getProcedureTreatments() {
-        return procedureTreatments;
+    public Set<OtherTreatment> Treatment.getOtherTreatments() {
+        return otherTreatments;
     }
     
-    public void Treatment.setProcedureTreatments(Set<ProcedureTreatment> procedureTreatments) {
-        this.procedureTreatments = procedureTreatments;
+    public void Treatment.setOtherTreatments(Set<OtherTreatment> otherTreatments) {
+        this.otherTreatments = otherTreatments;
     }
     
     public MedicalCondition Treatment.getMedicalCondition() {
@@ -72,6 +75,14 @@ privileged aspect Treatment_Roo_DbManaged {
     
     public void Treatment.setDescription(String description) {
         this.description = description;
+    }
+    
+    public String Treatment.getOutcome() {
+        return outcome;
+    }
+    
+    public void Treatment.setOutcome(String outcome) {
+        this.outcome = outcome;
     }
     
 }

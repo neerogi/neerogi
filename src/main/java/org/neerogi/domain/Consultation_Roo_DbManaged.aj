@@ -13,7 +13,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.neerogi.domain.Consultation;
 import org.neerogi.domain.Doctor;
-import org.neerogi.domain.Hospital;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.Patient;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,10 +25,6 @@ privileged aspect Consultation_Roo_DbManaged {
     @ManyToOne
     @JoinColumn(name = "doctor", referencedColumnName = "id", nullable = false)
     private Doctor Consultation.doctor;
-    
-    @ManyToOne
-    @JoinColumn(name = "hospital", referencedColumnName = "id", nullable = false)
-    private Hospital Consultation.hospital;
     
     @ManyToOne
     @JoinColumn(name = "patient", referencedColumnName = "id", nullable = false)
@@ -54,14 +49,6 @@ privileged aspect Consultation_Roo_DbManaged {
     
     public void Consultation.setDoctor(Doctor doctor) {
         this.doctor = doctor;
-    }
-    
-    public Hospital Consultation.getHospital() {
-        return hospital;
-    }
-    
-    public void Consultation.setHospital(Hospital hospital) {
-        this.hospital = hospital;
     }
     
     public Patient Consultation.getPatient() {

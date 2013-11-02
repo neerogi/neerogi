@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_domain_FollowUp" object="${followup}" path="/followups" z="RW1AZhrywTuR09zKfzBGuxzUGA0=">
-        <field:display field="medicalCondition" id="s_org_neerogi_domain_FollowUp_medicalCondition" object="${followup}" z="AfMGzeS5cOtUeiLVjSuQuQKxYyc="/>
-        <field:display field="followUpConditionId" id="s_org_neerogi_domain_FollowUp_followUpConditionId" object="${followup}" z="07kzRGkH04Sk7k9LdPoAODiXr2I="/>
-    </page:show>
-</div>

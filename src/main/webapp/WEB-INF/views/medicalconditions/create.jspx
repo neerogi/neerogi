@@ -3,18 +3,20 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_MedicalCondition" modelAttribute="medicalCondition" path="/medicalconditions" render="${empty dependencies}" z="J//EDryoh3lLr3PDh+bjHoDPVhc=">
-        <field:simple field="followUps" id="c_org_neerogi_domain_MedicalCondition_followUps" messageCode="entity_reference_not_managed" messageCodeAttribute="Follow Up" render="false" z="user-managed"/>
-        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" render="false" z="user-managed"/>
-        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" render="false" z="user-managed"/>
+        <field:simple field="investigations" id="c_org_neerogi_domain_MedicalCondition_investigations" messageCode="entity_reference_not_managed" messageCodeAttribute="Investigation" z="5kvQudZDMFGI62WKcutwtEBeVFE="/>
+        <field:simple field="treatments" id="c_org_neerogi_domain_MedicalCondition_treatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Treatment" z="IfEx7D8VCLniIjqZA6+twFGK6dE="/>
         <field:select field="patient" id="c_org_neerogi_domain_MedicalCondition_patient" itemValue="id" items="${patients}" path="/patients" z="UHD5ifW0hmesCEoZGOusWPAznmo="/>
-        <field:select field="medicalConditionType" id="c_org_neerogi_domain_MedicalCondition_medicalConditionType" itemValue="id" items="${medicalconditiontypes}" path="/medicalconditiontypes" z="vQE6jhaHftK9/6WzbBTwoI4nfQk="/>
-        <field:select field="medicalConditionSubType" id="c_org_neerogi_domain_MedicalCondition_medicalConditionSubType" itemValue="id" items="${medicalconditionsubtypes}" path="/medicalconditionsubtypes" z="32iDgkeXx/Mg9DEQavpoUfUP7kE="/>
+        <field:select field="medicalSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSpeciality" itemValue="id" items="${medicalspecialitys}" path="/medicalspecialitys" z="R5CDxf898/JFzG2eq6KF/XTNK88="/>
+        <field:select field="medicalSubSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" itemValue="id" items="${medicalsubspecialitys}" path="/medicalsubspecialitys" z="FPrmqc7kGbaA8WaImZnA8Qhs0G0="/>
         <field:select field="consultation" id="c_org_neerogi_domain_MedicalCondition_consultation" itemValue="id" items="${consultations}" path="/consultations" z="TV3Ce79fdHthkc+JRv83ftnEWj0="/>
-        <field:input field="name" id="c_org_neerogi_domain_MedicalCondition_name" required="true" z="EpNMGepEapVSUMJo2Me+V0M8/DQ="/>
-        <field:textarea field="description" id="c_org_neerogi_domain_MedicalCondition_description" z="user-managed"/>
-        <field:datetime dateTimePattern="${medicalCondition_firstsymptomdate_date_format}" field="firstSymptomDate" id="c_org_neerogi_domain_MedicalCondition_firstSymptomDate" z="pGoFasp+l79PcqFdI+9LKx54rao="/>
-        <field:datetime dateTimePattern="${medicalCondition_lastsymptomdate_date_format}" field="lastSymptomDate" id="c_org_neerogi_domain_MedicalCondition_lastSymptomDate" z="fwZCceMI5ViY3PclzDBY/wuEggY="/>
-        <field:checkbox field="followUp" id="c_org_neerogi_domain_MedicalCondition_followUp" z="D7Jn+P2Ol3hVaK7+ZjGK26w57h8="/>
+        <field:input field="history" id="c_org_neerogi_domain_MedicalCondition_history" z="BpyvIwCXmG/rR1nXLaC8oqly8hM="/>
+        <field:input field="examinationFindings" id="c_org_neerogi_domain_MedicalCondition_examinationFindings" z="vPydUIRkl0OqDOIEq1QNUNqSivo="/>
+        <field:input field="problemsIdentified" id="c_org_neerogi_domain_MedicalCondition_problemsIdentified" z="m3kk3HGoivcDH6NpGIEYV6WzNEk="/>
+        <field:input field="diagnosis" id="c_org_neerogi_domain_MedicalCondition_diagnosis" required="true" z="mUrKSGLH2vpi3lijUXF5dRP0Vxc="/>
+        <field:input field="followUp" id="c_org_neerogi_domain_MedicalCondition_followUp" z="ZT6Zw8cKcoa0fDFxImUjWO9U7mM="/>
+        <field:input field="managementPlan" id="c_org_neerogi_domain_MedicalCondition_managementPlan" z="ed7Oh8aBjbcKeystN/B51m9RP74="/>
+        <field:datetime dateTimePattern="${medicalCondition_dateofadmission_date_format}" field="dateOfAdmission" id="c_org_neerogi_domain_MedicalCondition_dateOfAdmission" z="XQ6SE+RTOekmiyEjmmZCgi0kwlY="/>
+        <field:datetime dateTimePattern="${medicalCondition_dateofdischarge_date_format}" field="dateOfDischarge" id="c_org_neerogi_domain_MedicalCondition_dateOfDischarge" z="/2TePxNijcQnoBOf+ZQNRZiYlY0="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_MedicalCondition" render="${not empty dependencies}" z="t8uhGI1YLkc2A0GXmBoe24T86+w="/>
 </div>

@@ -10,7 +10,7 @@ import org.neerogi.domain.MedicalCondition;
 privileged aspect MedicalCondition_Roo_ToString {
     
     public String MedicalCondition.toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("investigations", "treatments", "patient", "medicalSpeciality", "medicalSubSpeciality", "consultation").toString();
     }
     
 }

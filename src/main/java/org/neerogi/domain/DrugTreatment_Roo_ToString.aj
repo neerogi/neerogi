@@ -10,7 +10,7 @@ import org.neerogi.domain.DrugTreatment;
 privileged aspect DrugTreatment_Roo_ToString {
     
     public String DrugTreatment.toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("treatment").toString();
     }
     
 }

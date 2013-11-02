@@ -7,12 +7,12 @@
     <version>0.1.0.BUILD-SNAPSHOT</version>
     <name>neerogi</name>
     <properties>
-        <aspectj.version>1.7.0</aspectj.version>
+        <aspectj.version>1.7.2</aspectj.version>
         <java.version>1.6</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <roo.version>1.2.3.RELEASE</roo.version>
-        <slf4j.version>1.7.2</slf4j.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <roo.version>1.2.4.RELEASE</roo.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <spring.version>3.2.3.RELEASE</spring.version>
     <spring-security.version>3.1.0.RELEASE</spring-security.version>
     </properties>
     <repositories>
@@ -54,13 +54,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -151,12 +151,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.1.8.Final</version>
+            <version>4.2.2.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.1.8.Final</version>
+            <version>4.2.2.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>cglib</groupId>
@@ -189,11 +189,6 @@
             <version>1.0.0.GA</version>
         </dependency>
         <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <version>2.2.2</version>
-        </dependency>
-        <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
             <version>1.1</version>
@@ -216,7 +211,7 @@
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.3</version>
+            <version>1.4</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -355,8 +350,8 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.2</version>
-                <!-- NB: do not use 1.3 or 1.3.x due to MASPECTJ-90 and do not use 1.4 due to declare parents issue  -->
+                <version>1.4</version>
+                <!-- NB: do not use 1.3 or 1.3.x due to MASPECTJ-90 issue  -->
                 <dependencies>
                     <!-- NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
                     <dependency>
@@ -372,6 +367,7 @@
                 </dependencies>
                 <executions>
                     <execution>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>compile</goal>
                             <goal>test-compile</goal>
@@ -388,6 +384,15 @@
                     </aspectLibraries>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <!--
+                      Aspects in src/main/java and src/main/aspects are added as default in the 
+                      compile goal.
+                      Aspects in src/test/java and src/test/aspects are added as default in the 
+                      test-compile goal.
+                      Aspects in src/main/java are added in the test-compile goal 
+                      if weaveWithAspectsInMainSourceFolder is set to true
+                    -->
+                    <weaveWithAspectsInMainSourceFolder>false</weaveWithAspectsInMainSourceFolder>
                 </configuration>
             </plugin>
             <plugin>

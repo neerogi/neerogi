@@ -50,6 +50,9 @@ privileged aspect Patient_Roo_DbManaged {
     @DateTimeFormat(style = "MM")
     private Calendar Patient.dateOfBirth;
     
+    @Column(name = "age", length = 100)
+    private String Patient.age;
+    
     public Set<Allergy> Patient.getAllergies() {
         return allergies;
     }
@@ -120,6 +123,14 @@ privileged aspect Patient_Roo_DbManaged {
     
     public void Patient.setDateOfBirth(Calendar dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+    
+    public String Patient.getAge() {
+        return age;
+    }
+    
+    public void Patient.setAge(String age) {
+        this.age = age;
     }
     
 }

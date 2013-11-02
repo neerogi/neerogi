@@ -6,7 +6,7 @@ package org.neerogi.web;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.neerogi.domain.Consultation;
+import org.neerogi.domain.Doctor;
 import org.neerogi.domain.Hospital;
 import org.neerogi.web.HospitalController;
 import org.springframework.ui.Model;
@@ -87,7 +87,7 @@ privileged aspect HospitalController_Roo_Controller {
     
     void HospitalController.populateEditForm(Model uiModel, Hospital hospital) {
         uiModel.addAttribute("hospital", hospital);
-        uiModel.addAttribute("consultations", Consultation.findAllConsultations());
+        uiModel.addAttribute("doctors", Doctor.findAllDoctors());
     }
     
     String HospitalController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

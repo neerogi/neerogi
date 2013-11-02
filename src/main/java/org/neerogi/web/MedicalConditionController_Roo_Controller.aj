@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.neerogi.domain.Consultation;
-import org.neerogi.domain.FollowUp;
 import org.neerogi.domain.Investigation;
 import org.neerogi.domain.MedicalCondition;
-import org.neerogi.domain.MedicalConditionSubType;
-import org.neerogi.domain.MedicalConditionType;
+import org.neerogi.domain.MedicalSpeciality;
+import org.neerogi.domain.MedicalSubSpeciality;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.Treatment;
 import org.neerogi.web.MedicalConditionController;
@@ -96,18 +95,17 @@ privileged aspect MedicalConditionController_Roo_Controller {
     }
     
     void MedicalConditionController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("medicalCondition_firstsymptomdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("medicalCondition_lastsymptomdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("medicalCondition_dateofadmission_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("medicalCondition_dateofdischarge_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
     }
     
     void MedicalConditionController.populateEditForm(Model uiModel, MedicalCondition medicalCondition) {
         uiModel.addAttribute("medicalCondition", medicalCondition);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("consultations", Consultation.findAllConsultations());
-        uiModel.addAttribute("followups", FollowUp.findAllFollowUps());
         uiModel.addAttribute("investigations", Investigation.findAllInvestigations());
-        uiModel.addAttribute("medicalconditionsubtypes", MedicalConditionSubType.findAllMedicalConditionSubTypes());
-        uiModel.addAttribute("medicalconditiontypes", MedicalConditionType.findAllMedicalConditionTypes());
+        uiModel.addAttribute("medicalspecialitys", MedicalSpeciality.findAllMedicalSpecialitys());
+        uiModel.addAttribute("medicalsubspecialitys", MedicalSubSpeciality.findAllMedicalSubSpecialitys());
         uiModel.addAttribute("patients", Patient.findAllPatients());
         uiModel.addAttribute("treatments", Treatment.findAllTreatments());
     }

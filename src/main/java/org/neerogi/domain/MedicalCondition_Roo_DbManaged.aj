@@ -14,19 +14,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.neerogi.domain.Consultation;
-import org.neerogi.domain.FollowUp;
 import org.neerogi.domain.Investigation;
 import org.neerogi.domain.MedicalCondition;
-import org.neerogi.domain.MedicalConditionSubType;
-import org.neerogi.domain.MedicalConditionType;
+import org.neerogi.domain.MedicalSpeciality;
+import org.neerogi.domain.MedicalSubSpeciality;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.Treatment;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect MedicalCondition_Roo_DbManaged {
-    
-    @OneToMany(mappedBy = "medicalCondition", cascade = CascadeType.REMOVE)
-    private Set<FollowUp> MedicalCondition.followUps;
     
     @OneToMany(mappedBy = "medicalCondition", cascade = CascadeType.ALL)
     private Set<Investigation> MedicalCondition.investigations;
@@ -39,41 +35,45 @@ privileged aspect MedicalCondition_Roo_DbManaged {
     private Patient MedicalCondition.patient;
     
     @ManyToOne
-    @JoinColumn(name = "medical_condition_type", referencedColumnName = "id", nullable = false)
-    private MedicalConditionType MedicalCondition.medicalConditionType;
+    @JoinColumn(name = "medical_speciality", referencedColumnName = "id", nullable = false)
+    private MedicalSpeciality MedicalCondition.medicalSpeciality;
     
     @ManyToOne
-    @JoinColumn(name = "medical_condition_sub_type", referencedColumnName = "id", nullable = false)
-    private MedicalConditionSubType MedicalCondition.medicalConditionSubType;
+    @JoinColumn(name = "medical_sub_speciality", referencedColumnName = "id", nullable = false)
+    private MedicalSubSpeciality MedicalCondition.medicalSubSpeciality;
     
     @ManyToOne
     @JoinColumn(name = "consultation", referencedColumnName = "id", nullable = false)
     private Consultation MedicalCondition.consultation;
     
-    @Column(name = "name", length = 1000)
+    @Column(name = "history")
+    private String MedicalCondition.history;
+    
+    @Column(name = "examination_findings")
+    private String MedicalCondition.examinationFindings;
+    
+    @Column(name = "problems_identified")
+    private String MedicalCondition.problemsIdentified;
+    
+    @Column(name = "diagnosis", length = 1000)
     @NotNull
-    private String MedicalCondition.name;
+    private String MedicalCondition.diagnosis;
     
-    @Column(name = "description")
-    private String MedicalCondition.description;
+    @Column(name = "follow_up", length = 1000)
+    private String MedicalCondition.followUp;
     
-    @Column(name = "first_symptom_date")
+    @Column(name = "management_plan")
+    private String MedicalCondition.managementPlan;
+    
+    @Column(name = "date_of_admission")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "MM")
-    private Calendar MedicalCondition.firstSymptomDate;
+    private Calendar MedicalCondition.dateOfAdmission;
     
-    @Column(name = "last_symptom_date")
+    @Column(name = "date_of_discharge")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "MM")
-    private Calendar MedicalCondition.lastSymptomDate;
-    
-    public Set<FollowUp> MedicalCondition.getFollowUps() {
-        return followUps;
-    }
-    
-    public void MedicalCondition.setFollowUps(Set<FollowUp> followUps) {
-        this.followUps = followUps;
-    }
+    private Calendar MedicalCondition.dateOfDischarge;
     
     public Set<Investigation> MedicalCondition.getInvestigations() {
         return investigations;
@@ -99,20 +99,20 @@ privileged aspect MedicalCondition_Roo_DbManaged {
         this.patient = patient;
     }
     
-    public MedicalConditionType MedicalCondition.getMedicalConditionType() {
-        return medicalConditionType;
+    public MedicalSpeciality MedicalCondition.getMedicalSpeciality() {
+        return medicalSpeciality;
     }
     
-    public void MedicalCondition.setMedicalConditionType(MedicalConditionType medicalConditionType) {
-        this.medicalConditionType = medicalConditionType;
+    public void MedicalCondition.setMedicalSpeciality(MedicalSpeciality medicalSpeciality) {
+        this.medicalSpeciality = medicalSpeciality;
     }
     
-    public MedicalConditionSubType MedicalCondition.getMedicalConditionSubType() {
-        return medicalConditionSubType;
+    public MedicalSubSpeciality MedicalCondition.getMedicalSubSpeciality() {
+        return medicalSubSpeciality;
     }
     
-    public void MedicalCondition.setMedicalConditionSubType(MedicalConditionSubType medicalConditionSubType) {
-        this.medicalConditionSubType = medicalConditionSubType;
+    public void MedicalCondition.setMedicalSubSpeciality(MedicalSubSpeciality medicalSubSpeciality) {
+        this.medicalSubSpeciality = medicalSubSpeciality;
     }
     
     public Consultation MedicalCondition.getConsultation() {
@@ -123,36 +123,68 @@ privileged aspect MedicalCondition_Roo_DbManaged {
         this.consultation = consultation;
     }
     
-    public String MedicalCondition.getName() {
-        return name;
+    public String MedicalCondition.getHistory() {
+        return history;
     }
     
-    public void MedicalCondition.setName(String name) {
-        this.name = name;
+    public void MedicalCondition.setHistory(String history) {
+        this.history = history;
     }
     
-    public String MedicalCondition.getDescription() {
-        return description;
+    public String MedicalCondition.getExaminationFindings() {
+        return examinationFindings;
     }
     
-    public void MedicalCondition.setDescription(String description) {
-        this.description = description;
+    public void MedicalCondition.setExaminationFindings(String examinationFindings) {
+        this.examinationFindings = examinationFindings;
     }
     
-    public Calendar MedicalCondition.getFirstSymptomDate() {
-        return firstSymptomDate;
+    public String MedicalCondition.getProblemsIdentified() {
+        return problemsIdentified;
     }
     
-    public void MedicalCondition.setFirstSymptomDate(Calendar firstSymptomDate) {
-        this.firstSymptomDate = firstSymptomDate;
+    public void MedicalCondition.setProblemsIdentified(String problemsIdentified) {
+        this.problemsIdentified = problemsIdentified;
     }
     
-    public Calendar MedicalCondition.getLastSymptomDate() {
-        return lastSymptomDate;
+    public String MedicalCondition.getDiagnosis() {
+        return diagnosis;
     }
     
-    public void MedicalCondition.setLastSymptomDate(Calendar lastSymptomDate) {
-        this.lastSymptomDate = lastSymptomDate;
+    public void MedicalCondition.setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+    
+    public String MedicalCondition.getFollowUp() {
+        return followUp;
+    }
+    
+    public void MedicalCondition.setFollowUp(String followUp) {
+        this.followUp = followUp;
+    }
+    
+    public String MedicalCondition.getManagementPlan() {
+        return managementPlan;
+    }
+    
+    public void MedicalCondition.setManagementPlan(String managementPlan) {
+        this.managementPlan = managementPlan;
+    }
+    
+    public Calendar MedicalCondition.getDateOfAdmission() {
+        return dateOfAdmission;
+    }
+    
+    public void MedicalCondition.setDateOfAdmission(Calendar dateOfAdmission) {
+        this.dateOfAdmission = dateOfAdmission;
+    }
+    
+    public Calendar MedicalCondition.getDateOfDischarge() {
+        return dateOfDischarge;
+    }
+    
+    public void MedicalCondition.setDateOfDischarge(Calendar dateOfDischarge) {
+        this.dateOfDischarge = dateOfDischarge;
     }
     
 }

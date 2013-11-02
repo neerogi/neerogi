@@ -5,6 +5,6 @@
     <form:update id="fu_org_neerogi_domain_SocialHistory" modelAttribute="socialHistory" path="/socialhistorys" versionField="none" z="o0A4D3fjCjNGmlG9gldUY4ND4+g=">
         <field:select field="patient" id="c_org_neerogi_domain_SocialHistory_patient" itemValue="id" items="${patients}" path="/patients" z="fjt2F+k/aY1SoUN1BIZzBazovVY="/>
         <field:input field="type" id="c_org_neerogi_domain_SocialHistory_type" required="true" z="1AcTdB6zRk+SrA5Rgp6JTCuGAQ0="/>
-        <field:textarea field="description" id="c_org_neerogi_domain_SocialHistory_description" z="user-managed"/>
+        <field:input field="description" id="c_org_neerogi_domain_SocialHistory_description" z="/DlH1PRfSJQAVlwZSRXrVcDEDbk="/>
     </form:update>
 </div>

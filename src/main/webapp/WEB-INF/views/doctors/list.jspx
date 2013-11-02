@@ -4,9 +4,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_Doctor" items="${doctors}" z="VZn7Np2K89eon9wcFBESq1pQvuA=">
         <table:table data="${doctors}" id="l_org_neerogi_domain_Doctor" path="/doctors" z="2zOUP5gGxxXuyRSmQq0aQagKvJM=">
+            <table:column id="c_org_neerogi_domain_Doctor_hospital" property="hospital" z="6RRAsdoOm2MzersCJ2khBpgkka4="/>
             <table:column id="c_org_neerogi_domain_Doctor_designation" property="designation" z="eKxujGL9V/rzJMz54yy74Seg79w="/>
             <table:column id="c_org_neerogi_domain_Doctor_name" property="name" z="iNt79jgRPkf0RNTPdUS9WXhAvno="/>
-            <table:column id="c_org_neerogi_domain_Doctor_registrationNo" property="registrationNo" z="Ooll8icOyiGAdOxDZvOJ3bicUzA="/>
+            <table:column id="c_org_neerogi_domain_Doctor_specialization" property="specialization" z="0FLTAPT7TpWwKrsK/gOP6hNTfjs="/>
         </table:table>
     </page:list>
 </div>

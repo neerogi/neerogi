@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_Consultation" object="${consultation}" path="/consultations" z="AzFmnw+8z2QxK9eEbWLKyXQ553s=">
-        <field:display field="patient" id="s_org_neerogi_domain_Consultation_patient" object="${consultation}" z="qPFmBwGzzXVzSuw53YjkvGQQLwI="/>
         <field:display field="doctor" id="s_org_neerogi_domain_Consultation_doctor" object="${consultation}" z="nygKe2iqvyQfFdlohacfeUswUM8="/>
-        <field:display field="hospital" id="s_org_neerogi_domain_Consultation_hospital" object="${consultation}" z="ozpt+Z/FyijJmSeWzk4eHiA9AaA="/>
+        <field:display field="patient" id="s_org_neerogi_domain_Consultation_patient" object="${consultation}" z="qPFmBwGzzXVzSuw53YjkvGQQLwI="/>
         <field:display calendar="true" dateTimePattern="${consultation_visitdate_date_format}" field="visitDate" id="s_org_neerogi_domain_Consultation_visitDate" object="${consultation}" z="9u+nI1O55t88y80uys8Gclfr0SY="/>
-        
-        <!-- Medical conditions did not populate -->
     </page:show>
 </div>

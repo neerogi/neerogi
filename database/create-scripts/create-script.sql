@@ -1,6 +1,6 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 CREATE SCHEMA IF NOT EXISTS `neerogi` DEFAULT CHARACTER SET latin1 ;
 USE `neerogi` ;
@@ -15,6 +15,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`patient` (
   `gender` VARCHAR(1000) NULL DEFAULT NULL ,
   `occupation` VARCHAR(1000) NULL DEFAULT NULL ,
   `date_of_birth` DATETIME NULL DEFAULT NULL ,
+  `age` VARCHAR(100) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
@@ -39,6 +40,8 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`allergy` (
   `allergy_type` INT(11) NOT NULL ,
   `description` VARCHAR(1000) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_PatientAllergy` (`patient` ASC) ,
+  INDEX `IX_FK_AllergyAllergyType` (`allergy_type` ASC) ,
   CONSTRAINT `FK_PatientAllergy`
     FOREIGN KEY (`patient` )
     REFERENCES `neerogi`.`patient` (`id` )
@@ -52,15 +55,11 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`allergy` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `IX_FK_PatientAllergy` ON `neerogi`.`allergy` (`patient` ASC) ;
-
-CREATE INDEX `IX_FK_AllergyAllergyType` ON `neerogi`.`allergy` (`allergy_type` ASC) ;
-
 
 -- -----------------------------------------------------
--- Table `neerogi`.`medical_condition_type`
+-- Table `neerogi`.`medical_speciality`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_condition_type` (
+CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_speciality` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(1000) NOT NULL ,
   PRIMARY KEY (`id`) )
@@ -68,33 +67,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `neerogi`.`medical_condition_sub_type`
+-- Table `neerogi`.`medical_sub_speciality`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_condition_sub_type` (
+CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_sub_speciality` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `medical_condition_type` INT(11) NOT NULL ,
+  `medical_speciality` INT(11) NOT NULL ,
   `name` VARCHAR(1000) NOT NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `FK_MedCondSubTypeMedCondType`
-    FOREIGN KEY (`medical_condition_type` )
-    REFERENCES `neerogi`.`medical_condition_type` (`id` )
+  INDEX `IX_FK_MedSubSpecialityMedSpeciality` (`medical_speciality` ASC) ,
+  CONSTRAINT `FK_MedSubSpecialityMedSpeciality`
+    FOREIGN KEY (`medical_speciality` )
+    REFERENCES `neerogi`.`medical_speciality` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-CREATE INDEX `IX_FK_MedCondSubTypeMedCondType` ON `neerogi`.`medical_condition_sub_type` (`medical_condition_type` ASC) ;
-
-
--- -----------------------------------------------------
--- Table `neerogi`.`doctor`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `neerogi`.`doctor` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `designation` VARCHAR(1000) NULL DEFAULT NULL ,
-  `name` VARCHAR(1000) NOT NULL ,
-  `registration_no` VARCHAR(1000) NULL DEFAULT NULL ,
-  PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -115,23 +100,39 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `neerogi`.`doctor`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `neerogi`.`doctor` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `hospital` INT(11) NOT NULL ,
+  `designation` VARCHAR(200) NULL DEFAULT NULL ,
+  `name` VARCHAR(1000) NOT NULL ,
+  `specialization` VARCHAR(200) NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_doctor_hospital1_idx` (`hospital` ASC) ,
+  CONSTRAINT `fk_doctor_hospital1`
+    FOREIGN KEY (`hospital` )
+    REFERENCES `neerogi`.`hospital` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `neerogi`.`consultation`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `neerogi`.`consultation` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `patient` INT(11) NOT NULL ,
-  `hospital` INT(11) NOT NULL ,
   `doctor` INT(11) NOT NULL ,
   `visit_date` DATETIME NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_PatientConsultation` (`patient` ASC) ,
+  INDEX `IX_FK_ConsultationDoctor` (`doctor` ASC) ,
   CONSTRAINT `FK_ConsultationDoctor`
     FOREIGN KEY (`doctor` )
     REFERENCES `neerogi`.`doctor` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `FK_ConsultationHospital`
-    FOREIGN KEY (`hospital` )
-    REFERENCES `neerogi`.`hospital` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_PatientConsultation`
@@ -142,12 +143,6 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`consultation` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `IX_FK_PatientConsultation` ON `neerogi`.`consultation` (`patient` ASC) ;
-
-CREATE INDEX `IX_FK_ConsultationHospital` ON `neerogi`.`consultation` (`hospital` ASC) ;
-
-CREATE INDEX `IX_FK_ConsultationDoctor` ON `neerogi`.`consultation` (`doctor` ASC) ;
-
 
 -- -----------------------------------------------------
 -- Table `neerogi`.`medical_condition`
@@ -155,28 +150,35 @@ CREATE INDEX `IX_FK_ConsultationDoctor` ON `neerogi`.`consultation` (`doctor` AS
 CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_condition` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `patient` INT(11) NOT NULL ,
-  `medical_condition_type` INT(11) NOT NULL ,
-  `medical_condition_sub_type` INT(11) NOT NULL ,
+  `medical_speciality` INT(11) NOT NULL ,
+  `medical_sub_speciality` INT(11) NOT NULL ,
   `consultation` INT(11) NOT NULL ,
-  `name` VARCHAR(1000) NOT NULL ,
-  `description` VARCHAR(4000) NULL ,
-  `first_symptom_date` DATETIME NULL ,
-  `last_symptom_date` DATETIME NULL ,
-  `follow_up` TINYINT(1) NOT NULL ,
+  `history` VARCHAR(4000) NULL ,
+  `examination_findings` VARCHAR(4000) NULL ,
+  `problems_identified` VARCHAR(4000) NULL ,
+  `diagnosis` VARCHAR(1000) NOT NULL ,
+  `follow_up` VARCHAR(1000) NULL ,
+  `management_plan` VARCHAR(4000) NULL ,
+  `date_of_admission` DATETIME NULL ,
+  `date_of_discharge` DATETIME NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_PatientCondition` (`patient` ASC) ,
+  INDEX `IX_FK_MedCondMedSpeciality` (`medical_speciality` ASC) ,
+  INDEX `IX_FK_MedCondMedSubSpeciality` (`medical_sub_speciality` ASC) ,
+  INDEX `IX_FK_MedCondConsultation` (`consultation` ASC) ,
   CONSTRAINT `FK_PatientCondition`
     FOREIGN KEY (`patient` )
     REFERENCES `neerogi`.`patient` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `FK_MedCondMedCondType`
-    FOREIGN KEY (`medical_condition_type` )
-    REFERENCES `neerogi`.`medical_condition_type` (`id` )
+  CONSTRAINT `FK_MedCondMedSpeciality`
+    FOREIGN KEY (`medical_speciality` )
+    REFERENCES `neerogi`.`medical_speciality` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `FK_MedCondMedCondSubType`
-    FOREIGN KEY (`medical_condition_sub_type` )
-    REFERENCES `neerogi`.`medical_condition_sub_type` (`id` )
+  CONSTRAINT `FK_MedCondMedSubSpeciality`
+    FOREIGN KEY (`medical_sub_speciality` )
+    REFERENCES `neerogi`.`medical_sub_speciality` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `FK_MedCondConsultation`
@@ -187,14 +189,6 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_condition` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `IX_FK_PatientCondition` ON `neerogi`.`medical_condition` (`patient` ASC) ;
-
-CREATE INDEX `IX_FK_MedCondMedCondType` ON `neerogi`.`medical_condition` (`medical_condition_type` ASC) ;
-
-CREATE INDEX `IX_FK_MedCondMedCondSubType` ON `neerogi`.`medical_condition` (`medical_condition_sub_type` ASC) ;
-
-CREATE INDEX `IX_FK_MedCondConsultation` ON `neerogi`.`medical_condition` (`consultation` ASC) ;
-
 
 -- -----------------------------------------------------
 -- Table `neerogi`.`treatment`
@@ -204,7 +198,9 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`treatment` (
   `medical_condition` INT(11) NOT NULL ,
   `name` VARCHAR(1000) NOT NULL ,
   `description` VARCHAR(1000) NULL DEFAULT NULL ,
+  `outcome` VARCHAR(4000) NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_TreatmentMedicalCondition` (`medical_condition` ASC) ,
   CONSTRAINT `FK_TreatmentMedicalCondition`
     FOREIGN KEY (`medical_condition` )
     REFERENCES `neerogi`.`medical_condition` (`id` )
@@ -212,8 +208,6 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`treatment` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
-
-CREATE INDEX `IX_FK_TreatmentMedicalCondition` ON `neerogi`.`treatment` (`medical_condition` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -228,6 +222,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`drug_treatment` (
   `frequency` VARCHAR(1000) NULL DEFAULT NULL ,
   `duration` VARCHAR(1000) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_TreatmentDrugTreatment` (`treatment` ASC) ,
   CONSTRAINT `FK_TreatmentDrugTreatment`
     FOREIGN KEY (`treatment` )
     REFERENCES `neerogi`.`treatment` (`id` )
@@ -235,27 +230,6 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`drug_treatment` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
-
-CREATE INDEX `IX_FK_TreatmentDrugTreatment` ON `neerogi`.`drug_treatment` (`treatment` ASC) ;
-
-
--- -----------------------------------------------------
--- Table `neerogi`.`follow_up`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `neerogi`.`follow_up` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `medical_condition` INT(11) NOT NULL ,
-  `follow_up_condition_id` VARCHAR(1000) NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  CONSTRAINT `FK_FollowUpMedicalCondition`
-    FOREIGN KEY (`medical_condition` )
-    REFERENCES `neerogi`.`medical_condition` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-CREATE INDEX `IX_FK_FollowUpMedCond` ON `neerogi`.`follow_up` (`medical_condition` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -269,6 +243,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`investigation` (
   `planned_date` DATETIME NULL DEFAULT NULL ,
   `actual_date` DATETIME NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_InvestigationMedCond` (`medical_condition` ASC) ,
   CONSTRAINT `FK_InvestigationMedicalCondition`
     FOREIGN KEY (`medical_condition` )
     REFERENCES `neerogi`.`medical_condition` (`id` )
@@ -277,19 +252,18 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`investigation` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `IX_FK_InvestigationMedCond` ON `neerogi`.`investigation` (`medical_condition` ASC) ;
-
 
 -- -----------------------------------------------------
--- Table `neerogi`.`procedure_treatment`
+-- Table `neerogi`.`other_treatment`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `neerogi`.`procedure_treatment` (
+CREATE  TABLE IF NOT EXISTS `neerogi`.`other_treatment` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `treatment` INT(11) NOT NULL ,
   `name` VARCHAR(1000) NOT NULL ,
   `description` VARCHAR(1000) NULL DEFAULT NULL ,
   `duration` VARCHAR(1000) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_TreatmentProcedureTreatment` (`treatment` ASC) ,
   CONSTRAINT `FK_TreatmentProcedureTreatment`
     FOREIGN KEY (`treatment` )
     REFERENCES `neerogi`.`treatment` (`id` )
@@ -297,8 +271,6 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`procedure_treatment` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
-
-CREATE INDEX `IX_FK_TreatmentProcedureTreatment` ON `neerogi`.`procedure_treatment` (`treatment` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -310,6 +282,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`social_history` (
   `type` VARCHAR(1000) NOT NULL ,
   `description` VARCHAR(1000) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `IX_FK_PatientSocialHistory` (`patient` ASC) ,
   CONSTRAINT `FK_PatientSocialHistory`
     FOREIGN KEY (`patient` )
     REFERENCES `neerogi`.`patient` (`id` )
@@ -318,8 +291,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`social_history` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE INDEX `IX_FK_PatientSocialHistory` ON `neerogi`.`social_history` (`patient` ASC) ;
-
+USE `neerogi` ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

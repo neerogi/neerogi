@@ -3,9 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_Doctor" modelAttribute="doctor" path="/doctors" versionField="none" z="hnZVrE4Of+3XypyPnxYUKUH/aFQ=">
-        <field:simple field="consultations" id="c_org_neerogi_domain_Doctor_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="aesl4m49CikmDsPfqPxznsbMdYI="/>
+        <field:simple field="consultations" id="c_org_neerogi_domain_Doctor_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="user-managed" render="false"/>
+        <field:select field="hospital" id="c_org_neerogi_domain_Doctor_hospital" itemValue="id" items="${hospitals}" path="/hospitals" z="5aKGLm7ZB+/WONs7YdYpa18J9FQ="/>
         <field:input field="designation" id="c_org_neerogi_domain_Doctor_designation" z="9TMGMqpI9qCQFUgVhFbz5GJUxlg="/>
         <field:input field="name" id="c_org_neerogi_domain_Doctor_name" required="true" z="PhvPYdT/q5bsR78nthB27O/c8Zc="/>
-        <field:input field="registrationNo" id="c_org_neerogi_domain_Doctor_registrationNo" z="caBZPTgSbXX5eCLAj9X8Z+6dSls="/>
+        <field:input field="specialization" id="c_org_neerogi_domain_Doctor_specialization" z="BHzXarOtiFDAhf8ZJzquurnzAtA="/>
     </form:update>
 </div>

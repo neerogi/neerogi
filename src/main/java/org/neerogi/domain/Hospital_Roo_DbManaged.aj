@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-import org.neerogi.domain.Consultation;
+import org.neerogi.domain.Doctor;
 import org.neerogi.domain.Hospital;
 
 privileged aspect Hospital_Roo_DbManaged {
     
     @OneToMany(mappedBy = "hospital")
-    private Set<Consultation> Hospital.consultations;
+    private Set<Doctor> Hospital.doctors;
     
     @Column(name = "name", length = 1000)
     @NotNull
@@ -31,12 +31,12 @@ privileged aspect Hospital_Roo_DbManaged {
     @Column(name = "email", length = 100)
     private String Hospital.email;
     
-    public Set<Consultation> Hospital.getConsultations() {
-        return consultations;
+    public Set<Doctor> Hospital.getDoctors() {
+        return doctors;
     }
     
-    public void Hospital.setConsultations(Set<Consultation> consultations) {
-        this.consultations = consultations;
+    public void Hospital.setDoctors(Set<Doctor> doctors) {
+        this.doctors = doctors;
     }
     
     public String Hospital.getName() {

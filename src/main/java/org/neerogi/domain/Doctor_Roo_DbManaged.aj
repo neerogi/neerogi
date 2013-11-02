@@ -5,25 +5,32 @@ package org.neerogi.domain;
 
 import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import org.neerogi.domain.Consultation;
 import org.neerogi.domain.Doctor;
+import org.neerogi.domain.Hospital;
 
 privileged aspect Doctor_Roo_DbManaged {
     
     @OneToMany(mappedBy = "doctor")
     private Set<Consultation> Doctor.consultations;
     
-    @Column(name = "designation", length = 1000)
+    @ManyToOne
+    @JoinColumn(name = "hospital", referencedColumnName = "id", nullable = false)
+    private Hospital Doctor.hospital;
+    
+    @Column(name = "designation", length = 200)
     private String Doctor.designation;
     
     @Column(name = "name", length = 1000)
     @NotNull
     private String Doctor.name;
     
-    @Column(name = "registration_no", length = 1000)
-    private String Doctor.registrationNo;
+    @Column(name = "specialization", length = 200)
+    private String Doctor.specialization;
     
     public Set<Consultation> Doctor.getConsultations() {
         return consultations;
@@ -31,6 +38,14 @@ privileged aspect Doctor_Roo_DbManaged {
     
     public void Doctor.setConsultations(Set<Consultation> consultations) {
         this.consultations = consultations;
+    }
+    
+    public Hospital Doctor.getHospital() {
+        return hospital;
+    }
+    
+    public void Doctor.setHospital(Hospital hospital) {
+        this.hospital = hospital;
     }
     
     public String Doctor.getDesignation() {
@@ -49,12 +64,12 @@ privileged aspect Doctor_Roo_DbManaged {
         this.name = name;
     }
     
-    public String Doctor.getRegistrationNo() {
-        return registrationNo;
+    public String Doctor.getSpecialization() {
+        return specialization;
     }
     
-    public void Doctor.setRegistrationNo(String registrationNo) {
-        this.registrationNo = registrationNo;
+    public void Doctor.setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
     
 }

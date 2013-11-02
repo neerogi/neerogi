@@ -7,6 +7,7 @@
             <table:column id="c_org_neerogi_domain_Treatment_medicalCondition" property="medicalCondition" z="/scThaZEbX0pCVEcud/d1MJ0oes="/>
             <table:column id="c_org_neerogi_domain_Treatment_name" property="name" z="/o1Y/T9TjK1zqOImK5UNsqmUW5c="/>
             <table:column id="c_org_neerogi_domain_Treatment_description" property="description" z="L//mUfe8dFm2yGo5yKZYCwtJ5y8="/>
+            <table:column id="c_org_neerogi_domain_Treatment_outcome" property="outcome" z="U3NP7KwRG5mOz0QQYnwmqeAdkGM="/>
         </table:table>
     </page:list>
 </div>

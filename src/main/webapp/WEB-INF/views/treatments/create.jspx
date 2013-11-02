@@ -3,11 +3,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Treatment" modelAttribute="treatment" path="/treatments" render="${empty dependencies}" z="o4MYp0dijPYkMgj36JGOvUizk1o=">
-        <field:simple field="drugTreatments" id="c_org_neerogi_domain_Treatment_drugTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Drug Treatment" render="false" z="user-managed"/>
-        <field:simple field="procedureTreatments" id="c_org_neerogi_domain_Treatment_procedureTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Procedure Treatment" render="false" z="user-managed"/>
+        <field:simple field="drugTreatments" id="c_org_neerogi_domain_Treatment_drugTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Drug Treatment" z="aTrt7rT02AtXDvOsILN6Bh9WfhM="/>
+        <field:simple field="otherTreatments" id="c_org_neerogi_domain_Treatment_otherTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Other Treatment" z="zh5q3aXOQI5YMJuDgrcX8punD3M="/>
         <field:select field="medicalCondition" id="c_org_neerogi_domain_Treatment_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="DsXE45prjct+u4QB29CMX6jKngA="/>
         <field:input field="name" id="c_org_neerogi_domain_Treatment_name" required="true" z="4OYjOclC9sUiSyfun2BuOlIvMag="/>
-        <field:textarea field="description" id="c_org_neerogi_domain_Treatment_description" z="user-managed"/>
+        <field:input field="description" id="c_org_neerogi_domain_Treatment_description" z="ZbM70vvzbYLxFk0rWKyQ/MhZKJk="/>
+        <field:input field="outcome" id="c_org_neerogi_domain_Treatment_outcome" z="XrH5VQjS/Cdj33X3kQybqc18QQg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_Treatment" render="${not empty dependencies}" z="MjbFxOZf2TeTb5IGQfEW9nA4LaA="/>
 </div>

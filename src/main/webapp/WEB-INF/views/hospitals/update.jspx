@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_neerogi_domain_Hospital" modelAttribute="hospital" path="/hospitals" versionField="none" z="J+60Rs9lG01Xs/m9Ne6UA+U1pbM=">
-        <field:simple field="consultations" id="c_org_neerogi_domain_Hospital_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" z="/EDLTUHlqv0/c/Yq3JMO6EVx9/Q="/>
+        <field:simple field="doctors" id="c_org_neerogi_domain_Hospital_doctors" messageCode="entity_reference_not_managed" messageCodeAttribute="Doctor" z="d65i7z1DuDZKiUpTEF22Az2sZHg="/>
         <field:input field="name" id="c_org_neerogi_domain_Hospital_name" required="true" z="x5dwzc+g1IPgNlyBD/U8JBZsrH8="/>
         <field:input field="address" id="c_org_neerogi_domain_Hospital_address" z="r9F03xrU6dOvpbNfjjcSSCat0N0="/>
         <field:input field="telephone" id="c_org_neerogi_domain_Hospital_telephone" z="71lGzOhHJv8Wxko3f6tPf92tgtQ="/>

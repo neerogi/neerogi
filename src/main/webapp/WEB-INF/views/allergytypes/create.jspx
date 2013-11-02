@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_AllergyType" modelAttribute="allergyType" path="/allergytypes" render="${empty dependencies}" z="rYl96oZbXYGUJ9TuB1PLRO221Qo=">
-        <field:simple field="allergies" id="c_org_neerogi_domain_AllergyType_allergies" messageCode="entity_reference_not_managed" messageCodeAttribute="Allergy" render="false" z="user-managed"/>
+        <field:simple field="allergies" id="c_org_neerogi_domain_AllergyType_allergies" messageCode="entity_reference_not_managed" messageCodeAttribute="Allergy" z="user-managed" render="false"/>
         <field:input field="name" id="c_org_neerogi_domain_AllergyType_name" z="CCFGZNiqfvDxfu3CgCxxNJfIQtU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_AllergyType" render="${not empty dependencies}" z="cRNJam3iKK/7f0c0nQfpmwVZgSA="/>

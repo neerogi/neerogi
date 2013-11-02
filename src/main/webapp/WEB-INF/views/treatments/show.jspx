@@ -6,5 +6,6 @@
         <field:display field="medicalCondition" id="s_org_neerogi_domain_Treatment_medicalCondition" object="${treatment}" z="KwgD0GI0GZyzb15LY9tSNN9Vcpc="/>
         <field:display field="name" id="s_org_neerogi_domain_Treatment_name" object="${treatment}" z="ORb4r2TIcsRIDivCddNyh4wbVeQ="/>
         <field:display field="description" id="s_org_neerogi_domain_Treatment_description" object="${treatment}" z="AWcVn+VUtrltXMpS9oT3lGtgDdY="/>
+        <field:display field="outcome" id="s_org_neerogi_domain_Treatment_outcome" object="${treatment}" z="+B2jaf800uIDMkcaTb96fPcCoQg="/>
     </page:show>
 </div>

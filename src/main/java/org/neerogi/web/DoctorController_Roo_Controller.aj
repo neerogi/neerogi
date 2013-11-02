@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.neerogi.domain.Consultation;
 import org.neerogi.domain.Doctor;
+import org.neerogi.domain.Hospital;
 import org.neerogi.web.DoctorController;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -88,6 +89,7 @@ privileged aspect DoctorController_Roo_Controller {
     void DoctorController.populateEditForm(Model uiModel, Doctor doctor) {
         uiModel.addAttribute("doctor", doctor);
         uiModel.addAttribute("consultations", Consultation.findAllConsultations());
+        uiModel.addAttribute("hospitals", Hospital.findAllHospitals());
     }
     
     String DoctorController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
