@@ -19,4 +19,32 @@
         <field:textarea field="managementPlan" id="c_org_neerogi_domain_MedicalCondition_managementPlan" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_MedicalCondition" render="${not empty dependencies}" z="t8uhGI1YLkc2A0GXmBoe24T86+w="/>
+
+    <script language="javascript">
+
+        // DOM is ready
+        dojo.addOnLoad(function(){
+
+            // Fetch consultations for the selected patient
+            var patientId = dijit.byId("_patient_id");
+            var consultationId = dojo.byId("_c_org_neerogi_domain_MedicalCondition_consultation_id");
+            dojo.connect(patientId,"onChange",function(evt){
+                dojo.xhrPost({
+                    url: "consultations/listByPatient",
+                    timeout: 2000,
+                    content: {
+                        patientId :  dojo.trim(patientId.value)
+                    },
+                    handleAs: "text",
+                    load: function(result){
+                        consultationId.innerHTML = "" + result;
+                        Spring.addDecoration(new Spring.ElementDecoration({elementId : '_consultation_id',
+                                                                           widgetType: 'dijit.form.FilteringSelect',
+                                                                           widgetAttrs : {hasDownArrow : true}}));
+                    }
+                });
+            });
+        });
+
+    </script>
 </div>

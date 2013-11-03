@@ -11,8 +11,8 @@
         <div>
             <field:display field="designation" id="s_org_neerogi_domain_Doctor_designation" object="${doctor}" z="yj5/WVZo6PqvDJACWdvjqgobRiU="/>
             <field:display field="name" id="s_org_neerogi_domain_Doctor_name" object="${doctor}" z="WBXj6speaF2fiqqzHK7YT5zdGXI="/>
+            <field:display field="hospital" id="s_org_neerogi_domain_Doctor_hospital" object="${doctor}" z="YcKSh5BO0obt+KqnldNoUkS2Xnw="/>
+            <field:display field="specialization" id="s_org_neerogi_domain_Doctor_specialization" object="${doctor}" z="VS7dj6ieLpiQlKBw4lm+pGhH7A0="/>
         </div>
-        <field:display field="hospital" id="s_org_neerogi_domain_Doctor_hospital" object="${doctor}" z="YcKSh5BO0obt+KqnldNoUkS2Xnw="/>
-        <field:display field="specialization" id="s_org_neerogi_domain_Doctor_specialization" object="${doctor}" z="VS7dj6ieLpiQlKBw4lm+pGhH7A0="/>
     </page:show>
 </div>

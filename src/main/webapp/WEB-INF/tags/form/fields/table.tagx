@@ -11,6 +11,7 @@
   <jsp:directive.attribute name="delete" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Include 'delete' link into table (default true)" />
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+  <jsp:directive.attribute name="parent_id" type="java.lang.String" required="false" rtexprvalue="true" description="Parent entity identity" />
 
   <c:if test="${empty render or render}">
 
@@ -144,6 +145,9 @@
         <td colspan="${colCounter}">
           <c:if test="${empty create or create}">
             <span class="new">
+              <c:if test="${not empty parent_id}">
+                <c:set var="path" value="${path}?parent_id=${parent_id}" />
+              </c:if>
               <spring:url value="${path}" var="create_url">
                 <spring:param name="form" />
               </spring:url>

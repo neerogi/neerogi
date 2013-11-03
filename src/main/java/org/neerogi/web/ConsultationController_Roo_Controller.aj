@@ -24,23 +24,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect ConsultationController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String ConsultationController.create(@Valid Consultation consultation, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, consultation);
-            return "consultations/create";
-        }
-        uiModel.asMap().clear();
-        consultation.persist();
-        return "redirect:/consultations/" + encodeUrlPathSegment(consultation.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String ConsultationController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Consultation());
-        return "consultations/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String ConsultationController.show(@PathVariable("id") Integer id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
@@ -64,23 +47,6 @@ privileged aspect ConsultationController_Roo_Controller {
         return "consultations/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String ConsultationController.update(@Valid Consultation consultation, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, consultation);
-            return "consultations/update";
-        }
-        uiModel.asMap().clear();
-        consultation.merge();
-        return "redirect:/consultations/" + encodeUrlPathSegment(consultation.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String ConsultationController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, Consultation.findConsultation(id));
-        return "consultations/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String ConsultationController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Consultation consultation = Consultation.findConsultation(id);
@@ -93,14 +59,6 @@ privileged aspect ConsultationController_Roo_Controller {
     
     void ConsultationController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("consultation_visitdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-    }
-    
-    void ConsultationController.populateEditForm(Model uiModel, Consultation consultation) {
-        uiModel.addAttribute("consultation", consultation);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("doctors", Doctor.findAllDoctors());
-        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
-        uiModel.addAttribute("patients", Patient.findAllPatients());
     }
     
     String ConsultationController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

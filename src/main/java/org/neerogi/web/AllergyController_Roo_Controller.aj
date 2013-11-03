@@ -21,23 +21,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect AllergyController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String AllergyController.create(@Valid Allergy allergy, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, allergy);
-            return "allergys/create";
-        }
-        uiModel.asMap().clear();
-        allergy.persist();
-        return "redirect:/allergys/" + encodeUrlPathSegment(allergy.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String AllergyController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Allergy());
-        return "allergys/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String AllergyController.show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("allergy", Allergy.findAllergy(id));
@@ -59,23 +42,6 @@ privileged aspect AllergyController_Roo_Controller {
         return "allergys/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String AllergyController.update(@Valid Allergy allergy, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, allergy);
-            return "allergys/update";
-        }
-        uiModel.asMap().clear();
-        allergy.merge();
-        return "redirect:/allergys/" + encodeUrlPathSegment(allergy.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String AllergyController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, Allergy.findAllergy(id));
-        return "allergys/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String AllergyController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Allergy allergy = Allergy.findAllergy(id);
@@ -84,12 +50,6 @@ privileged aspect AllergyController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/allergys";
-    }
-    
-    void AllergyController.populateEditForm(Model uiModel, Allergy allergy) {
-        uiModel.addAttribute("allergy", allergy);
-        uiModel.addAttribute("allergytypes", AllergyType.findAllAllergyTypes());
-        uiModel.addAttribute("patients", Patient.findAllPatients());
     }
     
     String AllergyController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
@@ -102,5 +62,5 @@ privileged aspect AllergyController_Roo_Controller {
         } catch (UnsupportedEncodingException uee) {}
         return pathSegment;
     }
-    
+
 }

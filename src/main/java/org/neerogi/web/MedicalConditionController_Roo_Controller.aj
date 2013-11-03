@@ -27,12 +27,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect MedicalConditionController_Roo_Controller {
     
-    @RequestMapping(params = "form", produces = "text/html")
-    public String MedicalConditionController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new MedicalCondition());
-        return "medicalconditions/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String MedicalConditionController.show(@PathVariable("id") Integer id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
@@ -56,23 +50,6 @@ privileged aspect MedicalConditionController_Roo_Controller {
         return "medicalconditions/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String MedicalConditionController.update(@Valid MedicalCondition medicalCondition, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, medicalCondition);
-            return "medicalconditions/update";
-        }
-        uiModel.asMap().clear();
-        medicalCondition.merge();
-        return "redirect:/medicalconditions/" + encodeUrlPathSegment(medicalCondition.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String MedicalConditionController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, MedicalCondition.findMedicalCondition(id));
-        return "medicalconditions/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String MedicalConditionController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         MedicalCondition medicalCondition = MedicalCondition.findMedicalCondition(id);
@@ -86,17 +63,6 @@ privileged aspect MedicalConditionController_Roo_Controller {
     void MedicalConditionController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("medicalCondition_dateofadmission_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("medicalCondition_dateofdischarge_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-    }
-    
-    void MedicalConditionController.populateEditForm(Model uiModel, MedicalCondition medicalCondition) {
-        uiModel.addAttribute("medicalCondition", medicalCondition);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("consultations", Consultation.findAllConsultations());
-        uiModel.addAttribute("investigations", Investigation.findAllInvestigations());
-        uiModel.addAttribute("medicalspecialitys", MedicalSpeciality.findAllMedicalSpecialitys());
-        uiModel.addAttribute("medicalsubspecialitys", MedicalSubSpeciality.findAllMedicalSubSpecialitys());
-        uiModel.addAttribute("patients", Patient.findAllPatients());
-        uiModel.addAttribute("treatments", Treatment.findAllTreatments());
     }
     
     String MedicalConditionController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

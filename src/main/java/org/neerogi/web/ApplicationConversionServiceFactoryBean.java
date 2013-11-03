@@ -5,14 +5,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.roo.addon.web.mvc.controller.converter.RooConversionService;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.support.HttpRequestHandlerServlet;
-
-import javax.servlet.http.HttpServletRequest;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.SimpleDateFormat;
 
 /**
  * A central place to register application converters and formatters. 
@@ -128,8 +120,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
     public Converter<Consultation, String> getConsultationToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Consultation, java.lang.String>() {
             public String convert(Consultation consultation) {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                String displayText = new StringBuilder().append(format.format(consultation.getVisitDate().getTime())).toString();
+                String displayText = new StringBuilder().append(consultation.getDoctor().getDesignation()).append(" ").append(consultation.getDoctor().getName()).append(" ").append(ApplicationUtil.getSimpleDateFormat().format(consultation.getVisitDate().getTime())).toString();
                 return ApplicationUtil.getEntityLink("consultations", consultation.getId(), displayText);
             }
         };
