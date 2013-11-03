@@ -3,6 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_neerogi_domain_Doctor" object="${doctor}" path="/doctors" z="2+vNc+JFBi4D3OCA/bTuzG31cs4=">
+        <h3>Doctor</h3>
         <div style="float:left">
             <spring:url value="/resources/images/icons/doctor.png" var="doctor_img"/>
             <img alt="patient" src="${doctor_img}"/>

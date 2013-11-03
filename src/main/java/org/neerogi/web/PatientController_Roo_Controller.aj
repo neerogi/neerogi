@@ -12,6 +12,7 @@ import org.neerogi.domain.Consultation;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.SocialHistory;
+import org.neerogi.domain.Title;
 import org.neerogi.web.PatientController;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
@@ -103,6 +104,7 @@ privileged aspect PatientController_Roo_Controller {
         uiModel.addAttribute("consultations", Consultation.findAllConsultations());
         uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
         uiModel.addAttribute("socialhistorys", SocialHistory.findAllSocialHistorys());
+        uiModel.addAttribute("titles", Title.findAllTitles());
     }
     
     String PatientController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

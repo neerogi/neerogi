@@ -10,7 +10,7 @@ import org.neerogi.domain.Patient;
 privileged aspect Patient_Roo_ToString {
     
     public String Patient.toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("allergies", "consultations", "medicalConditions", "socialHistories").toString();
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("allergies", "consultations", "medicalConditions", "socialHistories", "title").toString();
     }
     
 }

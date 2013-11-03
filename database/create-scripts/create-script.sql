@@ -6,17 +6,34 @@ CREATE SCHEMA IF NOT EXISTS `neerogi` DEFAULT CHARACTER SET latin1 ;
 USE `neerogi` ;
 
 -- -----------------------------------------------------
+-- Table `neerogi`.`title`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `neerogi`.`title` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `neerogi`.`patient`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `neerogi`.`patient` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `title` INT NOT NULL ,
   `name` VARCHAR(1000) NOT NULL ,
   `address` VARCHAR(1000) NULL DEFAULT NULL ,
   `gender` VARCHAR(1000) NULL DEFAULT NULL ,
   `occupation` VARCHAR(1000) NULL DEFAULT NULL ,
   `date_of_birth` DATETIME NULL DEFAULT NULL ,
   `age` VARCHAR(100) NULL DEFAULT NULL ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_patient_title1_idx` (`title` ASC) ,
+  CONSTRAINT `fk_patient_title`
+    FOREIGN KEY (`title` )
+    REFERENCES `neerogi`.`title` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 

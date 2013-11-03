@@ -250,12 +250,17 @@
     </table>
     <table name="patient">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="title" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="address" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="gender" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="occupation" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="date_of_birth" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
         <column name="age" primaryKey="false" required="false" scale="0" size="100" type="12,VARCHAR"/>
+        <foreign-key foreignTable="title" name="fk_patient_title" onDelete="none" onUpdate="none">
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="title"/>
+        </foreign-key>
         <foreign-key foreignTable="allergy" name="FK_PatientAllergy" onDelete="cascade" onUpdate="cascade">
             <option key="exported" value="true"/>
             <reference foreign="patient" local="id"/>
@@ -275,6 +280,9 @@
         <unique name="PRIMARY">
             <unique-column name="id"/>
         </unique>
+        <index name="fk_patient_title1_idx">
+            <index-column name="title"/>
+        </index>
     </table>
     <table name="social_history">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
@@ -291,6 +299,17 @@
         <index name="IX_FK_PatientSocialHistory">
             <index-column name="patient"/>
         </index>
+    </table>
+    <table name="title">
+        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="name" primaryKey="false" required="false" scale="0" size="45" type="12,VARCHAR"/>
+        <foreign-key foreignTable="patient" name="fk_patient_title" onDelete="none" onUpdate="none">
+            <option key="exported" value="true"/>
+            <reference foreign="title" local="id"/>
+        </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="id"/>
+        </unique>
     </table>
     <table name="treatment">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>

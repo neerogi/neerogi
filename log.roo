@@ -21,3 +21,20 @@ exit
 database reverse engineer --schema neerogi
 exit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-02 21:24:15
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-03 11:55:22
+database reverse engineer --schema neerogi
+web mvc all --package org.neerogi.web
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-03 11:57:28
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-03 11:59:29
+database reverse engineer --schema neerogi
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-03 11:59:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-03 12:31:06
+database reverse engineer --schema neerogi
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-03 12:31:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-03 12:34:02
+web mvc all --package org.neerogi.web
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-03 12:34:26

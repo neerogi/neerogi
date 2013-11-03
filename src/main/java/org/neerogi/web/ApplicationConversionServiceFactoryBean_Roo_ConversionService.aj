@@ -16,25 +16,16 @@ import org.neerogi.domain.MedicalSubSpeciality;
 import org.neerogi.domain.OtherTreatment;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.SocialHistory;
+import org.neerogi.domain.Title;
 import org.neerogi.domain.Treatment;
 import org.neerogi.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 
-import java.text.SimpleDateFormat;
-
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
-    
-    public Converter<Allergy, String> ApplicationConversionServiceFactoryBean.getAllergyToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Allergy, java.lang.String>() {
-            public String convert(Allergy allergy) {
-                return new StringBuilder().append(allergy.getDescription()).toString();
-            }
-        };
-    }
     
     public Converter<Integer, Allergy> ApplicationConversionServiceFactoryBean.getIdToAllergyConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.Allergy>() {
@@ -48,14 +39,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.Allergy>() {
             public org.neerogi.domain.Allergy convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), Allergy.class);
-            }
-        };
-    }
-    
-    public Converter<AllergyType, String> ApplicationConversionServiceFactoryBean.getAllergyTypeToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.AllergyType, java.lang.String>() {
-            public String convert(AllergyType allergyType) {
-                return new StringBuilder().append(allergyType.getName()).toString();
             }
         };
     }
@@ -92,14 +75,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Doctor, String> ApplicationConversionServiceFactoryBean.getDoctorToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Doctor, java.lang.String>() {
-            public String convert(Doctor doctor) {
-                return new StringBuilder().append(doctor.getDesignation()).append(' ').append(doctor.getName()).append(' ').append(doctor.getSpecialization()).toString();
-            }
-        };
-    }
-    
     public Converter<Integer, Doctor> ApplicationConversionServiceFactoryBean.getIdToDoctorConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.Doctor>() {
             public org.neerogi.domain.Doctor convert(java.lang.Integer id) {
@@ -112,14 +87,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.Doctor>() {
             public org.neerogi.domain.Doctor convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), Doctor.class);
-            }
-        };
-    }
-    
-    public Converter<DrugTreatment, String> ApplicationConversionServiceFactoryBean.getDrugTreatmentToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.DrugTreatment, java.lang.String>() {
-            public String convert(DrugTreatment drugTreatment) {
-                return new StringBuilder().append(drugTreatment.getName()).append(' ').append(drugTreatment.getMedicalName()).append(' ').append(drugTreatment.getDose()).append(' ').append(drugTreatment.getFrequency()).toString();
             }
         };
     }
@@ -140,14 +107,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Hospital, String> ApplicationConversionServiceFactoryBean.getHospitalToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Hospital, java.lang.String>() {
-            public String convert(Hospital hospital) {
-                return new StringBuilder().append(hospital.getName()).append(' ').append(hospital.getAddress()).append(' ').append(hospital.getTelephone()).append(' ').append(hospital.getFax()).toString();
-            }
-        };
-    }
-    
     public Converter<Integer, Hospital> ApplicationConversionServiceFactoryBean.getIdToHospitalConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.Hospital>() {
             public org.neerogi.domain.Hospital convert(java.lang.Integer id) {
@@ -160,14 +119,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.Hospital>() {
             public org.neerogi.domain.Hospital convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), Hospital.class);
-            }
-        };
-    }
-    
-    public Converter<Investigation, String> ApplicationConversionServiceFactoryBean.getInvestigationToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Investigation, java.lang.String>() {
-            public String convert(Investigation investigation) {
-                return new StringBuilder().append(investigation.getName()).append(' ').append(investigation.getDescription()).append(' ').append(investigation.getPlannedDate()).append(' ').append(investigation.getActualDate()).toString();
             }
         };
     }
@@ -188,14 +139,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<MedicalCondition, String> ApplicationConversionServiceFactoryBean.getMedicalConditionToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.MedicalCondition, java.lang.String>() {
-            public String convert(MedicalCondition medicalCondition) {
-                return new StringBuilder().append(medicalCondition.getHistory()).append(' ').append(medicalCondition.getExaminationFindings()).append(' ').append(medicalCondition.getProblemsIdentified()).append(' ').append(medicalCondition.getDiagnosis()).toString();
-            }
-        };
-    }
-    
     public Converter<Integer, MedicalCondition> ApplicationConversionServiceFactoryBean.getIdToMedicalConditionConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.MedicalCondition>() {
             public org.neerogi.domain.MedicalCondition convert(java.lang.Integer id) {
@@ -208,14 +151,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.MedicalCondition>() {
             public org.neerogi.domain.MedicalCondition convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), MedicalCondition.class);
-            }
-        };
-    }
-    
-    public Converter<MedicalSpeciality, String> ApplicationConversionServiceFactoryBean.getMedicalSpecialityToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.MedicalSpeciality, java.lang.String>() {
-            public String convert(MedicalSpeciality medicalSpeciality) {
-                return new StringBuilder().append(medicalSpeciality.getName()).toString();
             }
         };
     }
@@ -236,14 +171,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<MedicalSubSpeciality, String> ApplicationConversionServiceFactoryBean.getMedicalSubSpecialityToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.MedicalSubSpeciality, java.lang.String>() {
-            public String convert(MedicalSubSpeciality medicalSubSpeciality) {
-                return new StringBuilder().append(medicalSubSpeciality.getName()).toString();
-            }
-        };
-    }
-    
     public Converter<Integer, MedicalSubSpeciality> ApplicationConversionServiceFactoryBean.getIdToMedicalSubSpecialityConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.MedicalSubSpeciality>() {
             public org.neerogi.domain.MedicalSubSpeciality convert(java.lang.Integer id) {
@@ -256,14 +183,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.MedicalSubSpeciality>() {
             public org.neerogi.domain.MedicalSubSpeciality convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), MedicalSubSpeciality.class);
-            }
-        };
-    }
-    
-    public Converter<OtherTreatment, String> ApplicationConversionServiceFactoryBean.getOtherTreatmentToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.OtherTreatment, java.lang.String>() {
-            public String convert(OtherTreatment otherTreatment) {
-                return new StringBuilder().append(otherTreatment.getName()).append(' ').append(otherTreatment.getDescription()).append(' ').append(otherTreatment.getDuration()).toString();
             }
         };
     }
@@ -284,14 +203,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Patient, String> ApplicationConversionServiceFactoryBean.getPatientToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Patient, java.lang.String>() {
-            public String convert(Patient patient) {
-                return new StringBuilder().append(patient.getName()).append(' ').append(patient.getAddress()).append(' ').append(patient.getGender()).append(' ').append(patient.getOccupation()).toString();
-            }
-        };
-    }
-    
     public Converter<Integer, Patient> ApplicationConversionServiceFactoryBean.getIdToPatientConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.Patient>() {
             public org.neerogi.domain.Patient convert(java.lang.Integer id) {
@@ -304,14 +215,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.Patient>() {
             public org.neerogi.domain.Patient convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), Patient.class);
-            }
-        };
-    }
-    
-    public Converter<SocialHistory, String> ApplicationConversionServiceFactoryBean.getSocialHistoryToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.SocialHistory, java.lang.String>() {
-            public String convert(SocialHistory socialHistory) {
-                return new StringBuilder().append(socialHistory.getType()).append(' ').append(socialHistory.getDescription()).toString();
             }
         };
     }
@@ -332,10 +235,26 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Treatment, String> ApplicationConversionServiceFactoryBean.getTreatmentToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Treatment, java.lang.String>() {
-            public String convert(Treatment treatment) {
-                return new StringBuilder().append(treatment.getName()).append(' ').append(treatment.getDescription()).append(' ').append(treatment.getOutcome()).toString();
+    public Converter<Title, String> ApplicationConversionServiceFactoryBean.getTitleToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.Title, java.lang.String>() {
+            public String convert(Title title) {
+                return new StringBuilder().append(title.getName()).toString();
+            }
+        };
+    }
+    
+    public Converter<Integer, Title> ApplicationConversionServiceFactoryBean.getIdToTitleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.Title>() {
+            public org.neerogi.domain.Title convert(java.lang.Integer id) {
+                return Title.findTitle(id);
+            }
+        };
+    }
+    
+    public Converter<String, Title> ApplicationConversionServiceFactoryBean.getStringToTitleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.Title>() {
+            public org.neerogi.domain.Title convert(String id) {
+                return getObject().convert(getObject().convert(id, Integer.class), Title.class);
             }
         };
     }
@@ -396,6 +315,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSocialHistoryToStringConverter());
         registry.addConverter(getIdToSocialHistoryConverter());
         registry.addConverter(getStringToSocialHistoryConverter());
+        registry.addConverter(getTitleToStringConverter());
+        registry.addConverter(getIdToTitleConverter());
+        registry.addConverter(getStringToTitleConverter());
         registry.addConverter(getTreatmentToStringConverter());
         registry.addConverter(getIdToTreatmentConverter());
         registry.addConverter(getStringToTreatmentConverter());

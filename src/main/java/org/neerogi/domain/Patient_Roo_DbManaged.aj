@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +18,7 @@ import org.neerogi.domain.Consultation;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.SocialHistory;
+import org.neerogi.domain.Title;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Patient_Roo_DbManaged {
@@ -31,6 +34,10 @@ privileged aspect Patient_Roo_DbManaged {
     
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<SocialHistory> Patient.socialHistories;
+    
+    @ManyToOne
+    @JoinColumn(name = "title", referencedColumnName = "id", nullable = false)
+    private Title Patient.title;
     
     @Column(name = "name", length = 1000)
     @NotNull
@@ -83,6 +90,14 @@ privileged aspect Patient_Roo_DbManaged {
     
     public void Patient.setSocialHistories(Set<SocialHistory> socialHistories) {
         this.socialHistories = socialHistories;
+    }
+    
+    public Title Patient.getTitle() {
+        return title;
+    }
+    
+    public void Patient.setTitle(Title title) {
+        this.title = title;
     }
     
     public String Patient.getName() {
