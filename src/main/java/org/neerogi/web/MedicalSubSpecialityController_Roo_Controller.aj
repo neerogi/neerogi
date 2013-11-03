@@ -21,23 +21,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect MedicalSubSpecialityController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String MedicalSubSpecialityController.create(@Valid MedicalSubSpeciality medicalSubSpeciality, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, medicalSubSpeciality);
-            return "medicalsubspecialitys/create";
-        }
-        uiModel.asMap().clear();
-        medicalSubSpeciality.persist();
-        return "redirect:/medicalsubspecialitys/" + encodeUrlPathSegment(medicalSubSpeciality.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String MedicalSubSpecialityController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new MedicalSubSpeciality());
-        return "medicalsubspecialitys/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String MedicalSubSpecialityController.show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("medicalsubspeciality", MedicalSubSpeciality.findMedicalSubSpeciality(id));
@@ -59,23 +42,6 @@ privileged aspect MedicalSubSpecialityController_Roo_Controller {
         return "medicalsubspecialitys/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String MedicalSubSpecialityController.update(@Valid MedicalSubSpeciality medicalSubSpeciality, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, medicalSubSpeciality);
-            return "medicalsubspecialitys/update";
-        }
-        uiModel.asMap().clear();
-        medicalSubSpeciality.merge();
-        return "redirect:/medicalsubspecialitys/" + encodeUrlPathSegment(medicalSubSpeciality.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String MedicalSubSpecialityController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, MedicalSubSpeciality.findMedicalSubSpeciality(id));
-        return "medicalsubspecialitys/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String MedicalSubSpecialityController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         MedicalSubSpeciality medicalSubSpeciality = MedicalSubSpeciality.findMedicalSubSpeciality(id);
@@ -84,12 +50,6 @@ privileged aspect MedicalSubSpecialityController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/medicalsubspecialitys";
-    }
-    
-    void MedicalSubSpecialityController.populateEditForm(Model uiModel, MedicalSubSpeciality medicalSubSpeciality) {
-        uiModel.addAttribute("medicalSubSpeciality", medicalSubSpeciality);
-        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
-        uiModel.addAttribute("medicalspecialitys", MedicalSpeciality.findAllMedicalSpecialitys());
     }
     
     String MedicalSubSpecialityController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
