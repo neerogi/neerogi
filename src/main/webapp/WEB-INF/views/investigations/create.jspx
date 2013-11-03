@@ -5,7 +5,7 @@
     <form:create id="fc_org_neerogi_domain_Investigation" modelAttribute="investigation" path="/investigations" render="${empty dependencies}" z="O53PLKMuKIBSnNwlq8+3egdtoZ0=">
         <field:select field="medicalCondition" id="c_org_neerogi_domain_Investigation_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="a4oT2LEcMZHMukpe1CtenliPlbE="/>
         <field:input field="name" id="c_org_neerogi_domain_Investigation_name" required="true" z="C8gSTu4WCLMU/eJphIgfnXg6zAA="/>
-        <field:input field="description" id="c_org_neerogi_domain_Investigation_description" z="YHQHC1jInduFCbkuITcyP2FWw8s="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_Investigation_description" z="YHQHC1jInduFCbkuITcyP2FWw8s="/>
         <field:datetime dateTimePattern="${investigation_planneddate_date_format}" field="plannedDate" id="c_org_neerogi_domain_Investigation_plannedDate" z="Gy9iPvCZtsimRWjgmqaaLKBtoCY="/>
         <field:datetime dateTimePattern="${investigation_actualdate_date_format}" field="actualDate" id="c_org_neerogi_domain_Investigation_actualDate" z="YKhc1tCT8EfB9Nd12VptCM3tQMI="/>
     </form:create>

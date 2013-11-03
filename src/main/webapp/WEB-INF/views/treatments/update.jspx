@@ -7,7 +7,7 @@
         <field:simple field="otherTreatments" id="c_org_neerogi_domain_Treatment_otherTreatments" messageCode="entity_reference_not_managed" messageCodeAttribute="Other Treatment" z="user-managed" render="false"/>
         <field:select field="medicalCondition" id="c_org_neerogi_domain_Treatment_medicalCondition" itemValue="id" items="${medicalconditions}" path="/medicalconditions" z="DsXE45prjct+u4QB29CMX6jKngA="/>
         <field:input field="name" id="c_org_neerogi_domain_Treatment_name" required="true" z="4OYjOclC9sUiSyfun2BuOlIvMag="/>
-        <field:input field="description" id="c_org_neerogi_domain_Treatment_description" z="ZbM70vvzbYLxFk0rWKyQ/MhZKJk="/>
-        <field:input field="outcome" id="c_org_neerogi_domain_Treatment_outcome" z="XrH5VQjS/Cdj33X3kQybqc18QQg="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_Treatment_description" z="ZbM70vvzbYLxFk0rWKyQ/MhZKJk="/>
+        <field:textarea field="outcome" id="c_org_neerogi_domain_Treatment_outcome" z="XrH5VQjS/Cdj33X3kQybqc18QQg="/>
     </form:update>
 </div>

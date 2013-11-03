@@ -27,17 +27,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect MedicalConditionController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String MedicalConditionController.create(@Valid MedicalCondition medicalCondition, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, medicalCondition);
-            return "medicalconditions/create";
-        }
-        uiModel.asMap().clear();
-        medicalCondition.persist();
-        return "redirect:/medicalconditions/" + encodeUrlPathSegment(medicalCondition.getId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(params = "form", produces = "text/html")
     public String MedicalConditionController.createForm(Model uiModel) {
         populateEditForm(uiModel, new MedicalCondition());

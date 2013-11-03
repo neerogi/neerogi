@@ -9,10 +9,10 @@
         <field:select field="medicalSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSpeciality" itemValue="id" items="${medicalspecialitys}" path="/medicalspecialitys" z="R5CDxf898/JFzG2eq6KF/XTNK88="/>
         <field:select field="medicalSubSpeciality" id="c_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" itemValue="id" items="${medicalsubspecialitys}" path="/medicalsubspecialitys" z="FPrmqc7kGbaA8WaImZnA8Qhs0G0="/>
         <field:select field="consultation" id="c_org_neerogi_domain_MedicalCondition_consultation" itemValue="id" items="${consultations}" path="/consultations" z="TV3Ce79fdHthkc+JRv83ftnEWj0="/>
+        <field:textarea field="diagnosis" id="c_org_neerogi_domain_MedicalCondition_diagnosis" required="true" z="user-managed"/>
         <field:textarea field="history" id="c_org_neerogi_domain_MedicalCondition_history" z="user-managed"/>
         <field:textarea field="examinationFindings" id="c_org_neerogi_domain_MedicalCondition_examinationFindings" z="user-managed"/>
         <field:textarea field="problemsIdentified" id="c_org_neerogi_domain_MedicalCondition_problemsIdentified" z="user-managed"/>
-        <field:textarea field="diagnosis" id="c_org_neerogi_domain_MedicalCondition_diagnosis" required="true" z="user-managed"/>
         <field:textarea field="followUp" id="c_org_neerogi_domain_MedicalCondition_followUp" z="user-managed"/>
         <field:textarea field="managementPlan" id="c_org_neerogi_domain_MedicalCondition_managementPlan" z="user-managed"/>
         <field:datetime dateTimePattern="${medicalCondition_dateofadmission_date_format}" field="dateOfAdmission" id="c_org_neerogi_domain_MedicalCondition_dateOfAdmission" z="XQ6SE+RTOekmiyEjmmZCgi0kwlY="/>
