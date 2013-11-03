@@ -88,6 +88,11 @@
               <c:if test="${columnMaxLength ge 0}">
                 <c:set value="${fn:substring(colTxt, 0, columnMaxLength)}" var="colTxt" />
               </c:if>
+              <!-- Extract display text if links found -->
+              <c:if test="${fn:contains(colTxt, 'href')}">
+                <c:set value="${fn:substringAfter(colTxt, '>')}" var="colTxt" />
+                <c:set value="${fn:substring(colTxt, 0, fn:indexOf(colTxt, '/') -1)}" var="colTxt" />
+              </c:if>
               <c:out value="${colTxt}" />
             </td>
           </c:forTokens>

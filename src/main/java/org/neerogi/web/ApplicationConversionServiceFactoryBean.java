@@ -84,7 +84,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         return new org.springframework.core.convert.converter.Converter<org.neerogi.domain.MedicalSpeciality, java.lang.String>() {
             public String convert(MedicalSpeciality medicalSpeciality) {
                 String displayText = new StringBuilder().append(medicalSpeciality.getName()).toString();
-                return ApplicationUtil.getEntityLink("medicalspeciality", medicalSpeciality.getId(), displayText);
+                return ApplicationUtil.getEntityLink("medicalspecialitys", medicalSpeciality.getId(), displayText);
             }
         };
     }
