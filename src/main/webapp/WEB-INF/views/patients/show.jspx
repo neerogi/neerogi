@@ -35,9 +35,9 @@
         </table:table>
         <h3>Medical Conditions</h3>
         <table:table data="${patient.medicalConditions}" id="l_org_neerogi_domain_MedicalCondition" path="/medicalconditions" z="user-managed" parent_id="${patient.id}">
+            <table:column id="c_org_neerogi_domain_MedicalCondition_consultation" property="consultation" z="user-managed"/>
             <table:column id="c_org_neerogi_domain_MedicalCondition_medicalSpeciality" property="medicalSpeciality" z="user-managed"/>
             <table:column id="c_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" property="medicalSubSpeciality" z="user-managed"/>
-            <table:column id="c_org_neerogi_domain_MedicalCondition_consultation" property="consultation" z="user-managed"/>
         </table:table>
 
     </page:show>

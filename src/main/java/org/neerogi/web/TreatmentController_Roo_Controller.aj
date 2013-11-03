@@ -22,23 +22,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect TreatmentController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String TreatmentController.create(@Valid Treatment treatment, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, treatment);
-            return "treatments/create";
-        }
-        uiModel.asMap().clear();
-        treatment.persist();
-        return "redirect:/treatments/" + encodeUrlPathSegment(treatment.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String TreatmentController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Treatment());
-        return "treatments/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String TreatmentController.show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("treatment", Treatment.findTreatment(id));
@@ -60,23 +43,6 @@ privileged aspect TreatmentController_Roo_Controller {
         return "treatments/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String TreatmentController.update(@Valid Treatment treatment, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, treatment);
-            return "treatments/update";
-        }
-        uiModel.asMap().clear();
-        treatment.merge();
-        return "redirect:/treatments/" + encodeUrlPathSegment(treatment.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String TreatmentController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, Treatment.findTreatment(id));
-        return "treatments/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String TreatmentController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Treatment treatment = Treatment.findTreatment(id);
@@ -85,13 +51,6 @@ privileged aspect TreatmentController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/treatments";
-    }
-    
-    void TreatmentController.populateEditForm(Model uiModel, Treatment treatment) {
-        uiModel.addAttribute("treatment", treatment);
-        uiModel.addAttribute("drugtreatments", DrugTreatment.findAllDrugTreatments());
-        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
-        uiModel.addAttribute("othertreatments", OtherTreatment.findAllOtherTreatments());
     }
     
     String TreatmentController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

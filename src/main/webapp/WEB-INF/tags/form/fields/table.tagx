@@ -11,7 +11,7 @@
   <jsp:directive.attribute name="delete" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Include 'delete' link into table (default true)" />
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
-  <jsp:directive.attribute name="parent_id" type="java.lang.String" required="false" rtexprvalue="true" description="Parent entity identity" />
+  <jsp:directive.attribute name="parent_id" type="java.lang.String" required="false" rtexprvalue="true" description="Parent entity id value" />
 
   <c:if test="${empty render or render}">
 
@@ -110,6 +110,9 @@
             <td class="utilbox">
               <spring:url value="${path}/${itemId}" var="update_form_url">
                 <spring:param name="form" />
+                <c:if test="${not empty parent_id}">
+                      <spring:param name="parent_id" value="${parent_id}" />
+                </c:if>
               </spring:url>
               <spring:url value="/resources/images/update.png" var="update_image_url" />
               <spring:message arguments="${typeName}" code="entity_update" var="update_label" htmlEscape="false" />
@@ -145,11 +148,11 @@
         <td colspan="${colCounter}">
           <c:if test="${empty create or create}">
             <span class="new">
-              <c:if test="${not empty parent_id}">
-                <c:set var="path" value="${path}?parent_id=${parent_id}" />
-              </c:if>
               <spring:url value="${path}" var="create_url">
                 <spring:param name="form" />
+                <c:if test="${not empty parent_id}">
+                    <spring:param name="parent_id" value="${parent_id}" />
+                </c:if>
               </spring:url>
               <a href="${create_url}">
                 <spring:url value="/resources/images/add.png" var="create_img_url" />

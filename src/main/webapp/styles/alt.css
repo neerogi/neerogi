@@ -1,8 +1,11 @@
-/* main elements */
-
+/*
+ *  Neerogi Health Care
+ *  http://github.com/neerogi
+ *
+ */
 body,div,td {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 14px;
 	color: #666;
 }
 
@@ -12,28 +15,25 @@ body {
 }
 
 #header {
-	margin-bottom: 1em;
+	margin-bottom: 1em;	
 }
 
 #wrapper {
-	width:800px;
-	min-width: 800px;
-	max-width: 800px;
+	width: 1000px;
+	min-width: 1000px;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
-
 	/* fix max-width incompatibility in IE6 */
-	width:expression(document.body.clientWidth > 800? "800px": "auto" );
-	
-	overflow:hidden;
-	display:block;
+	width: expression(document.body.clientWidth > 800 ? "800px" : "auto");
+	overflow: hidden;
+	display: block;
 }
 
 /* header and footer elements */
-
 #main {
-	overflow:hidden;
-	display:box;
+	overflow: hidden;
+	display: box;
 }
 
 #menu {
@@ -45,29 +45,27 @@ body {
   	margin-left:15px;
 }
 
-#menu ul{
+#menu ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-#menu ul li{
+#menu ul li {
 	padding: 0px;
 }
 
-
-#menu a, #menu h2 {
+#menu a,#menu h2 {
 	display: block;
 	margin: 0;
 	padding: 2px 6px;
-	color:#FFFFFF;
+	color: #FFFFFF;
 }
 
 #menu h2 {
 	color: #fff;
-	background: #648C1D;
-	text-transform: uppercase;
-	font-weight:bold;
+	background: #1D71B8;
+	font-weight: bold;
 	font-size: 12px;
 }
 
@@ -79,54 +77,75 @@ body {
 }
 
 #menu a:hover {
-	color: #648C1D;
+	color: #567AA5;
 	background: #fff;
 }
 
 #footer {
-	background:#fff;
-	border:none;
-	margin-top:15px;
-	border-top:1px solid #999999;
+	width: 1000px;
+	min-width: 1000px;
+	max-width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	/* fix max-width incompatibility in IE6 */
+	width: expression(document.body.clientWidth > 800 ? "800px":"auto");
+	overflow: hidden;
+	display: block;
+	background: #fff;
+	border: none;
+	margin-top: 15px;
+	border-top: 1px solid #999999;
 }
 
 #footer .new {
-	float:left;
+	float: left;
 }
 
-#footer a:link {color: #7db223;}
+#footer a:link {
+	color: #77a1d5;
+}
 
 .quicklinks {
-	clear:both; 
+	clear: both;
 	padding-bottom: 15px
 }
+
 .quicklinks span {
 	float: right;
 }
 
+table.navigation {
+	border: 0px;
+}
+
 label {
-	width:100px;
-	float:left;
+	width: 165px;
+	float: left;
 	margin-left: 5px;
 	margin-top: 0px;
 }
 
 input {
-	height:20px;
+	height: 20px;
 }
 
-input, textarea, select {
-	border:1px solid #B3B3B3;
+select {
+  width: 280px;
+}
+
+input,textarea,select {
+	border: 1px solid #B3B3B3;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 1em;
 }
 
 input.image {
 	border: none;
 	height: auto;
-	vertical-align: middle;
 }
 
 submit {
-	height:25px;
+	height: 25px;
 }
 
 div {
@@ -134,19 +153,22 @@ div {
 }
 
 div .box {
-	display:block;
-	margin-left:105px;
+	display: block;
+	margin-left: 105px;
+	height: 12px;
 }
 
 /* menu elements*/
+a.menu,a.menu:link,a.menu:visited {
+	display: block;
+	width: 150px;
+	height: 25px;
+}
 
-a.menu, a.menu:link, a.menu:visited {display:block; width:150px; height:25px;} 
-	
 /* text styles */
-
 h1,h2,h3 {
 	font-family: Helvetica, sans-serif;
-	color: #7db223;
+	color: #77A1D5;
 }
 
 h1 {
@@ -161,8 +183,8 @@ h2 {
 
 h3 {
 	font-size: 15px;
-	line-height: 21px;
-	color:#555;
+	line-height: 15px;
+	color: #555;
 }
 
 h4 {
@@ -172,14 +194,14 @@ h4 {
 
 .errors {
 	color: red;
-	font-weight: bold;
 	display: block;
-	margin-left: 105px;
+	margin-left: 5px;
+	padding-bottom: 15px;
 }
 
 a {
 	text-decoration: underline;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 a img {
@@ -196,7 +218,7 @@ tr:nth-child(even) {
 }
 
 a:link {
-	color: #7db223;
+	color: #77A1D5;
 }
 
 a:hover {
@@ -204,11 +226,11 @@ a:hover {
 }
 
 a:active {
-	color: #7db223;
+	color: #77A1D5;
 }
 
 a:visited {
-	color: #7db223;
+	color: #77A1D5;
 }
 
 li {
@@ -217,17 +239,16 @@ li {
 }
 
 ul li {
-	margin:0 0 0.25em 0;
-	padding:0;
+	margin: 0 0 0.25em 0;
+	padding: 0;
 }
-/* table elements */
 
+/* table elements */
 table {
 	background: #EEEEEE;
 	margin: 2px 0 0 0;
 	border: 1px solid #BBBBBB;
 	border-collapse: collapse;
-	width: 100%
 }
 
 table table {
@@ -237,33 +258,34 @@ table table {
 }
 
 table td,table th {
-	padding: 2px;
+	padding: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
 	border: 1px solid #CCCCCC;
 }
 
 table td form {
-	text-align:center;
+	text-align: center;
 	vertical-align: middle;
 	margin: 0px;
 }
 
 table th {
-	font-size: 0.9em;
+	font-size: 1em;
 	text-align: left;
 	font-weight: bold;
 	color: #FFF;
-	background: #999;
+	background: #706F6F;
 }
 
 table thead {
 	font-weight: bold;
-	font-style: italic;
 	background-color: #BBBBBB;
 }
 
-table a:link {color: #303030;}
-
-.utilbox {width: 18px;}
+table a:link {
+	color: #303030;
+}
 
 caption {
 	caption-side: top;
@@ -316,54 +338,181 @@ fieldset th {
 }
 
 .table-buttons {
-	background-color:#fff;
-	border:none;
+	background-color: #fff;
+	border: none;
 }
 
 .table-buttons td {
-	border:none;
+	border: none;
 }
 
 .submit input {
 	border: 1px solid #BBBBBB;
-	color:#777777;
-	padding:2px 7px;
-	font-size:11px;
-	text-transform:uppercase;
-	font-weight:bold;
-	height:24px;
+	color: #777777;
+	padding: 2px 7px;
+	font-weight: bold;
+	height: 24px;
 }
 
 .updated {
-	background:#ecf1e5;
-	font-size:11px;
-	margin-left:2px;
-	border:4px solid #ecf1e5;
+	background: #ecf1e5;
+	font-size: 11px;
+	margin-left: 2px;
+	border: 4px solid #ecf1e5;
 }
 
 .updated td {
-	padding:2px 8px;
-	font-size:11px;
-	color:#888888;
+	padding: 2px 8px;
+	font-size: 11px;
+	color: #888888;
 }
 
-.dijitArrowButton {
-	height: 20px;
-}
-
-.dijitTextArea{
-	min-height:5.5em !important;
-	max-height:22em !important;
+.dijitTextArea {
+	min-height: 5.5em !important;
+	max-height: 22em !important;
 	overflow-y: auto !important;
-	width: 350px;
+	width: 280px;
 }
 
-.RichTextEditable{
-	min-height:18em !important;
-	max-height:18em !important;
+.RichTextEditable {
+	min-height: 18em !important;
+	max-height: 18em !important;
 }
 
 .flag {
 	height: 11px;
 	width: 16px;
 }
+
+/* title blocks */
+.dijitTitlePaneTextNode {
+	font-weight: bold;
+}
+
+.dijitTitlePaneContentInner {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* master block */
+#master
+{
+    display: block;
+}
+
+/* header menu */
+.header_banner {
+    float: left;
+}
+
+.header_menu {
+	border: none;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	float: right;
+}
+
+.header_menu ul {
+	height: 25px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header_menu li {
+	float: left;
+	padding: 0px;
+	padding-left: 10px;
+}
+
+.header_menu li a {
+	background: #ACACAC url("images/seperator.gif") bottom right no-repeat;
+	color: #FFFFFF;
+	display: block;
+	font-weight: normal;
+	line-height: 25px;
+	margin: 0px;
+	padding: 0px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.header_menu li a:hover,.header_menu ul li:hover a {
+	background: #1D71B8 url("images/hover.gif") bottom center no-repeat;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.header_menu li ul {
+	background: #333333;
+	display: none;
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position: absolute;
+	width: 225px;
+	z-index: 200;
+}
+
+.header_menu li:hover ul {
+	display: block;
+}
+
+.header_menu li li {
+	background: url('images/sub_sep.gif') bottom left no-repeat;
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 0px;
+	width: 225px;
+}
+
+.header_menu li:hover li a {
+	background: none;
+}
+
+.header_menu li ul a {
+	display: block;
+	height: 25px;
+	font-size: 12px;
+	font-style: normal;
+	margin: 0px;
+	padding: 0px 10px 0px 15px;
+	text-align: left;
+}
+
+.header_menu li ul a:hover,.header_menu li ul li:hover a {
+	background: #1D71B8 url('images/hover_sub.gif') center left no-repeat;
+	border: 0px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header_menu p {
+	clear: left;
+}
+
+/* header login */
+.header_login{
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+/* user login */
+#user_login{
+}
+
+#user_login .errors{
+	margin-left: 0;	
+}
+
+/* data grid */
+.data-grid-label, .data-grid{
+	margin-left: 5px;

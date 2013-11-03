@@ -12,8 +12,10 @@
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="openPane" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Control if the title pane is opened or closed by default (default: true)" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+  <jsp:directive.attribute name="parent_id" type="java.lang.String" required="false" description="Parent id value" />
 
-  <c:if test="${empty render or render}">
+
+    <c:if test="${empty render or render}">
     <c:if test="${empty label}">
       <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" var="label" htmlEscape="false" />
     </c:if>
@@ -62,7 +64,11 @@
               <c:if test="${update}">
                 <spring:url value="${path}/${itemId}" var="update_form_url">
                   <spring:param name="form" />
+                    <c:if test="${not empty parent_id}">
+                        <spring:param name="parent_id" value="${parent_id}" />
+                    </c:if>
                 </spring:url>
+
                 <spring:url value="/resources/images/update.png" var="update_image_url" />
                 <spring:message arguments="${typeName}" code="entity_update" var="update_label" htmlEscape="false" />
                 <a href="${update_form_url}" alt="${fn:escapeXml(update_label)}" title="${fn:escapeXml(update_label)}">
@@ -74,6 +80,9 @@
               <c:if test="${create}">
                 <spring:url value="${path}" var="create_form_url">
                   <spring:param name="form" />
+                    <c:if test="${not empty parent_id}">
+                        <spring:param name="parent_id" value="${parent_id}" />
+                    </c:if>
                 </spring:url>
                 <spring:url value="/resources/images/create.png" var="create_image_url" />
                 <spring:message arguments="${typeName}" code="entity_create" var="create_label" htmlEscape="false" />
@@ -86,6 +95,9 @@
               <c:if test="${list}">
                 <spring:url value="${path}" var="list_form_url" />
                 <spring:url value="/resources/images/list.png" var="list_image_url" />
+                <c:if test="${not empty parent_id}">
+                   <c:set var="list_form_url" value="${list_form_url}?parent_id=${parent_id}" />
+                </c:if>
                 <spring:message arguments="${typeNamePlural}" code="entity_list_all" var="list_label" htmlEscape="false" />
                 <a href="${list_form_url}" alt="${fn:escapeXml(list_label)}" title="${fn:escapeXml(list_label)}">
                   <img alt="${fn:escapeXml(list_label)}" class="image" src="${list_image_url}" title="${fn:escapeXml(list_label)}" />

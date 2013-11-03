@@ -22,23 +22,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect InvestigationController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String InvestigationController.create(@Valid Investigation investigation, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, investigation);
-            return "investigations/create";
-        }
-        uiModel.asMap().clear();
-        investigation.persist();
-        return "redirect:/investigations/" + encodeUrlPathSegment(investigation.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String InvestigationController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Investigation());
-        return "investigations/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String InvestigationController.show(@PathVariable("id") Integer id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
@@ -62,23 +45,6 @@ privileged aspect InvestigationController_Roo_Controller {
         return "investigations/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String InvestigationController.update(@Valid Investigation investigation, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, investigation);
-            return "investigations/update";
-        }
-        uiModel.asMap().clear();
-        investigation.merge();
-        return "redirect:/investigations/" + encodeUrlPathSegment(investigation.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String InvestigationController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
-        populateEditForm(uiModel, Investigation.findInvestigation(id));
-        return "investigations/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String InvestigationController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Investigation investigation = Investigation.findInvestigation(id);
@@ -92,12 +58,6 @@ privileged aspect InvestigationController_Roo_Controller {
     void InvestigationController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("investigation_planneddate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("investigation_actualdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
-    }
-    
-    void InvestigationController.populateEditForm(Model uiModel, Investigation investigation) {
-        uiModel.addAttribute("investigation", investigation);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
     }
     
     String InvestigationController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

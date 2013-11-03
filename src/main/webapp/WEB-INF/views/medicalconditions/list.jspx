@@ -4,10 +4,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_neerogi_domain_MedicalCondition" items="${medicalconditions}" z="mSHIzf6oLsdwjrjzHTj/Tczxt20=">
         <table:table data="${medicalconditions}" id="l_org_neerogi_domain_MedicalCondition" path="/medicalconditions" z="wtNfeSzBrjT9VwYm+njnxb2Qi6o=">
+            <table:column id="c_org_neerogi_domain_MedicalCondition_consultation" property="consultation" z="Doh5zB8AK8/pWh7Yn/WZA0wlQN4="/>
             <table:column id="c_org_neerogi_domain_MedicalCondition_patient" property="patient" z="PeTJiFR9gY6NaUMwbJ4EbBWnuAw="/>
             <table:column id="c_org_neerogi_domain_MedicalCondition_medicalSpeciality" property="medicalSpeciality" z="6BowAgP4Io4iiPcNed79HnUC6d0="/>
             <table:column id="c_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" property="medicalSubSpeciality" z="VYRy+QA8elopTAEH6WYEbWkD/DE="/>
-            <table:column id="c_org_neerogi_domain_MedicalCondition_consultation" property="consultation" z="Doh5zB8AK8/pWh7Yn/WZA0wlQN4="/>
         </table:table>
     </page:list>
 </div>

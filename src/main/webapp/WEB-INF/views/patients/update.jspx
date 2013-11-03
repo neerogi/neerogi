@@ -7,12 +7,13 @@
         <field:simple field="consultations" id="c_org_neerogi_domain_Patient_consultations" messageCode="entity_reference_not_managed" messageCodeAttribute="Consultation" render="false" z="user-managed"/>
         <field:simple field="medicalConditions" id="c_org_neerogi_domain_Patient_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" render="false" z="user-managed"/>
         <field:simple field="socialHistories" id="c_org_neerogi_domain_Patient_socialHistories" messageCode="entity_reference_not_managed" messageCodeAttribute="Social History" render="false" z="user-managed"/>
+        <field:select field="title" id="c_org_neerogi_domain_Patient_title" itemValue="id" items="${titles}" path="/titles" z="kXaQ4ZDRX7YrcM3/L1+1rUKiHAE="/>
         <field:input field="name" id="c_org_neerogi_domain_Patient_name" required="true" z="Rdm7l9XKrDtahxcxAcEZ9I71DPI="/>
         <field:input field="address" id="c_org_neerogi_domain_Patient_address" z="EM7ncm0L+KtiBAFYuBqCTnp+0cs="/>
         <field:input field="gender" id="c_org_neerogi_domain_Patient_gender" z="PZTgIQD7p6dNvo445Jzo3EbkYLA="/>
         <field:input field="occupation" id="c_org_neerogi_domain_Patient_occupation" z="pYfqS1u34tM0EwLX6phr0tVda2I="/>
         <field:datetime dateTimePattern="${patient_dateofbirth_date_format}" field="dateOfBirth" id="c_org_neerogi_domain_Patient_dateOfBirth" z="jPqV1wCunCNha4mDUS1dytV5D7g="/>
         <field:input field="age" id="c_org_neerogi_domain_Patient_age" z="vbjMV22SWoLPpCY0O5q4vsX2d7k="/>
-        <field:select field="title" id="c_org_neerogi_domain_Patient_title" itemValue="id" items="${titles}" path="/titles" z="kXaQ4ZDRX7YrcM3/L1+1rUKiHAE="/>
+
     </form:update>
 </div>

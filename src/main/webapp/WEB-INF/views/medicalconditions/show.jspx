@@ -2,7 +2,7 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_domain_MedicalCondition" object="${medicalcondition}" path="/medicalconditions" z="4jNHQ4zgveFBzqfVBQf1luVBdJg=">
+    <page:show id="ps_org_neerogi_domain_MedicalCondition" object="${medicalcondition}" path="/medicalconditions" z="4jNHQ4zgveFBzqfVBQf1luVBdJg=" parent_id="${medicalcondition.patient.id}">
         <h3>Medical Condition</h3>
         <field:display field="patient" id="s_org_neerogi_domain_MedicalCondition_patient" object="${medicalcondition}" z="hMmj9sGFXSFBTkIC3zZUiletrX8="/>
         <field:display field="medicalSpeciality" id="s_org_neerogi_domain_MedicalCondition_medicalSpeciality" object="${medicalcondition}" z="/+qhdxbzfMb6+VXxxmK6NLpWCOg="/>
@@ -18,7 +18,7 @@
         <field:display calendar="true" dateTimePattern="${medicalCondition_dateofdischarge_date_format}" field="dateOfDischarge" id="s_org_neerogi_domain_MedicalCondition_dateOfDischarge" object="${medicalcondition}" z="jZnToVuaMxIPhS4gVDKgD91OfTY="/>
 
         <h3>Investigations</h3>
-        <table:table data="${medicalcondition.investigations}" id="l_org_neerogi_domain_Investigation" path="/investigations" z="user-managed">
+        <table:table data="${medicalcondition.investigations}" id="l_org_neerogi_domain_Investigation" path="/investigations" z="user-managed" parent_id="${medicalcondition.id}">
             <table:column id="c_org_neerogi_domain_Investigation_name" property="name" z="user-managed"/>
             <table:column id="c_org_neerogi_domain_Investigation_description" property="description" z="user-managed"/>
             <table:column calendar="true" dateTimePattern="${investigation_planneddate_date_format}" id="c_org_neerogi_domain_Investigation_plannedDate" property="plannedDate" z="user-managed"/>
@@ -26,7 +26,7 @@
         </table:table>
 
         <h3>Treatments</h3>
-        <table:table data="${medicalcondition.treatments}" id="l_org_neerogi_domain_Treatment" path="/treatments" z="user-managed">
+        <table:table data="${medicalcondition.treatments}" id="l_org_neerogi_domain_Treatment" path="/treatments" z="user-managed" parent_id="${medicalcondition.id}">
             <table:column id="c_org_neerogi_domain_Treatment_medicalCondition" property="medicalCondition" z="user-managed"/>
             <table:column id="c_org_neerogi_domain_Treatment_name" property="name" z="user-managed"/>
             <table:column id="c_org_neerogi_domain_Treatment_description" property="description" z="user-managed"/>
