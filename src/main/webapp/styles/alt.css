@@ -355,7 +355,7 @@ fieldset th {
 	min-height:5.5em !important;
 	max-height:22em !important;
 	overflow-y: auto !important;
-	max-width: 175px;
+	width: 350px;
 }
 
 .RichTextEditable{
