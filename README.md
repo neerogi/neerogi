@@ -6,7 +6,7 @@ The default configuration is to use MySQL Server as the database management syst
 Hibernate could be used.
 
 Functionality
-==============
+-------------
 - Hospital Information Management
 - Doctors Information Management
 - Patient Information Management
@@ -19,11 +19,11 @@ Functionality
 
 
 Developers
-==========
-Imesh Gunaratne
+----------
+- Imesh Gunaratne
 
 
 Functional Advisors
-=======================
-Dr. Thusith Gunawardane, Base Hospital Wathupitiwala, Sri Lanka
-Dr. Anuji Samarasinghe, District Hospital Vavniya, Sri Lanka
+-------------------
+- Dr. Thusith Gunawardane, Base Hospital Wathupitiwala, Sri Lanka
+- Dr. Anuji Samarasinghe, District Hospital Vavniya, Sri Lanka
