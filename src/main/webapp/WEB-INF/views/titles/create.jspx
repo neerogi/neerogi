@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_neerogi_domain_Title" modelAttribute="title" path="/titles" render="${empty dependencies}" z="5yf2toEFypIUyf5Rxy872AFMk8Y=">
         <field:input field="name" id="c_org_neerogi_domain_Title_name" z="Olyi+rfNpcxNLmtNR6O8+JO4CGY="/>
-        <field:simple field="patients" id="c_org_neerogi_domain_Title_patients" messageCode="entity_reference_not_managed" messageCodeAttribute="Patient" z="0SZioirSG0afrDC3nFjOZLsegjs="/>
+        <field:simple field="patients" id="c_org_neerogi_domain_Title_patients" messageCode="entity_reference_not_managed" messageCodeAttribute="Patient" z="user-managed" render="false"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_Title" render="${not empty dependencies}" z="uZQN+BO32Xu2tAeku0mtszwWRqc="/>
 </div>
