@@ -8,14 +8,14 @@
         <field:display field="medicalSpeciality" id="s_org_neerogi_domain_MedicalCondition_medicalSpeciality" object="${medicalcondition}" z="/+qhdxbzfMb6+VXxxmK6NLpWCOg="/>
         <field:display field="medicalSubSpeciality" id="s_org_neerogi_domain_MedicalCondition_medicalSubSpeciality" object="${medicalcondition}" z="wh/0cm5nH7ZqEBQ4mwN1H2n08/4="/>
         <field:display field="consultation" id="s_org_neerogi_domain_MedicalCondition_consultation" object="${medicalcondition}" z="Ak52dx5QAfir4oW9aVy79IGfIiI="/>
+        <field:display calendar="true" dateTimePattern="${medicalCondition_dateofadmission_date_format}" field="dateOfAdmission" id="s_org_neerogi_domain_MedicalCondition_dateOfAdmission" object="${medicalcondition}" z="buh28S1aHs8s2Abeyd/vSeQzpR4="/>
+        <field:display calendar="true" dateTimePattern="${medicalCondition_dateofdischarge_date_format}" field="dateOfDischarge" id="s_org_neerogi_domain_MedicalCondition_dateOfDischarge" object="${medicalcondition}" z="jZnToVuaMxIPhS4gVDKgD91OfTY="/>
         <field:display field="diagnosis" id="s_org_neerogi_domain_MedicalCondition_diagnosis" object="${medicalcondition}" z="Z+V9u259rfSU0ZA1sALiaEE3aI4="/>
         <field:display field="history" id="s_org_neerogi_domain_MedicalCondition_history" object="${medicalcondition}" z="fgTs3mUaDztb7h0NDX/ZFMT/8Kw="/>
         <field:display field="examinationFindings" id="s_org_neerogi_domain_MedicalCondition_examinationFindings" object="${medicalcondition}" z="YRyIwv3zUsD1bRcdDSBK5+P3y3I="/>
         <field:display field="problemsIdentified" id="s_org_neerogi_domain_MedicalCondition_problemsIdentified" object="${medicalcondition}" z="K/nlf09EkPa/21PPeckd0lvTY2A="/>
-        <field:display field="followUp" id="s_org_neerogi_domain_MedicalCondition_followUp" object="${medicalcondition}" z="4Rr9M+GVDPxwGw/sJace4qyYK+c="/>
         <field:display field="managementPlan" id="s_org_neerogi_domain_MedicalCondition_managementPlan" object="${medicalcondition}" z="qrh5opKXUy3pmFoZekCiMgo+cwE="/>
-        <field:display calendar="true" dateTimePattern="${medicalCondition_dateofadmission_date_format}" field="dateOfAdmission" id="s_org_neerogi_domain_MedicalCondition_dateOfAdmission" object="${medicalcondition}" z="buh28S1aHs8s2Abeyd/vSeQzpR4="/>
-        <field:display calendar="true" dateTimePattern="${medicalCondition_dateofdischarge_date_format}" field="dateOfDischarge" id="s_org_neerogi_domain_MedicalCondition_dateOfDischarge" object="${medicalcondition}" z="jZnToVuaMxIPhS4gVDKgD91OfTY="/>
+        <field:display field="followUp" id="s_org_neerogi_domain_MedicalCondition_followUp" object="${medicalcondition}" z="4Rr9M+GVDPxwGw/sJace4qyYK+c="/>
 
         <h3>Investigations</h3>
         <table:table data="${medicalcondition.investigations}" id="l_org_neerogi_domain_Investigation" path="/investigations" z="user-managed" parent_id="${medicalcondition.id}">
