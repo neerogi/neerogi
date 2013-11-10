@@ -27,12 +27,13 @@ public class MedicalConditionController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid MedicalCondition medicalCondition, BindingResult bindingResult, Model uiModel, HttpServletRequest request) {
+        String parentId = (medicalCondition.getPatient() != null) ? medicalCondition.getPatient().getId().toString() : null;
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, medicalCondition, request.getParameter("parent_id"));
+            populateEditForm(uiModel, medicalCondition, parentId);
             return "medicalconditions/create";
         }
         if(medicalCondition.getDiagnosis() == null || medicalCondition.getDiagnosis().length() == 0) {
-            populateEditForm(uiModel, medicalCondition, request.getParameter("parent_id"));
+            populateEditForm(uiModel, medicalCondition, parentId);
             bindingResult.rejectValue("diagnosis", "diagnosis_field_required");
             return "medicalconditions/create";
         }
@@ -72,9 +73,11 @@ public class MedicalConditionController {
 
     private List<Consultation> prepareConsulationList(String patientId) {
         List<Consultation> list = new ArrayList<Consultation>();
-        for(Consultation consultation : Consultation.findAllConsultations()) {
-            if(consultation.getPatient().getId() == Integer.parseInt(patientId)) {
-                list.add(consultation);
+        if(patientId != null) {
+            for(Consultation consultation : Consultation.findAllConsultations()) {
+                if(consultation.getPatient().getId() == Integer.parseInt(patientId)) {
+                    list.add(consultation);
+                }
             }
         }
         return list;
