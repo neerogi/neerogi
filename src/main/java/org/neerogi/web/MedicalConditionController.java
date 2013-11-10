@@ -80,6 +80,9 @@ public class MedicalConditionController {
                 }
             }
         }
+        else {
+            list.addAll(Consultation.findAllConsultations());
+        }
         return list;
     }
 
@@ -89,6 +92,9 @@ public class MedicalConditionController {
             Patient patient = Patient.findPatient(Integer.parseInt(patientId));
             if(patient != null)
                 list.add(patient);
+        }
+        else {
+            list.addAll(Patient.findAllPatients());
         }
         return list;
     }

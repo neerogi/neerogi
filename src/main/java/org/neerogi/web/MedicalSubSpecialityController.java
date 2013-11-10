@@ -1,4 +1,5 @@
 package org.neerogi.web;
+
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.MedicalSpeciality;
 import org.neerogi.domain.MedicalSubSpeciality;
@@ -62,9 +63,13 @@ public class MedicalSubSpecialityController {
 
     protected List<MedicalSpeciality> prepareMedicalSpecialityList(String specialityId) {
         List<MedicalSpeciality> list = new ArrayList<MedicalSpeciality>();
-        MedicalSpeciality speciality = MedicalSpeciality.findMedicalSpeciality(Integer.parseInt(specialityId));
-        if(speciality != null)
-            list.add(speciality);
+        if (specialityId != null) {
+            MedicalSpeciality speciality = MedicalSpeciality.findMedicalSpeciality(Integer.parseInt(specialityId));
+            if (speciality != null)
+                list.add(speciality);
+        } else {
+            list.addAll(MedicalSpeciality.findAllMedicalSpecialitys());
+        }
         return list;
     }
 }

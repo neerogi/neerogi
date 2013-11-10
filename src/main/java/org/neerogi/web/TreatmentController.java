@@ -1,4 +1,5 @@
 package org.neerogi.web;
+
 import org.neerogi.domain.DrugTreatment;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.OtherTreatment;
@@ -64,10 +65,14 @@ public class TreatmentController {
 
     protected List<MedicalCondition> prepareMedicalConditionList(String medicalConditionId) {
         List<MedicalCondition> list = new ArrayList<MedicalCondition>();
-        for(MedicalCondition condition : MedicalCondition.findAllMedicalConditions()) {
-            if(condition.getId() == Integer.parseInt(medicalConditionId)) {
-                list.add(condition);
+        if (medicalConditionId != null) {
+            for (MedicalCondition condition : MedicalCondition.findAllMedicalConditions()) {
+                if (condition.getId() == Integer.parseInt(medicalConditionId)) {
+                    list.add(condition);
+                }
             }
+        } else {
+            list.addAll(MedicalCondition.findAllMedicalConditions());
         }
         return list;
     }

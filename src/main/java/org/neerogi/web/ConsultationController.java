@@ -91,6 +91,9 @@ public class ConsultationController {
             if(patient != null)
                 list.add(patient);
         }
+        else {
+            list.addAll(Patient.findAllPatients());
+        }
         return list;
     }
 
