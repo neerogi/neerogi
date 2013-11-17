@@ -10,12 +10,19 @@ Functionality
 - Hospital Information Management
 - Doctors Information Management
 - Patient Information Management
+    - Patient's Personal Information
     - Allergies
     - Social History
     - Consultations
     - Medical Conditions
-        - Investigations
-        - Treatments
+        - Medical Speciality/Sub Speciality
+        - Diagnosis
+        - History
+        - Examination Findings 
+        - Problems Identified
+        - Management Plan
+        - Follow Up
+        - Investigations & Treatments
 
 
 Developers
