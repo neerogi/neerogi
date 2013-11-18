@@ -1,0 +1,14 @@
+Neerogi 1.0.0 Installation Guide
+------------------------------------
+
+1. Install MySQL Server 5.5.
+2. Execute database/create-scripts/create-script.sql to create the database.
+3. Install Apache Tomcat 6.0.x.
+4. Download Neerogi web application package (neerogi.war) from https://github.com/neerogi/neerogi-dist/
+5. Copy neerogi.war to <tomcat-home>/webapps/
+6. Start Tomcat server.
+7. Open a web browser and go to URL: http://<hostname>:8080/neerogi
+
+
+Thanks for using Neerogi
+Neerogi Team 
