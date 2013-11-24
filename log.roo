@@ -38,3 +38,13 @@ quit
 web mvc all --package org.neerogi.web
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-03 12:34:26
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 12:15:37
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:16:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 12:17:10
+database reverse engineer --schema neerogi
+database reverse engineer --schema neerogi
+database reverse engineer --schema no-schema-required 
+database reverse engineer --schema no-schema-required 
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:19:05

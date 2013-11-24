@@ -2,13 +2,13 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_neerogi_domain_MedicalSpeciality" object="${medicalspeciality}" path="/medicalspecialitys" z="user-managed" parent_id="${medicalspeciality.id}">
+    <page:show id="ps_org_neerogi_domain_MedicalSpeciality" object="${medicalspeciality}" parent_id="${medicalspeciality.id}" path="/medicalspecialitys" z="user-managed">
         <h3>Medical Speciality</h3>
         <field:display field="name" id="s_org_neerogi_domain_MedicalSpeciality_name" object="${medicalspeciality}" z="U9zUTpOLf46K6eOH82nCjhgyg1Y="/>
 
         <h3>Medical Sub Specialities</h3>
         <table:table data="${medicalspeciality.medicalSubSpecialities}" id="l_org_neerogi_domain_MedicalSubSpeciality" path="/medicalsubspecialitys" z="user-managed" parent_id="${medicalspeciality.id}">
-            <table:column id="c_org_neerogi_domain_MedicalSubSpeciality_name" property="name" z="JqVtKkvRMJtgK9uuP1Yih/GHSFc="/>
+            <table:column id="c_org_neerogi_domain_MedicalSubSpeciality_name" property="name" z="user-managed"/>
         </table:table>
     </page:show>
 </div>

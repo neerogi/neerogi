@@ -20,6 +20,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `neerogi`.`patient` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `clinic_no` VARCHAR(100) NOT NULL COMMENT '	' ,
   `title` INT NOT NULL ,
   `name` VARCHAR(1000) NOT NULL ,
   `address` VARCHAR(1000) NULL DEFAULT NULL ,

@@ -250,6 +250,7 @@
     </table>
     <table name="patient">
         <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,INT"/>
+        <column name="clinic_no" primaryKey="false" required="true" scale="0" size="100" type="12,VARCHAR"/>
         <column name="title" primaryKey="false" required="true" scale="0" size="10" type="4,INT"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="address" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>

@@ -16,9 +16,9 @@
         </div>
 
         <h3>Consultations</h3>
-        <table:table data="${doctor.consultations}" id="l_org_neerogi_domain_Consultation" path="/consultations" z="/SyfkUwf82pZT432wPfV7fDxliM=">
-            <table:column id="c_org_neerogi_domain_Consultation_patient" property="patient" z="z4u224dp3tCaszI4fr/y+rfPANA="/>
-            <table:column calendar="true" dateTimePattern="${consultation_visitdate_date_format}" id="c_org_neerogi_domain_Consultation_visitDate" property="visitDate" z="yZjYGxOdCInDajDWG7ySFPY7J34="/>
+        <table:table data="${doctor.consultations}" id="l_org_neerogi_domain_Consultation" path="/consultations" z="user-managed">
+            <table:column id="c_org_neerogi_domain_Consultation_patient" property="patient" z="user-managed" />
+            <table:column calendar="true" dateTimePattern="${consultation_visitdate_date_format}" id="c_org_neerogi_domain_Consultation_visitDate" property="visitDate" z="user-managed"/>
         </table:table>
     </page:show>
 </div>

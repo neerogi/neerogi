@@ -138,7 +138,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
             }
         };
     }
-    
+
     public Converter<Integer, MedicalCondition> ApplicationConversionServiceFactoryBean.getIdToMedicalConditionConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Integer, org.neerogi.domain.MedicalCondition>() {
             public org.neerogi.domain.MedicalCondition convert(java.lang.Integer id) {
@@ -146,7 +146,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
             }
         };
     }
-    
+
     public Converter<String, MedicalCondition> ApplicationConversionServiceFactoryBean.getStringToMedicalConditionConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.neerogi.domain.MedicalCondition>() {
             public org.neerogi.domain.MedicalCondition convert(String id) {

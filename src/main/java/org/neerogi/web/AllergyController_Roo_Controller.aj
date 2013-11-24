@@ -5,13 +5,11 @@ package org.neerogi.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.neerogi.domain.Allergy;
 import org.neerogi.domain.AllergyType;
 import org.neerogi.domain.Patient;
 import org.neerogi.web.AllergyController;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,6 +50,12 @@ privileged aspect AllergyController_Roo_Controller {
         return "redirect:/allergys";
     }
     
+    void AllergyController.populateEditForm(Model uiModel, Allergy allergy) {
+        uiModel.addAttribute("allergy", allergy);
+        uiModel.addAttribute("allergytypes", AllergyType.findAllAllergyTypes());
+        uiModel.addAttribute("patients", Patient.findAllPatients());
+    }
+    
     String AllergyController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
@@ -62,5 +66,5 @@ privileged aspect AllergyController_Roo_Controller {
         } catch (UnsupportedEncodingException uee) {}
         return pathSegment;
     }
-
+    
 }

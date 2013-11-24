@@ -5,13 +5,11 @@ package org.neerogi.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.MedicalSpeciality;
 import org.neerogi.domain.MedicalSubSpeciality;
 import org.neerogi.web.MedicalSubSpecialityController;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,6 +48,12 @@ privileged aspect MedicalSubSpecialityController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/medicalsubspecialitys";
+    }
+    
+    void MedicalSubSpecialityController.populateEditForm(Model uiModel, MedicalSubSpeciality medicalSubSpeciality) {
+        uiModel.addAttribute("medicalSubSpeciality", medicalSubSpeciality);
+        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
+        uiModel.addAttribute("medicalspecialitys", MedicalSpeciality.findAllMedicalSpecialitys());
     }
     
     String MedicalSubSpecialityController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

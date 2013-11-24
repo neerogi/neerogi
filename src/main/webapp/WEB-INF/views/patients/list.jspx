@@ -5,8 +5,8 @@
     <page:list id="pl_org_neerogi_domain_Patient" items="${patients}" z="rddpeMYjPKCTjapj1TWNcWxXSZ0=">
         <h3>Patients</h3>
         <table:table data="${patients}" id="l_org_neerogi_domain_Patient" path="/patients" z="TG5K2f2tcS6urt275aBeG32awSw=">
+            <table:column id="c_org_neerogi_domain_Patient_clinicNo" property="clinicNo" z="u453RjLxYp8bg/vI5pvy+IdeKB8="/>
             <table:column id="c_org_neerogi_domain_Patient_title" property="title" z="HnNl8ZF1NS6BOSxoXmAj+uIyRS0="/>
-            <table:column id="c_org_neerogi_domain_Patient_name" property="name" z="/bS2uRyBzQ4y7MMLnLwTaiXRThk="/>
         </table:table>
     </page:list>
 </div>

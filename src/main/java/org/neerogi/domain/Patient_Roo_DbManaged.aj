@@ -39,6 +39,10 @@ privileged aspect Patient_Roo_DbManaged {
     @JoinColumn(name = "title", referencedColumnName = "id", nullable = false)
     private Title Patient.title;
     
+    @Column(name = "clinic_no", length = 100)
+    @NotNull
+    private String Patient.clinicNo;
+    
     @Column(name = "name", length = 1000)
     @NotNull
     private String Patient.name;
@@ -98,6 +102,14 @@ privileged aspect Patient_Roo_DbManaged {
     
     public void Patient.setTitle(Title title) {
         this.title = title;
+    }
+    
+    public String Patient.getClinicNo() {
+        return clinicNo;
+    }
+    
+    public void Patient.setClinicNo(String clinicNo) {
+        this.clinicNo = clinicNo;
     }
     
     public String Patient.getName() {

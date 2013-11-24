@@ -5,12 +5,10 @@ package org.neerogi.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.neerogi.domain.Patient;
 import org.neerogi.domain.SocialHistory;
 import org.neerogi.web.SocialHistoryController;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,6 +47,11 @@ privileged aspect SocialHistoryController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/socialhistorys";
+    }
+    
+    void SocialHistoryController.populateEditForm(Model uiModel, SocialHistory socialHistory) {
+        uiModel.addAttribute("socialHistory", socialHistory);
+        uiModel.addAttribute("patients", Patient.findAllPatients());
     }
     
     String SocialHistoryController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

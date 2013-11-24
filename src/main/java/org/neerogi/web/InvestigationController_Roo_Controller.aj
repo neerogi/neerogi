@@ -5,14 +5,12 @@ package org.neerogi.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.neerogi.domain.Investigation;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.web.InvestigationController;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,6 +56,12 @@ privileged aspect InvestigationController_Roo_Controller {
     void InvestigationController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("investigation_planneddate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("investigation_actualdate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
+    }
+    
+    void InvestigationController.populateEditForm(Model uiModel, Investigation investigation) {
+        uiModel.addAttribute("investigation", investigation);
+        addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
     }
     
     String InvestigationController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

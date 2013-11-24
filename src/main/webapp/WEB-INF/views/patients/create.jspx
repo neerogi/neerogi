@@ -8,6 +8,7 @@
         <field:simple field="medicalConditions" id="c_org_neerogi_domain_Patient_medicalConditions" messageCode="entity_reference_not_managed" messageCodeAttribute="Medical Condition" render="false" z="user-managed"/>
         <field:simple field="socialHistories" id="c_org_neerogi_domain_Patient_socialHistories" messageCode="entity_reference_not_managed" messageCodeAttribute="Social History" render="false" z="user-managed"/>
 
+        <field:input field="clinicNo" id="c_org_neerogi_domain_Patient_clinicNo" required="true" z="DH9/R7wEddIxz39unX10fFVrPjo="/>
         <field:select field="title" id="c_org_neerogi_domain_Patient_title" itemValue="id" items="${titles}" path="/titles" z="kXaQ4ZDRX7YrcM3/L1+1rUKiHAE="/>
         <field:input field="name" id="c_org_neerogi_domain_Patient_name" required="true" z="Rdm7l9XKrDtahxcxAcEZ9I71DPI="/>
         <field:input field="address" id="c_org_neerogi_domain_Patient_address" z="EM7ncm0L+KtiBAFYuBqCTnp+0cs="/>

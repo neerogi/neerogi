@@ -5,14 +5,12 @@ package org.neerogi.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.neerogi.domain.DrugTreatment;
 import org.neerogi.domain.MedicalCondition;
 import org.neerogi.domain.OtherTreatment;
 import org.neerogi.domain.Treatment;
 import org.neerogi.web.TreatmentController;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,6 +49,13 @@ privileged aspect TreatmentController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/treatments";
+    }
+    
+    void TreatmentController.populateEditForm(Model uiModel, Treatment treatment) {
+        uiModel.addAttribute("treatment", treatment);
+        uiModel.addAttribute("drugtreatments", DrugTreatment.findAllDrugTreatments());
+        uiModel.addAttribute("medicalconditions", MedicalCondition.findAllMedicalConditions());
+        uiModel.addAttribute("othertreatments", OtherTreatment.findAllOtherTreatments());
     }
     
     String TreatmentController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

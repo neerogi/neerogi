@@ -5,7 +5,7 @@
     <form:create id="fc_org_neerogi_domain_SocialHistory" modelAttribute="socialHistory" path="/socialhistorys" render="${empty dependencies}" z="s8jYQ6uAgTrK9bd6s1L/Y2XyKMw=">
         <field:select field="patient" id="c_org_neerogi_domain_SocialHistory_patient" itemValue="id" items="${patients}" path="/patients" z="fjt2F+k/aY1SoUN1BIZzBazovVY="/>
         <field:input field="type" id="c_org_neerogi_domain_SocialHistory_type" required="true" z="1AcTdB6zRk+SrA5Rgp6JTCuGAQ0="/>
-        <field:input field="description" id="c_org_neerogi_domain_SocialHistory_description" z="/DlH1PRfSJQAVlwZSRXrVcDEDbk="/>
+        <field:textarea field="description" id="c_org_neerogi_domain_SocialHistory_description" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_neerogi_domain_SocialHistory" render="${not empty dependencies}" z="DbiskmV7hUxoj8sKzIta0Jct5h0="/>
 </div>
