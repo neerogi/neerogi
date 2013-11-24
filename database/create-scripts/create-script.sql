@@ -177,6 +177,7 @@ CREATE  TABLE IF NOT EXISTS `neerogi`.`medical_condition` (
   `diagnosis` VARCHAR(1000) NOT NULL ,
   `follow_up` VARCHAR(1000) NULL ,
   `management_plan` VARCHAR(4000) NULL ,
+  `bht_no` VARCHAR(100) NULL ,
   `date_of_admission` DATETIME NULL ,
   `date_of_discharge` DATETIME NULL ,
   PRIMARY KEY (`id`) ,

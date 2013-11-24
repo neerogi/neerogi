@@ -48,3 +48,25 @@ database reverse engineer --schema no-schema-required
 database reverse engineer --schema no-schema-required 
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:19:05
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 12:53:42
+database reverse engineer --schema no-schema-required 
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:54:15
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 12:54:19
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:55:47
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 12:55:50
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 12:58:44
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 13:03:50
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 13:05:49
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-24 13:16:27
+finder add --class ~.domain.Patient --finderName clinicNo
+finder add --class ~.domain.Patient --finderName ClinicNo
+// [failed] web mvc finder add --formBackingType ~.domain.Patient
+// [failed] web mvc finder add --formBackingType ~.web.PatientController
+// [failed] web mvc finder add --formBackingType ~.domain.Patient
+web mvc finder all
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-24 13:20:37

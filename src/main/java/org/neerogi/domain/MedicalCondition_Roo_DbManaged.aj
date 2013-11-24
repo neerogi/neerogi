@@ -65,6 +65,9 @@ privileged aspect MedicalCondition_Roo_DbManaged {
     @Column(name = "management_plan")
     private String MedicalCondition.managementPlan;
     
+    @Column(name = "bht_no", length = 100)
+    private String MedicalCondition.bhtNo;
+    
     @Column(name = "date_of_admission")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "MM")
@@ -169,6 +172,14 @@ privileged aspect MedicalCondition_Roo_DbManaged {
     
     public void MedicalCondition.setManagementPlan(String managementPlan) {
         this.managementPlan = managementPlan;
+    }
+    
+    public String MedicalCondition.getBhtNo() {
+        return bhtNo;
+    }
+    
+    public void MedicalCondition.setBhtNo(String bhtNo) {
+        this.bhtNo = bhtNo;
     }
     
     public Calendar MedicalCondition.getDateOfAdmission() {

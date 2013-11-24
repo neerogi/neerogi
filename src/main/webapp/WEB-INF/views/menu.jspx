@@ -6,6 +6,7 @@
         <menu:category id="c_patient" label="Patient Information" z="user-managed">
             <menu:item id="i_patient_new" messageCode="global_menu_new" url="/patients?form" z="user-managed"/>
             <menu:item id="i_patient_list" messageCode="global_menu_list" url="/patients?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            <menu:item id="fi_patient_clinicno" messageCode="global_menu_find" url="/patients?find=ClinicNo&amp;form" z="1Yv6CVB0TmMlqpuyP/7bLofPMVI="/>
         </menu:category>
         <menu:category id="doctors_info" label="Doctors Information" z="user-managed">
             <menu:item id="i_doctor_new" messageCode="global_menu_new" url="/doctors?form" z="user-managed"/>
@@ -42,31 +43,24 @@
             <menu:item id="i_investigation_new" messageCode="global_menu_new" url="/investigations?form" z="user-managed"/>
             <menu:item id="i_investigation_list" messageCode="global_menu_list" url="/investigations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
-
         <menu:category id="c_socialhistory" render="false" z="user-managed">
             <menu:item id="i_socialhistory_new" messageCode="global_menu_new" url="/socialhistorys?form" z="user-managed"/>
             <menu:item id="i_socialhistory_list" messageCode="global_menu_list" url="/socialhistorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
-
         <menu:category id="c_medicalspeciality" render="false" z="user-managed"/>
-
         <menu:category id="c_medicalcondition" render="false" z="user-managed">
             <menu:item id="i_medicalcondition_new" messageCode="global_menu_new" url="/medicalconditions?form" z="user-managed"/>
             <menu:item id="i_medicalcondition_list" messageCode="global_menu_list" url="/medicalconditions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
-
         <menu:category id="c_othertreatment" render="false" z="user-managed">
             <menu:item id="i_othertreatment_new" messageCode="global_menu_new" url="/othertreatments?form" z="user-managed"/>
             <menu:item id="i_othertreatment_list" messageCode="global_menu_list" url="/othertreatments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
-
         <menu:category id="c_medicalsubspeciality" render="false" z="user-managed"/>
         <menu:category id="c_consultation" render="false" z="user-managed">
             <menu:item id="i_consultation_new" messageCode="global_menu_new" url="/consultations?form" z="user-managed"/>
             <menu:item id="i_consultation_list" messageCode="global_menu_list" url="/consultations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
-
-        <menu:category id="c_title" z="user-managed" render="false">
-        </menu:category>
+        <menu:category id="c_title" render="false" z="user-managed"/>
     </menu:menu>
 </div>

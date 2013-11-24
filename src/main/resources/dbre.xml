@@ -155,6 +155,7 @@
         <column name="diagnosis" primaryKey="false" required="true" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="follow_up" primaryKey="false" required="false" scale="0" size="1000" type="12,VARCHAR"/>
         <column name="management_plan" primaryKey="false" required="false" scale="0" size="4000" type="12,VARCHAR"/>
+        <column name="bht_no" primaryKey="false" required="false" scale="0" size="100" type="12,VARCHAR"/>
         <column name="date_of_admission" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
         <column name="date_of_discharge" primaryKey="false" required="false" scale="0" size="19" type="93,DATETIME"/>
         <foreign-key foreignTable="patient" name="FK_PatientCondition" onDelete="cascade" onUpdate="cascade">
